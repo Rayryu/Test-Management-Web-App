@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" href="../static/css/semantic.css" th:href="@{/css/semantic.css}" />
+<head>
+<meta charset="ISO-8859-1">
+<title>Ajouter un nouveau projet</title>
+</head>
+<body>
+	<div class="ui three column centered grid" >
+		<div class="column">
+			<form class="ui form" th:action="@{EnregistrerProjet}" method="post" th:object="${nouveauProjet}">
+			  <div class="field">
+			    <label>Titre du projet</label>
+			    <input type="text" th:field="*{nom}" placeholder="First Name">
+			  </div>
+			  <div class="field">
+			    <label>Description du projet</label>
+			    <input type="text" th:field="*{description}" placeholder="Last Name">
+			  </div>
+			  <button class="ui primary button" type="submit">Confirmer</button>
+			  <button class="ui button">Annuler</button>
+			</form>
+			
+		</div>
+		
+	</div>
+</body>
+</html>
