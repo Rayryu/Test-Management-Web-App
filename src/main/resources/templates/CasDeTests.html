@@ -21,7 +21,7 @@
                      <div class="ui segments">
                          <div class="ui segment">
                              <h5 class="ui header">
-                                 Mes Campagnes de test
+                                 Mes Scenarios de test
                              </h5>
                          </div>
                          <div class="ui segment">
@@ -29,21 +29,19 @@
                                  <thead>
                                      <tr>
                                          <th>ID</th>
-                                         <th>Titre de la campagne de test</th>
+                                         <th>Titre du scenario</th>
                                          <th>Description</th>
-                                         <th>Projet Parent</th>
+                                         <th>Campagne de test Parente</th>
                                      </tr>
                                  </thead>
                                  
                                  <tbody>
                                  
-									<tr th:each="campagne : ${listeCampagnes}"
-									style="cursor: pointer"
-     								th:onclick="'javascript:rowClicked(\'' + ${campagne.id} + '\', \'MesCampagnesDeTest\');'">
-										<td th:text="${campagne.id}"></td>
-										<td th:text="${campagne.nom}"> </td>
-										<td th:text="${campagne.description}"> </td>
-										<td th:text="${campagne.projetParent.nom}"></td>
+									<tr th:each="scenario : ${listeScenarios}">
+										<td th:text="${scenario.id}"></td>
+										<td th:text="${scenario.nom}"> </td>
+										<td th:text="${scenario.description}"> </td>
+										<td th:text="${scenario.campagneParent.nom}"></td>
 									</tr>
 								</tbody>
                              </table>
@@ -64,25 +62,25 @@
                      <div class="ui segments">
                          <div class="ui segment">
                              <h5 class="ui header">
-                                 Nouvelle campagne de test	
+                                 Nouveau scenario de test	
                              </h5>
                          </div>
                          <div class="ui segment"> 
                          	<div class="ui sixteen wide column  grid" >
 								<div class="ui ten wide column">
-									<form class="ui form" th:action="@{AjouterCampagneDeTest}" method="post" th:object="${nouvelleCampagne}">
+									<form class="ui form" th:action="@{AjouterScenarioDeTest}" method="post" th:object="${nouveauScenario}">
 									  <div class="field">
-									    <label>Titre de la campagne </label>
-									    <input type="text" th:field="*{nom}" placeholder="Titre de la campagne de test">
+									    <label>Titre du scenario de test </label>
+									    <input type="text" th:field="*{nom}" placeholder="Titre du scenario de test">
 									  </div>
 									  <div class="field">
-									    <label>Description de la campagne de test</label>
-									    <input type="text" th:field="*{description}" placeholder="Description du projet">
+									    <label>Description du scenario de test</label>
+									    <input type="text" th:field="*{description}" placeholder="Description du scenario de test">
 									  </div>
 									  <div class="field">
-									    <label>Projet parent</label>
-									    <select class="ui search dropdown" th:field="*{projetParent}" id="projetParent" >
-											  <option  th:each="projet : ${listeProjets}" th:value="${projet.id}" th:text="${projet.nom}"></option>
+									    <label>Campagne de test parente</label>
+									    <select class="ui search dropdown" th:field="*{campagneParent}" id="campagneParent" >
+											  <option  th:each="campagne : ${listeCampagnes}" th:value="${campagne.id}" th:text="${campagne.nom}"></option>
 										</select>
 									  </div>
 									  <button class="ui primary button" type="submit">Confirmer</button>
@@ -97,7 +95,7 @@
                      <div class="ui segments">
                          <div class="ui segment">
                              <h5 class="ui header">
-                                 Informations sur la campagne de test
+                                 Informations sur le scenario de test
                              </h5>
                          </div>
                          <div class="ui segment"> 
@@ -105,14 +103,14 @@
 								<div class="ui cards centered grid">
 								  <div class="card">
 								    <div class="content">
-								      <div class="header" > <p th:text="${campagneSelectionnee.nom}"></p></div>
+								      <div class="header" > <p th:text="${scenarioSelectionnee.nom}"></p></div>
 								      <div class="description">
-								        <p th:text="${campagneSelectionnee.description}"><p>
+								        <p th:text="${scenarioSelectionnee.description}"><p>
 								      </div>
 								    </div>
 								    <div class="ui bottom attached button">
 								      <i class="add icon"></i>
-								      Add Friend
+								      Ajouter un cas de test
 								    </div>
 								  </div>
 							</div>

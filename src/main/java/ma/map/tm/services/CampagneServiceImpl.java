@@ -1,6 +1,7 @@
 package ma.map.tm.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,16 @@ public class CampagneServiceImpl implements CampagneService {
 	@Override
 	public List<CampagneTest> listeCampagneTestParUtilisateur(Utilisateur u) {
 		return campagneTestRepository.findByUtilisateurId(u.getId());
+	}
+
+	@Override
+	public CampagneTest getCampagneById(Long id) {
+		Optional<CampagneTest> ct =  campagneTestRepository.findById(id);
+		if (ct.isPresent()) {
+			return ct.get();
+		} else {
+			return new CampagneTest("Une erreur est survenue", "Une erreur est survenue");
+		}
 	}
 
 }

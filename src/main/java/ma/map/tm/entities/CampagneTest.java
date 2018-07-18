@@ -32,7 +32,7 @@ public class CampagneTest implements Serializable{
 	public CampagneTest(String nom, String description, Utilisateur concepteurTest, Projet projetParent,
 			Collection<Scenario> listeScenario) {
 		super();
-		this.nom = nom;
+		this.nom = nom	;
 		this.description = description;
 		this.concepteurTest = concepteurTest;
 		this.projetParent = projetParent;
@@ -43,12 +43,17 @@ public class CampagneTest implements Serializable{
 		super();
 	}
 
-	public CampagneTest(String nom, String description, String _release, Utilisateur concepteurTest, Projet projetParent) {
+	public CampagneTest(String nom, String description, Utilisateur concepteurTest, Projet projetParent) {
 		super();
 		this.nom = nom;
 		this.description = description;
 		this.concepteurTest = concepteurTest;
 		this.projetParent = projetParent;
+	}
+
+	public CampagneTest(String nom, String description) {
+		this.nom = nom;
+		this.description = description;
 	}
 
 	public Long getId() {

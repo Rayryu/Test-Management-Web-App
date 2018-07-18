@@ -36,12 +36,7 @@ public class ProjetController {
 		return "MesProjets";
 	}
 	
-//	@RequestMapping(value="/AjouterProjet", method=RequestMethod.GET)
-//	public String ajouterProjetForm(Model model) {
-//		// à changer avec l'objet utilisateur connecté	
-//		model.addAttribute("nouveauProjet", new Projet());
-//		return "AjouterProjet";
-//	}
+	
 	
 	@RequestMapping(value="/EnregistrerProjet", method=RequestMethod.POST)
 	public ModelAndView EnregistrerProjet(Projet nouveauProjet, Model model) {

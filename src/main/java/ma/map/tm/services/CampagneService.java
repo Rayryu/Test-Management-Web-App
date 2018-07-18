@@ -9,4 +9,5 @@ public interface CampagneService {
 	public void addCampagne(CampagneTest c);
 	public List<CampagneTest> listeCampagneDeTest();
 	public List<CampagneTest> listeCampagneTestParUtilisateur(Utilisateur u);
+	public CampagneTest getCampagneById(Long id);
 }
