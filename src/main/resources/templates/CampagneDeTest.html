@@ -16,25 +16,69 @@
 	<div class="mainWrap navslide">
           <div class="ui equal width left aligned padded grid stackable">
              <div class="row">
+                 <div class="sixteen wide column">
+                     <div class="ui segments">
+                         <div class="ui segment">
+                             <h5 class="ui header">
+                                 Mes Campagnes de test
+                             </h5>
+                         </div>
+                         <div class="ui segment">
+                             <table id="data_table" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">
+                                 <thead>
+                                     <tr>
+                                         <th>ID</th>
+                                         <th>Titre de la campagne de test</th>
+                                         <th>Description</th>
+                                         <th>Projet Parent</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody>
+									<tr th:each="campagne : ${listeCampagnes}">
+										<td th:text="${campagne.id}"></td>
+										<td th:text="${campagne.nom}"> </td>
+										<td th:text="${campagne.description}"> </td>
+										<td th:text="${campagne.projetParent.nom}"></td>
+									</tr>
+								</tbody>
+                             </table>
+                         </div>
+                         <div class="ui segment">
+                         </div>
+                     </div>
+                 </div>
+             </div>
+		</div>
+   </div>
+  </div>
+  <div class="">
+	<div class="mainWrap navslide">
+          <div class="ui equal width left aligned padded grid stackable">
+             <div class="row">
                  <div class="eight wide column">
                      <div class="ui segments">
                          <div class="ui segment">
                              <h5 class="ui header">
-                                 Nouveau projet	
+                                 Nouvelle campagne de test	
                              </h5>
                          </div>
                          <div class="ui segment"> 
                          	<div class="ui sixteen wide column  grid" >
 								<div class="ui ten wide column">
-									<form class="ui form" th:action="@{EnregistrerProjet}" method="post" th:object="${nouveauProjet}">
+									<form class="ui form" th:action="@{AjouterCampagneDeTest}" method="post" th:object="${nouvelleCampagne}">
 									  <div class="field">
-									    <label>Titre du projet</label>
-									    <input type="text" th:field="*{nom}" placeholder="Titre du projet">
+									    <label>Titre de la campagne </label>
+									    <input type="text" th:field="*{nom}" placeholder="Titre de la campagne de test">
 									  </div>
 									  <div class="field">
-									    <label>Description du projet</label>
+									    <label>Description de la campagne de test</label>
 									    <input type="text" th:field="*{description}" placeholder="Description du projet">
 									  </div>
+									  
+									  <select class="ui search dropdown" th:field="*{projetParent}" id="projetParent" >
+										  <option  th:each="projet : ${listeProjets}" th:value="${projet.id}" th:text="${projet.nom}"></option>
+									  </select>
+									  
 									  <button class="ui primary button" type="submit">Confirmer</button>
 									  <button class="ui button">Annuler</button>
 									</form>
@@ -48,58 +92,23 @@
                      <div class="ui segments">
                          <div class="ui segment">
                              <h5 class="ui header">
-                                 Statistiques
+                                 Informations sur la campagne de test
                              </h5>
                          </div>
                          <div class="ui segment"> 
                          	<div class="ui ten wide column  grid" >
 								<div class="ui ten wide column">
-									Statistiques...
+									Informations sur la campagne de test...
 								</div>
 							</div>
                          </div>
-                         
                      </div>
                  </div>	
              </div>
 		</div>
    </div>
   </div>
-  <div class="">
-	<div class="mainWrap navslide">
-          <div class="ui equal width left aligned padded grid stackable">
-             <div class="row">
-                 <div class="sixteen wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Mes Projets
-                             </h5>
-                         </div>
-                         <div class="ui segment">
-                             <table id="data_table" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">
-                                 <thead>
-                                     <tr>
-                                         <th>ID</th>
-                                         <th>Titre du projet</th>
-                                         <th>Description du projet</th>
-                                     </tr>
-                                 </thead>
-                                 <tbody>
-									<tr th:each="projet : ${listeProjets}">
-										<td th:text="${projet.id}"></td>
-										<td th:text="${projet.nom}"> </td>
-										<td th:text="${projet.description}"> </td>
-									</tr>
-								</tbody>
-                             </table>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-		</div>
-   </div>
-  </div>
+  
   
 <script src="../static/js/jquery-2.1.4.min.js" th:src="@{/js/jquery-2.1.4.min.js}"></script>
 <script src="../static/js/jquery.dataTables.js" th:src="@{/js/jquery.dataTables.js}"></script>

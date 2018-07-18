@@ -14,7 +14,6 @@ import ma.map.tm.dao.UtilisateurRepository;
 import ma.map.tm.entities.Projet;
 import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.services.ProjetService;
-import ma.map.tm.services.UtilisateurService;
 
 @Controller
 public class ProjetController {
@@ -32,16 +31,17 @@ public class ProjetController {
 		
 		List<Projet> listeProjets = projetService.listeProjetsParUtilisateur(user);
 		model.addAttribute("listeProjets", listeProjets);
+		model.addAttribute("nouveauProjet", new Projet());
 		
 		return "MesProjets";
 	}
 	
-	@RequestMapping(value="/AjouterProjet", method=RequestMethod.GET)
-	public String ajouterProjetForm(Model model) {
-		// à changer avec l'objet utilisateur connecté	
-		model.addAttribute("nouveauProjet", new Projet());
-		return "AjouterProjet";
-	}
+//	@RequestMapping(value="/AjouterProjet", method=RequestMethod.GET)
+//	public String ajouterProjetForm(Model model) {
+//		// à changer avec l'objet utilisateur connecté	
+//		model.addAttribute("nouveauProjet", new Projet());
+//		return "AjouterProjet";
+//	}
 	
 	@RequestMapping(value="/EnregistrerProjet", method=RequestMethod.POST)
 	public ModelAndView EnregistrerProjet(Projet nouveauProjet, Model model) {
@@ -55,6 +55,7 @@ public class ProjetController {
 		Collection<Projet> listeProjetUtilisateurCourant = projetService.listeProjetsParUtilisateur(utilisateurCourant);
 		listeProjetUtilisateurCourant.add(nouveauProjet);
 		utilisateurCourant.setListeProjets(listeProjetUtilisateurCourant);
+		//à changer avec une methode de la partie metier !
 		utilisateurRepository.save(utilisateurCourant);
 		
 		projetService.addProjet(nouveauProjet);

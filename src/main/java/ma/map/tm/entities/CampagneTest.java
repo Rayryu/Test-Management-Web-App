@@ -20,7 +20,6 @@ public class CampagneTest implements Serializable{
 	private Long id;
 	private String nom;
 	private String description;
-	private String _release;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="concepteurTest_id")
 	private Utilisateur concepteurTest;
@@ -30,12 +29,11 @@ public class CampagneTest implements Serializable{
 	@OneToMany(mappedBy="campagneParent", cascade=CascadeType.ALL)
 	private Collection<Scenario> listeScenario = new ArrayList<Scenario>();
 	
-	public CampagneTest(String nom, String description, String _release, Utilisateur concepteurTest, Projet projetParent,
+	public CampagneTest(String nom, String description, Utilisateur concepteurTest, Projet projetParent,
 			Collection<Scenario> listeScenario) {
 		super();
 		this.nom = nom;
 		this.description = description;
-		this._release = _release;
 		this.concepteurTest = concepteurTest;
 		this.projetParent = projetParent;
 		this.listeScenario = listeScenario;
@@ -49,7 +47,6 @@ public class CampagneTest implements Serializable{
 		super();
 		this.nom = nom;
 		this.description = description;
-		this._release = _release;
 		this.concepteurTest = concepteurTest;
 		this.projetParent = projetParent;
 	}
@@ -78,14 +75,7 @@ public class CampagneTest implements Serializable{
 		this.description = description;
 	}
 
-	public String get_release() {
-		return _release;
-	}
-
-	public void set_release(String _release) {
-		this._release = _release;
-	}
-
+	
 	public Utilisateur getConcepteurTest() {
 		return concepteurTest;
 	}
