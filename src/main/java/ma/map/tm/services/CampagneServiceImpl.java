@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import ma.map.tm.dao.CampagneTestRepository;
 import ma.map.tm.entities.CampagneTest;
+import ma.map.tm.entities.Scenario;
 import ma.map.tm.entities.Utilisateur;
 
 @Service
@@ -40,5 +41,11 @@ public class CampagneServiceImpl implements CampagneService {
 			return new CampagneTest("Une erreur est survenue", "Une erreur est survenue");
 		}
 	}
+
+	@Override
+	public List<CampagneTest> listeCampagnesByProjetId(Long id) {
+		return campagneTestRepository.findByProjetId(id);
+	}
+
 
 }

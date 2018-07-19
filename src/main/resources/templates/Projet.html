@@ -4,10 +4,9 @@
 <link rel="stylesheet" type="text/css" href="../static/css/semantic.css" th:href="@{/css/semantic.css}" />
 <link href="../static/css/ionicons.min.css" th:href="@{/css/ionicons.min.css}"  rel="stylesheet" />
 <link href="../static/css/main.css" th:href="@{/css/main.css}"  rel="stylesheet" />
-<meta http-equiv="Content-Type" content="text/html;charset=utf8" />
 <head>
 <meta charset="ISO-8859-1">
-<title>Scénarios de test de la campagne : </title>
+<title>Mes campagnes de test</title>
 </head>
 
 <body>
@@ -22,7 +21,7 @@
                      <div class="ui segments">
                          <div class="ui segment">
                              <h5 class="ui header">
-                                 Scenarios de test de la campagne : <span th:text="${campagneParente.nom}"></span></p>
+                                 Campagnes de test du projet : <span th:text="${projetParent.nom}"></span></p>
                              </h5>
                          </div>
                          <div class="ui segment">
@@ -30,21 +29,21 @@
                                  <thead>
                                      <tr>
                                          <th>ID</th>
-                                         <th>Titre du scenario</th>
+                                         <th>Titre de la campagne de test</th>
                                          <th>Description</th>
-                                         <th>Campagne de test Parente</th>
+                                         <th>Projet Parent</th>
                                      </tr>
                                  </thead>
                                  
                                  <tbody>
                                  
-									<tr th:each="scenario : ${listeScenarios}"
+									<tr th:each="campagne : ${listeCampagnes}"
 									style="cursor: pointer"
-     								th:onclick="'javascript:rowClicked(\'' + ${scenario.id} + '\', \'Scenario\');'">
-										<td th:text="${scenario.id}"></td>
-										<td th:text="${scenario.nom}"> </td>
-										<td th:text="${scenario.description}"> </td>
-										<td th:text="${scenario.campagneParent.nom}"></td>
+     								th:onclick="'javascript:rowClicked(\'' + ${campagne.id} + '\', \'CampagneDeTest\');'">
+										<td th:text="${campagne.id}"></td>
+										<td th:text="${campagne.nom}"> </td>
+										<td th:text="${campagne.description}"> </td>
+										<td th:text="${campagne.projetParent.nom}"></td>
 									</tr>
 								</tbody>
                              </table>
@@ -65,24 +64,24 @@
                      <div class="ui segments">
                          <div class="ui segment">
                              <h5 class="ui header">
-                                 Nouveau scenario de test	
+                                 Nouvelle campagne de test	
                              </h5>
                          </div>
                          <div class="ui segment"> 
                          	<div class="ui sixteen wide column  grid" >
 								<div class="ui ten wide column">
-									<form class="ui form" th:action="@{/AjouterScenarioDeTest}" method="post" th:object="${nouveauScenario}">
+									<form class="ui form" th:action="@{/AjouterCampagneDeTest}" method="post" th:object="${nouvelleCampagne}">
 									  <div class="field">
-									    <label>Titre du scenario de test </label>
-									    <input type="text" th:field="*{nom}" placeholder="Titre du scenario de test">
+									    <label>Titre de la campagne </label>
+									    <input type="text" th:field="*{nom}" placeholder="Titre de la campagne de test">
 									  </div>
 									  <div class="field">
-									    <label>Description du scenario de test</label>
-									    <input type="text" th:field="*{description}" placeholder="Description du scenario de test">
+									    <label>Description de la campagne de test</label>
+									    <input type="text" th:field="*{description}" placeholder="Description du projet">
 									  </div>
 									  <div class="field">
-									    <label>Campagne de test parente</label>
-									    <input disabled type="text" th:field="*{campagneParent.nom}" placeholder="Description du scenario de test">
+									    <label>Projet parent</label>
+									    <input disabled type="text" th:field="*{projetParent.nom}" placeholder="">
 									  </div>
 									  <button class="ui primary button" type="submit">Confirmer</button>
 									  <button class="ui button">Annuler</button>
@@ -96,13 +95,11 @@
                      <div class="ui segments">
                          <div class="ui segment">
                              <h5 class="ui header">
-                                 Statistiques ....
+                                 Statistiques....
                              </h5>
                          </div>
                          <div class="ui segment"> 
-                         	<div class="ui " >
-				
-							</div>
+                         	Statistiques ....
                          </div>
                      </div>
                  </div>	
@@ -110,12 +107,12 @@
 		</div>
    </div>
   </div>
- 
+  
+
 <script src="../static/js/jquery-2.1.4.min.js" th:src="@{/js/jquery-2.1.4.min.js}"></script>
 <script src="../static/js/moreJSfunctions.js" th:src="@{/js/moreJSfunctions.js}"></script>
 <script src="../static/js/jquery.dataTables.js" th:src="@{/js/jquery.dataTables.js}"></script>
 <script src="../static/js/custom-datatable.js" th:src="@{/js/custom-datatable.js}"></script>
-<script src="../static/js/semantic.js" th:src="@{/js/semantic.js}"></script>
 </body>
 
 

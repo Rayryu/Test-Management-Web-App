@@ -13,10 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.entities.CampagneTest;
+import ma.map.tm.entities.CasTest;
 import ma.map.tm.entities.Projet;
 import ma.map.tm.entities.Scenario;
 import ma.map.tm.services.ScenarioService;
 import ma.map.tm.services.CampagneService;
+import ma.map.tm.services.CasTestService;
 import ma.map.tm.services.ProjetService;
 
 @Controller
@@ -26,9 +28,11 @@ public class ScenarioDeTestController {
 	private CampagneService campagneService;
 	@Autowired
 	private ScenarioService scenarioService;
+	@Autowired
+	private CasTestService casTestService;
 	
-	@RequestMapping(value = {"/MesScenarioDeTest/{id}", "/MesScenarioDeTest"})
-	public String mesScenarioDeTest(Model model, @PathVariable("id") Optional<Long> idScenarioDeTest) {
+	@RequestMapping(value = {"/Scenarios/{id}", "/Scenarios"})
+	public String Scenarios(Model model, @PathVariable("id") Optional<Long> idScenarioDeTest) {
 		//à changer avec l'objet utilisateur connecté
 		Utilisateur currentUser = new Utilisateur();
 		currentUser.setId(1L);
@@ -38,38 +42,30 @@ public class ScenarioDeTestController {
 					new Scenario("Cliquer sur une campagne de test pour afficher son nom", "Cliquer sur une campagne de test pour afficher sa description"));
 		List<Scenario> listeScenarioDeTest = scenarioService.listeScenarioTestParUtilisateur(currentUser);
 		List<CampagneTest> listeCampagnes = campagneService.listeCampagneTestParUtilisateur(currentUser);
+		List<CasTest> listeCasTest = casTestService.listeCasTestParUtilisateur(currentUser);
+		
+		System.out.println("Nom du testeeur : "+listeCasTest.get(0).getTesteur().getNom());
 		
 		model.addAttribute("listeScenarios", listeScenarioDeTest);
 		model.addAttribute("listeCampagnes", listeCampagnes);
+		model.addAttribute("listeCasTest", listeCasTest);
 
 		model.addAttribute("nouveauScenario", new Scenario());
 		model.addAttribute("campagneParent", new CampagneTest());
 		model.addAttribute("scenarioSelectionnee", scenarioForInfos);
 		
-		return "CasDeTests";
+		
+		return "Scenarios";
 	}
-	
-	@RequestMapping(value="/MesScenarioDeTest/AjouterScenarioDeTest", method=RequestMethod.POST)
-	public ModelAndView toSolveACertainProblem(Model model, Scenario nouveauScenario) {
-		
-		//Je ne sais pas pourquoi, mais lorsque je suis sur une page 
-		//MesCampagnesDeTest/{id} et que j'envoie une requête POST pour ajouter une campagne de test,
-		//le controleur ajouterCampagneDeTest me redirige vers /MesCampagnesDeTest/AjouterCampagneDeTest.
-		//Pour détourner ce probleme, redirection.
-		
-		scenarioService.addScenario(nouveauScenario);
-		
-		return new ModelAndView("redirect:/MesScenarioDeTest/"+nouveauScenario.getId().toString());
-	}
-	
-	
 	
 	@RequestMapping(value="/AjouterScenarioDeTest", method=RequestMethod.POST)
 	public ModelAndView ajouterScenarioDeTest(Model model, Scenario nouveauScenario) {
 
 		scenarioService.addScenario(nouveauScenario);
 		
-		return new ModelAndView("redirect:/MesScenarioDeTest/"+nouveauScenario.getId().toString());
+		return new ModelAndView("redirect:/Scenario/"+nouveauScenario.getId().toString());
 	}
+	
+	
 	
 }

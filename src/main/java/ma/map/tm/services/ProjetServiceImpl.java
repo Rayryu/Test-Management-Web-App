@@ -30,4 +30,9 @@ public class ProjetServiceImpl implements ProjetService {
 		return projetRepository.findByUtilisateurId(u.getId());
 	}
 
+	@Override
+	public Projet getProjetById(Long id) {
+		return projetRepository.getOne(id);
+	}
+
 }

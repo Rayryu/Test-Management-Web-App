@@ -11,5 +11,10 @@ import ma.map.tm.entities.CampagneTest;
 public interface CampagneTestRepository  extends JpaRepository<CampagneTest, Long>{
 	@Query("SELECT c FROM CampagneTest c JOIN c.concepteurTest t where t.id = :x")
 	public List<CampagneTest> findByUtilisateurId(@Param("x")Long id_utilisateur);
+	
+	@Query("SELECT c FROM CampagneTest c JOIN c.projetParent t where t.id = :x")
+	public List<CampagneTest> findByProjetId(@Param("x")Long id_projet);
+	
+	
 
 }

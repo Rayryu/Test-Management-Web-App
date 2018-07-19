@@ -14,26 +14,28 @@ import org.springframework.web.servlet.ModelAndView;
 import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.entities.CampagneTest;
 import ma.map.tm.entities.Projet;
+import ma.map.tm.entities.Scenario;
 import ma.map.tm.services.CampagneService;
 import ma.map.tm.services.ProjetService;
+import ma.map.tm.services.ScenarioService;
 
 @Controller
 public class CampagneDeTestController {
 	
 	@Autowired
+	private ScenarioService scenarioService;
+	@Autowired
 	private CampagneService campagneService;
 	@Autowired
 	private ProjetService projetService;
 	
-	@RequestMapping(value = {"/MesCampagnesDeTest/{id}", "/MesCampagnesDeTest"})
-	public String mesCampagnesDeTest(Model model, @PathVariable("id") Optional<Long> idCampagneDeTest) {
+	
+	@RequestMapping(value = "/CampagnesDeTest")
+	public String CampagnesDeTest(Model model) {
 		//à changer avec l'objet utilisateur connecté
 		Utilisateur currentUser = new Utilisateur();
 		currentUser.setId(1L);
 		
-		CampagneTest campagneForInfos = ((idCampagneDeTest.isPresent()) ?
-				campagneService.getCampagneById(idCampagneDeTest.get()) :
-					new CampagneTest("Cliquer sur une campagne de test pour afficher son nom", "Cliquer sur une campagne de test pour afficher sa description"));
 		List<CampagneTest> listeCampagnesDeTest = campagneService.listeCampagneTestParUtilisateur(currentUser);
 		List<Projet> listeProjets = projetService.listeProjetsParUtilisateur(currentUser);
 		
@@ -42,30 +44,29 @@ public class CampagneDeTestController {
 
 		model.addAttribute("nouvelleCampagne", new CampagneTest());
 		model.addAttribute("projetParent", new Projet());
-		model.addAttribute("campagneSelectionnee", campagneForInfos);
+		
+		return "CampagnesDeTest";
+	}
+	
+	@RequestMapping("/CampagneDeTest/{id}")
+	public String CampagneDeTest(Model model, @PathVariable("id") Long id) {
+		
+		//A modifier avec les informations de l'utilisateur connecté
+		Utilisateur currentUser = new Utilisateur();
+		currentUser.setId(1L);
+		
+		List<Scenario> listeScenarios = scenarioService.listeScenariosParCampagneId(id);
+		Scenario nouveauScenario = new Scenario();
+		CampagneTest campagneParente = campagneService.getCampagneById(id);
+		nouveauScenario.setCampagne(campagneParente);
+		
+		model.addAttribute("listeScenarios", listeScenarios);
+		model.addAttribute("nouveauScenario",nouveauScenario);
+		model.addAttribute("campagneParente",campagneParente);
 		
 		return "CampagneDeTest";
 	}
 	
-	@RequestMapping(value="/MesCampagnesDeTest/AjouterCampagneDeTest", method=RequestMethod.POST)
-	public ModelAndView toSolveACertainProblem(Model model, CampagneTest nouvelleCampagne) {
-		
-		//Je ne sais pas pourquoi, mais lorsque je suis sur une page 
-		//MesCampagnesDeTest/{id} et que j'envoie une requête POST pour ajouter une campagne de test,
-		//le controleur ajouterCampagneDeTest me redirige vers /MesCampagnesDeTest/AjouterCampagneDeTest.
-		//Pour détourner ce probleme, redirection.
-		
-		//à changer avec l'objet utilisateur connecté
-		Utilisateur utilisateurCourant = new Utilisateur();
-		utilisateurCourant.setId(1L);
-		//-----x
-		
-		nouvelleCampagne.setConcepteurTest(utilisateurCourant);
-		
-		campagneService.addCampagne(nouvelleCampagne);
-		
-		return new ModelAndView("redirect:/MesCampagnesDeTest/"+nouvelleCampagne.getId().toString());
-	}
 	
 	
 	
@@ -81,7 +82,9 @@ public class CampagneDeTestController {
 		
 		campagneService.addCampagne(nouvelleCampagne);
 		
-		return new ModelAndView("redirect:/MesCampagnesDeTest/"+nouvelleCampagne.getId().toString());
+		return new ModelAndView("redirect:/CampagneDeTest/"+nouvelleCampagne.getId().toString());
 	}
+	
+	
 	
 }

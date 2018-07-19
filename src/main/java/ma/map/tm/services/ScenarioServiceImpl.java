@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ma.map.tm.dao.ScenarioRepository;
+import ma.map.tm.entities.CampagneTest;
 import ma.map.tm.entities.Scenario;
 import ma.map.tm.entities.Utilisateur;
 
@@ -40,6 +41,11 @@ public class ScenarioServiceImpl implements ScenarioService {
 		} else {
 			return new Scenario("Une erreur est survenue", "Une erreur est survenue");
 		}
+	}
+
+	@Override
+	public List<Scenario> listeScenariosParCampagneId(Long id) {
+		return scenarioRepository.findByCampagneId(id);
 	}
 
 	

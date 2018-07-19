@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf8" />
 <head>
 <meta charset="ISO-8859-1">
-<title>Scénarios de test de la campagne : </title>
+<title>Cas de test - Détails</title>
 </head>
 
 <body>
@@ -16,13 +16,20 @@
   
   <div class="">
 	<div class="mainWrap navslide">
+         
+   </div>
+  </div>
+
+  
+   <div class="">
+   <div class="mainWrap navslide">
           <div class="ui equal width left aligned padded grid stackable">
              <div class="row">
                  <div class="sixteen wide column">
                      <div class="ui segments">
                          <div class="ui segment">
                              <h5 class="ui header">
-                                 Scenarios de test de la campagne : <span th:text="${campagneParente.nom}"></span></p>
+                                 <p> Cas de tests du scénario : <span th:text="${scenarioParent.nom}"></span></p>
                              </h5>
                          </div>
                          <div class="ui segment">
@@ -30,21 +37,33 @@
                                  <thead>
                                      <tr>
                                          <th>ID</th>
-                                         <th>Titre du scenario</th>
-                                         <th>Description</th>
-                                         <th>Campagne de test Parente</th>
+                                         <th>Description du cas de test</th>
+                                         <th>Type du cas de test</th>
+                                         <th>Priorité</th>
+                                         <th>Préconditions</th>
+                                         <th>Résultat attendu</th>
+                                         <th>Résultat actuel</th>
+                                         <th>Remarques</th>
+                                         <th>Etapes</th>
+                                         <th>Testeur</th>
+                                         <th>Scenario parent</th>
                                      </tr>
                                  </thead>
                                  
                                  <tbody>
                                  
-									<tr th:each="scenario : ${listeScenarios}"
-									style="cursor: pointer"
-     								th:onclick="'javascript:rowClicked(\'' + ${scenario.id} + '\', \'Scenario\');'">
-										<td th:text="${scenario.id}"></td>
-										<td th:text="${scenario.nom}"> </td>
-										<td th:text="${scenario.description}"> </td>
-										<td th:text="${scenario.campagneParent.nom}"></td>
+									<tr th:each="casTest : ${listeDesCas}">
+										<td th:text="${casTest.id}"></td>
+										<td th:text="${casTest.description}"> </td>
+										<td th:text="${casTest.typeTest}"> </td>
+										<td th:text="${casTest.priorite}"> </td>
+										<td th:text="${casTest.precondition}"> </td>
+										<td th:text="${casTest.resultatAttendu}"> </td>
+										<td th:text="${casTest.resultatActuel}"> </td>
+										<td th:text="${casTest.remarques}"> </td>
+										<td th:text="${casTest.etapes}"> </td>
+										<td th:text="${casTest.testeur.id}"> </td>
+										<td th:text="${casTest.scenarioParent.nom}"> </td>
 									</tr>
 								</tbody>
                              </table>
@@ -56,34 +75,49 @@
              </div>
 		</div>
    </div>
-  </div>
-  <div class="">
-	<div class="mainWrap navslide">
+   <div class="mainWrap navslide">
           <div class="ui equal width left aligned padded grid stackable">
              <div class="row">
                  <div class="eight wide column">
                      <div class="ui segments">
                          <div class="ui segment">
                              <h5 class="ui header">
-                                 Nouveau scenario de test	
+                                 Nouveau cas de test 	
                              </h5>
                          </div>
                          <div class="ui segment"> 
                          	<div class="ui sixteen wide column  grid" >
 								<div class="ui ten wide column">
-									<form class="ui form" th:action="@{/AjouterScenarioDeTest}" method="post" th:object="${nouveauScenario}">
+									<form class="ui form" th:action="@{/AjouterCasDeTest/{pathParam}(pathParam=${scenarioParent.id})}" method="post" th:object="${nouveauCasDeTest}">
 									  <div class="field">
-									    <label>Titre du scenario de test </label>
-									    <input type="text" th:field="*{nom}" placeholder="Titre du scenario de test">
+									    <label>Description du cas de test </label>
+									    <input type="text" th:field="*{description}" placeholder="Description du cas de test ">
 									  </div>
 									  <div class="field">
-									    <label>Description du scenario de test</label>
-									    <input type="text" th:field="*{description}" placeholder="Description du scenario de test">
+									    <label>Type du cas de test </label>
+									    <input type="text" th:field="*{typeTest}" placeholder="Description du cas de test ">
 									  </div>
 									  <div class="field">
-									    <label>Campagne de test parente</label>
-									    <input disabled type="text" th:field="*{campagneParent.nom}" placeholder="Description du scenario de test">
+									    <label>Préconditions</label>
+									    <input type="text" th:field="*{precondition}" placeholder="Préconditions">
 									  </div>
+									  <div class="field">
+									    <label>Résultat attendu </label>
+									    <input type="text" th:field="*{resultatAttendu}" placeholder="Résultat attendu ">
+									  </div>
+									  <div class="field">
+									    <label>Resultat actuel</label>
+									    <input type="text" th:field="*{resultatActuel}" placeholder="Resultat actuel">
+									  </div>
+									  <div class="field">
+									    <label>Remarques</label>
+									    <input type="text" th:field="*{remarques}" placeholder="Remarques">
+									  </div>
+									  <div class="field">
+									    <label>Etapes </label>
+									    <input type="text" th:field="*{etapes}" placeholder="Etapes">
+									  </div>
+									  
 									  <button class="ui primary button" type="submit">Confirmer</button>
 									  <button class="ui button">Annuler</button>
 									</form>
@@ -92,25 +126,18 @@
                          </div>
                      </div>
                  </div>
-                 <div class="eight wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Statistiques ....
-                             </h5>
-                         </div>
-                         <div class="ui segment"> 
-                         	<div class="ui " >
-				
-							</div>
-                         </div>
-                     </div>
-                 </div>	
              </div>
 		</div>
    </div>
+	
   </div>
- 
+  
+   
+   
+
+
+  
+
 <script src="../static/js/jquery-2.1.4.min.js" th:src="@{/js/jquery-2.1.4.min.js}"></script>
 <script src="../static/js/moreJSfunctions.js" th:src="@{/js/moreJSfunctions.js}"></script>
 <script src="../static/js/jquery.dataTables.js" th:src="@{/js/jquery.dataTables.js}"></script>

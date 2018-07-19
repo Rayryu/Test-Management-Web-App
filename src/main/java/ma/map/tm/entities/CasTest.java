@@ -51,6 +51,11 @@ public class CasTest implements Serializable{
 		super();
 	}
 
+	public CasTest(String description, String typeTest) {
+		this.description = description;
+		this.typeTest = typeTest;
+	}
+
 	public Long getId() {
 		return id;
 	}

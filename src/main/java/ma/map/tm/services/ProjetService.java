@@ -9,5 +9,6 @@ public interface ProjetService {
 	public void addProjet(Projet p);
 	public List<Projet> listeProjets();
 	public List<Projet> listeProjetsParUtilisateur(Utilisateur u);
+	public Projet getProjetById(Long id);
 	
 }

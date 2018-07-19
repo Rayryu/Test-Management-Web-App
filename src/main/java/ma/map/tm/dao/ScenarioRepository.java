@@ -11,5 +11,8 @@ import ma.map.tm.entities.Scenario;
 public interface ScenarioRepository extends JpaRepository<Scenario, Long> {
 	@Query("SELECT s FROM Scenario s JOIN s.campagneParent c where c.concepteurTest.id = :x")
 	public List<Scenario> findByScenarioId(@Param("x")Long id_utilisateur);
+	
+	@Query("SELECT s FROM Scenario s JOIN s.campagneParent c where c.id = :x")
+	public List<Scenario> findByCampagneId(@Param("x")Long id_campagne);
 
 }
