@@ -59,10 +59,12 @@ public class CampagneDeTestController {
 		Scenario nouveauScenario = new Scenario();
 		CampagneTest campagneParente = campagneService.getCampagneById(id);
 		nouveauScenario.setCampagne(campagneParente);
+		Projet projetParent = projetService.getProjetById(campagneParente.getProjetParent().getId());
 		
 		model.addAttribute("listeScenarios", listeScenarios);
 		model.addAttribute("nouveauScenario",nouveauScenario);
 		model.addAttribute("campagneParente",campagneParente);
+		model.addAttribute("projetParent",projetParent);
 		
 		return "CampagneDeTest";
 	}

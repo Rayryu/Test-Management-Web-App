@@ -12,7 +12,19 @@
 <body>
   <div th:replace="fragments/SideBar :: SideBar"></div>
   <div th:replace="fragments/NavigationBare :: NavigationBar"></div>
-  
+  <div class=" navslide">
+	<div class="ui equal width left aligned padded grid stackable">
+		<div class="row">
+			<div class="eight wide column">
+				<div class="ui huge breadcrumb">
+                       <a th:href="@{/Projets}" class="section">Mes projets</a>
+                       <i class="right angle icon divider"></i>
+                       <div class="active section" ><a th:href="@{/Projet/{pathParam}(pathParam=${projetParent.id})}"><span style="color:black;" th:text="${projetParent.nom}"></span></a></div>
+				</div>
+			</div>
+        	</div>
+    	</div>
+</div>
   <div class="">
 	<div class="mainWrap navslide">
           <div class="ui equal width left aligned padded grid stackable">
@@ -113,6 +125,7 @@
 <script src="../static/js/moreJSfunctions.js" th:src="@{/js/moreJSfunctions.js}"></script>
 <script src="../static/js/jquery.dataTables.js" th:src="@{/js/jquery.dataTables.js}"></script>
 <script src="../static/js/custom-datatable.js" th:src="@{/js/custom-datatable.js}"></script>
+<script src="../static/js/main.js" th:src="@{/js/main.js}"></script>
 </body>
 
 

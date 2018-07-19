@@ -10,103 +10,51 @@
 </head>
 
 <body>
-  <div th:replace="fragments/SideBar :: SideBar"></div>
-  <div th:replace="fragments/NavigationBare :: NavigationBar"></div>
-  <div class="">
-	<div class="mainWrap navslide">
-          <div class="ui equal width left aligned padded grid stackable">
-             <div class="row">
-                 <div class="eight wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Nouveau projet	
-                             </h5>
-                         </div>
-                         <div class="ui segment"> 
-                         	<div class="ui sixteen wide column  grid" >
-								<div class="ui ten wide column">
-									<form class="ui form" th:action="@{/EnregistrerProjet}" method="post" th:object="${nouveauProjet}">
-									  <div class="field">
-									    <label>Titre du projet</label>
-									    <input type="text" th:field="*{nom}" placeholder="Titre du projet">
-									  </div>
-									  <div class="field">
-									    <label>Description du projet</label>
-									    <input type="text" th:field="*{description}" placeholder="Description du projet">
-									  </div>
-									  <button class="ui primary button" type="submit">Confirmer</button>
-									  <button class="ui button">Annuler</button>
-									</form>
-								</div>
-							</div>
-                         </div>
-                         
-                     </div>
-                 </div>
-                 <div class="eight wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Statistiques
-                             </h5>
-                         </div>
-                         <div class="ui segment"> 
-                         	<div class="ui ten wide column  grid" >
-								<div class="ui ten wide column">
-									Statistiques...
-								</div>
-							</div>
-                         </div>
-                         
-                     </div>
-                 </div>	
-             </div>
+
+	<div th:replace="fragments/SideBar :: SideBar"></div>
+	<div th:replace="fragments/NavigationBare :: NavigationBar"></div>
+	
+  <div class=" navslide">
+	<div class="ui equal width left aligned padded grid stackable">
+		<div class="row">
+			<div class="eight wide column">
+				<div class="ui huge breadcrumb">
+                       <a th:href="@{/Projets}"><span style="color:black;">Mes projets</span></a></div>
+                       <i class="right angle icon divider"></i>
+				</div>
+			</div>
+        	</div>
+    	</div>
+	</div>
+	
+	<div class=" navslide">
+		<div class="ui equal width left aligned padded grid stackable">
+			<div class="row">
+				<div class="eight wide column">
+					<div th:replace="fragments/Projet/Projets-NouveauProjet :: Projets-NouveauProjet"></div>
+          		</div>
+          		<div class="eight wide column">
+					<div th:replace="fragments/Projet/Projets-Statistiques :: Projets-Statistiques"></div>
+          		</div>	
+      		</div>
 		</div>
-   </div>
-  </div>
-  <div class="">
-	<div class="mainWrap navslide">
+	</div>
+
+	<div class=" navslide">
           <div class="ui equal width left aligned padded grid stackable">
              <div class="row">
                  <div class="sixteen wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Mes Projets
-                             </h5>
-                         </div>
-                         <div class="ui segment">
-                             <table id="data_table" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">
-                                 <thead>
-                                     <tr>
-                                         <th>ID</th>
-                                         <th>Titre du projet</th>
-                                         <th>Description du projet</th>
-                                     </tr>
-                                 </thead>
-                                 <tbody>
-									<tr th:each="projet : ${listeProjets}" 
-									style="cursor: pointer"
-     								th:onclick="'javascript:rowClicked(\'' + ${projet.id} + '\', \'Projet\');'">
-										<td th:text="${projet.id}"></td>
-										<td th:text="${projet.nom}"> </td>
-										<td th:text="${projet.description}"> </td>
-									</tr>
-								</tbody>
-                             </table>
-                         </div>
-                     </div>
+						<div th:replace="fragments/Projet/Projets-MesProjets :: Projets-MesProjets"></div>
                  </div>
              </div>
 		</div>
    </div>
-  </div>
   
 <script src="../static/js/jquery-2.1.4.min.js" th:src="@{/js/jquery-2.1.4.min.js}"></script>
 <script src="../static/js/moreJSfunctions.js" th:src="@{/js/moreJSfunctions.js}"></script>
 <script src="../static/js/jquery.dataTables.js" th:src="@{/js/jquery.dataTables.js}"></script>
 <script src="../static/js/custom-datatable.js" th:src="@{/js/custom-datatable.js}"></script>
+<script src="../static/js/main.js" th:src="@{/js/main.js}"></script>
 </body>
 
 

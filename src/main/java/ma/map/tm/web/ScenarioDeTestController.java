@@ -31,29 +31,18 @@ public class ScenarioDeTestController {
 	@Autowired
 	private CasTestService casTestService;
 	
-	@RequestMapping(value = {"/Scenarios/{id}", "/Scenarios"})
-	public String Scenarios(Model model, @PathVariable("id") Optional<Long> idScenarioDeTest) {
+	@RequestMapping(value = "/Scenarios")
+	public String Scenarios(Model model) {
 		//à changer avec l'objet utilisateur connecté
 		Utilisateur currentUser = new Utilisateur();
 		currentUser.setId(1L);
 		
-		Scenario scenarioForInfos = ((idScenarioDeTest.isPresent()) ?
-				scenarioService.getScenarioById(idScenarioDeTest.get()) :
-					new Scenario("Cliquer sur une campagne de test pour afficher son nom", "Cliquer sur une campagne de test pour afficher sa description"));
 		List<Scenario> listeScenarioDeTest = scenarioService.listeScenarioTestParUtilisateur(currentUser);
-		List<CampagneTest> listeCampagnes = campagneService.listeCampagneTestParUtilisateur(currentUser);
 		List<CasTest> listeCasTest = casTestService.listeCasTestParUtilisateur(currentUser);
 		
-		System.out.println("Nom du testeeur : "+listeCasTest.get(0).getTesteur().getNom());
-		
 		model.addAttribute("listeScenarios", listeScenarioDeTest);
-		model.addAttribute("listeCampagnes", listeCampagnes);
 		model.addAttribute("listeCasTest", listeCasTest);
-
 		model.addAttribute("nouveauScenario", new Scenario());
-		model.addAttribute("campagneParent", new CampagneTest());
-		model.addAttribute("scenarioSelectionnee", scenarioForInfos);
-		
 		
 		return "Scenarios";
 	}
