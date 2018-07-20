@@ -31,7 +31,7 @@ public class CasTestServiceImpl implements CasTestService {
 
 	@Override
 	public List<CasTest> listeCasTestParUtilisateur(Utilisateur u) {
-		return casTestRepository.findByUtilisateurId(u.getId());
+		return casTestRepository.findByUtilisateurId(u);
 	}
 
 	@Override

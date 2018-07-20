@@ -71,9 +71,11 @@ public class ProjetController {
 		listeProjetUtilisateurCourant.add(nouveauProjet);
 		utilisateurCourant.setListeProjets(listeProjetUtilisateurCourant);
 		//à changer avec une methode de la partie metier !
-		utilisateurRepository.save(utilisateurCourant);
+		
 		
 		projetService.addProjet(nouveauProjet);
+		
+		utilisateurRepository.save(utilisateurCourant);
 		
 		return new ModelAndView("redirect:/Projet/"+nouveauProjet.getId().toString());
 	}

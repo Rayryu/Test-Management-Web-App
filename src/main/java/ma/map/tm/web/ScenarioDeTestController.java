@@ -39,8 +39,10 @@ public class ScenarioDeTestController {
 		
 		List<Scenario> listeScenarioDeTest = scenarioService.listeScenarioTestParUtilisateur(currentUser);
 		List<CasTest> listeCasTest = casTestService.listeCasTestParUtilisateur(currentUser);
+		List<CampagneTest> listeCampagnes = campagneService.listeCampagneTestParUtilisateur(currentUser);
 		
 		model.addAttribute("listeScenarios", listeScenarioDeTest);
+		model.addAttribute("listeCampagnes", listeCampagnes);
 		model.addAttribute("listeCasTest", listeCasTest);
 		model.addAttribute("nouveauScenario", new Scenario());
 		
