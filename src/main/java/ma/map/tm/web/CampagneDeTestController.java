@@ -87,6 +87,14 @@ public class CampagneDeTestController {
 		return new ModelAndView("redirect:/CampagneDeTest/"+nouvelleCampagne.getId().toString());
 	}
 	
+	@RequestMapping(value="/AjouterCampagneDeTest/{id}", method=RequestMethod.POST)
+	public ModelAndView ajouterCampagneDeTest(Model model, @PathVariable("id") Long id, CampagneTest nouvelleCampagne) {
+		
+		campagneService.modifierCampagne(nouvelleCampagne, id);
+		
+		return new ModelAndView("redirect:/CampagneDeTest/"+id.toString());
+	}
+	
 	
 	
 }

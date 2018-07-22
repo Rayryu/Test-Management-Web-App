@@ -12,4 +12,5 @@ public interface CampagneService {
 	public List<CampagneTest> listeCampagneTestParUtilisateur(Utilisateur u);
 	public CampagneTest getCampagneById(Long id);
 	public List<CampagneTest> listeCampagnesByProjetId(Long id);
+	public void modifierCampagne(CampagneTest nouvelleCampagne, Long idCampagneParent);
 }

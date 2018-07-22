@@ -1,0 +1,22 @@
+<div class="ui segments" th:fragment="Projets-NouveauProjet">
+	<div class="ui segment">
+		<h5 class="ui header">	Nouveau projet	</h5>
+	</div>
+	<div class="ui segment"> 
+		<div class="ui sixteen wide column  grid" >
+			<div class="ui ten wide column">
+				<form class="ui form segment" th:action="@{/EnregistrerProjet}" method="post" th:object="${nouveauProjet}">
+					<div class="field">
+						<label>Titre du projet</label>
+						<input type="text" th:field="*{nom}" placeholder="Titre du projet">
+					</div>
+					<div class="field">
+						<label>Description du projet</label>
+						<input type="text" th:field="*{description}" placeholder="Description du projet">
+					</div>
+					<button class="ui primary button">Confirmer</button>
+				</form>
+			</div>
+		</div>
+	</div>    
+</div>

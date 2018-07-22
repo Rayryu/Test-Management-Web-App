@@ -107,18 +107,7 @@
                      </div>
                  </div>
                  <div class="eight wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Statistiques ....
-                             </h5>
-                         </div>
-                         <div class="ui segment"> 
-                         	<div class="ui " >
-				
-							</div>
-                         </div>
-                     </div>
+					<div th:replace="fragments/Campagne/Campagne-Statistiques :: Campagne-Statistiques"></div>	
                  </div>	
              </div>
 		</div>
@@ -129,7 +118,8 @@
 <script src="../static/js/moreJSfunctions.js" th:src="@{/js/moreJSfunctions.js}"></script>
 <script src="../static/js/jquery.dataTables.js" th:src="@{/js/jquery.dataTables.js}"></script>
 <script src="../static/js/custom-datatable.js" th:src="@{/js/custom-datatable.js}"></script>
-<script src="../static/js/semantic.js" th:src="@{/js/semantic.js}"></script>
+<script src="../static/js/semantic.min.js" th:src="@{/js/semantic.min.js}"></script>
+<script src="../static/js/custom-validation.js" th:src="@{/js/custom-validation.js}"></script>
 <script src="../static/js/main.js" th:src="@{/js/main.js}"></script>
 </body>
 

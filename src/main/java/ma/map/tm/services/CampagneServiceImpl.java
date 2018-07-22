@@ -47,5 +47,16 @@ public class CampagneServiceImpl implements CampagneService {
 		return campagneTestRepository.findByProjetId(id);
 	}
 
+	@Override
+	public void modifierCampagne(CampagneTest nouvelleCampagne, Long idCampagneParente) {
+		CampagneTest campagneParente = getCampagneById(idCampagneParente);
+		nouvelleCampagne.setId(campagneParente.getId());
+		nouvelleCampagne.setConcepteurTest(campagneParente.getConcepteurTest());
+		nouvelleCampagne.setListeScenario(campagneParente.getListeScenario());
+		nouvelleCampagne.setProjetParent(campagneParente.getProjetParent());
+		
+		addCampagne(nouvelleCampagne);
+	}
+
 
 }

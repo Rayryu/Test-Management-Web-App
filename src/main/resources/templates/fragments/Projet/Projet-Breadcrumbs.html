@@ -1,0 +1,5 @@
+<div class="ui huge breadcrumb" th:fragment="Projet-Breadcrumbs">
+      <a th:href="@{/Projets}" class="section">Mes projets</a>
+      <i class="right angle icon divider"></i>
+      <div class="active section" ><a th:href="@{/Projet/{pathParam}(pathParam=${projetParent.id})}"><span style="color:black;" th:text="${projetParent.nom}"></span></a></div>
+</div>

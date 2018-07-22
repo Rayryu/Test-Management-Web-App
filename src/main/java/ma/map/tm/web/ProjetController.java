@@ -52,6 +52,7 @@ public class ProjetController {
 		model.addAttribute("listeCampagnes", listeCampagnes);
 		model.addAttribute("projetParent", projetParent);
 		model.addAttribute("nouvelleCampagne", nouvelleCampagne);
+		model.addAttribute("nouveauProjet", new Projet());
 		
 		return "Projet";
 	}
@@ -78,5 +79,14 @@ public class ProjetController {
 		utilisateurRepository.save(utilisateurCourant);
 		
 		return new ModelAndView("redirect:/Projet/"+nouveauProjet.getId().toString());
+	}
+	
+	@RequestMapping(value="/EnregistrerProjet/{id}", method=RequestMethod.POST)
+	public ModelAndView EnregistrerProjet(Projet projetParent, Model model, @PathVariable("id") Long id) {
+		
+		projetParent.setId(id);
+		projetService.addProjet(projetParent);
+		
+		return new ModelAndView("redirect:/Projet/"+projetParent.getId().toString());
 	}
 }

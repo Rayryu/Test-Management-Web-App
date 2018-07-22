@@ -1,0 +1,29 @@
+<div class="ui segments" th:fragment="Projet-MesCampagnes">
+	<div class="ui segment">
+		<h5 class="ui header">
+			Campagnes de test du projet : <span th:text="${projetParent.nom}"></span></p>
+		</h5>
+	</div>
+	<div class="ui segment">
+		<table id="data_table" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Titre de la campagne de test</th>
+					<th>Description</th>
+					<th>Projet Parent</th>
+				</tr>
+			</thead>
+			<tbody>              
+				<tr th:each="campagne : ${listeCampagnes}"
+					style="cursor: pointer"
+					th:onclick="'javascript:rowClicked(\'' + ${campagne.id} + '\', \'CampagneDeTest\');'">
+					<td th:text="${campagne.id}"></td>
+					<td th:text="${campagne.nom}"> </td>
+					<td th:text="${campagne.description}"> </td>
+					<td th:text="${campagne.projetParent.nom}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="../static/css/semantic.css" th:href="@{/css/semantic.css}" />
 <link href="../static/css/ionicons.min.css" th:href="@{/css/ionicons.min.css}"  rel="stylesheet" />
 <link href="../static/css/main.css" th:href="@{/css/main.css}"  rel="stylesheet" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <head>
 <meta charset="ISO-8859-1">
 <title>Mes campagnes de test</title>
@@ -12,60 +13,26 @@
 <body>
   <div th:replace="fragments/SideBar :: SideBar"></div>
   <div th:replace="fragments/NavigationBare :: NavigationBar"></div>
-  <div class=" navslide">
+<div class=" navslide">
 	<div class="ui equal width left aligned padded grid stackable">
 		<div class="row">
 			<div class="eight wide column">
-				<div class="ui huge breadcrumb">
-                       <a th:href="@{/Projets}" class="section">Mes projets</a>
-                       <i class="right angle icon divider"></i>
-                       <div class="active section" ><a th:href="@{/Projet/{pathParam}(pathParam=${projetParent.id})}"><span style="color:black;" th:text="${projetParent.nom}"></span></a></div>
-				</div>
+				<div th:replace="fragments/Projet/Projet-Breadcrumbs :: Projet-Breadcrumbs"></div>
 			</div>
         	</div>
     	</div>
-</div>
+	</div>
   <div class="">
 	<div class="mainWrap navslide">
-          <div class="ui equal width left aligned padded grid stackable">
+		<div class="ui equal width left aligned padded grid stackable">
              <div class="row">
                  <div class="sixteen wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Campagnes de test du projet : <span th:text="${projetParent.nom}"></span></p>
-                             </h5>
-                         </div>
-                         <div class="ui segment">
-                             <table id="data_table" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">
-                                 <thead>
-                                     <tr>
-                                         <th>ID</th>
-                                         <th>Titre de la campagne de test</th>
-                                         <th>Description</th>
-                                         <th>Projet Parent</th>
-                                     </tr>
-                                 </thead>
-                                 
-                                 <tbody>
-                                 
-									<tr th:each="campagne : ${listeCampagnes}"
-									style="cursor: pointer"
-     								th:onclick="'javascript:rowClicked(\'' + ${campagne.id} + '\', \'CampagneDeTest\');'">
-										<td th:text="${campagne.id}"></td>
-										<td th:text="${campagne.nom}"> </td>
-										<td th:text="${campagne.description}"> </td>
-										<td th:text="${campagne.projetParent.nom}"></td>
-									</tr>
-								</tbody>
-                             </table>
-                         </div>
-                         <div class="ui segment">
-                         </div>
-                     </div>
-                 </div>
-             </div>
+                     <div th:replace="fragments/Projet/Projet-MesCampagnes :: Projet-MesCampagnes"></div>
+				</div>
+			</div>
 		</div>
+	</div>
+</div>
    </div>
   </div>
   <div class="">
@@ -73,48 +40,10 @@
           <div class="ui equal width left aligned padded grid stackable">
              <div class="row">
                  <div class="eight wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Nouvelle campagne de test	
-                             </h5>
-                         </div>
-                         <div class="ui segment"> 
-                         	<div class="ui sixteen wide column  grid" >
-								<div class="ui ten wide column">
-									<form class="ui form" th:action="@{/AjouterCampagneDeTest}" method="post" th:object="${nouvelleCampagne}">
-									  <div class="field">
-									    <label>Titre de la campagne </label>
-									    <input type="text" th:field="*{nom}" placeholder="Titre de la campagne de test">
-									  </div>
-									  <div class="field">
-									    <label>Description de la campagne de test</label>
-									    <input type="text" th:field="*{description}" placeholder="Description du projet">
-									  </div>
-									  <div class="field">
-									    <label>Projet parent</label>
-									    <input disabled type="text" th:field="*{projetParent.nom}" placeholder="">
-									    <input  type="hidden" th:field="*{projetParent.id}" placeholder="">
-									  </div>
-									  <button class="ui primary button" type="submit">Confirmer</button>
-									</form>
-								</div>
-							</div>
-                         </div>
-                     </div>
+                     <div th:replace="fragments/Projet/Projet-NouveauProjet :: Projet-NouveauProjet"></div>
                  </div>
                  <div class="eight wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Statistiques....
-                             </h5>
-                         </div>
-                         <div class="ui segment"> 
-                         	Statistiques ....
-                         </div>
-                     </div>
-                 </div>	
+                      <div th:replace="fragments/Projet/Projet-Statistiques :: Projet-Statistiques"></div>
              </div>
 		</div>
    </div>
@@ -125,6 +54,8 @@
 <script src="../static/js/moreJSfunctions.js" th:src="@{/js/moreJSfunctions.js}"></script>
 <script src="../static/js/jquery.dataTables.js" th:src="@{/js/jquery.dataTables.js}"></script>
 <script src="../static/js/custom-datatable.js" th:src="@{/js/custom-datatable.js}"></script>
+<script src="../static/js/semantic.min.js" th:src="@{/js/semantic.min.js}"></script>
+<script src="../static/js/custom-validation.js" th:src="@{/js/custom-validation.js}"></script>
 <script src="../static/js/main.js" th:src="@{/js/main.js}"></script>
 </body>
 
