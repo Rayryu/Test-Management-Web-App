@@ -1,0 +1,30 @@
+ <div class="ui segments" th:fragment="Campagne-NouveauScenario">
+                         <div class="ui segment">
+                             <h5 class="ui header">
+                                 Nouveau scenario de test	
+                             </h5>
+                         </div>
+                         <div class="ui segment"> 
+                         	<div class="ui sixteen wide column  grid" >
+								<div class="ui ten wide column">
+									<form class="ui form form1" th:action="@{/AjouterScenarioDeTest}" method="post" th:object="${nouveauScenario}">
+									  <div class="field">
+									    <label>Titre du scenario de test </label>
+									    <input type="text" th:field="*{nom}" placeholder="Titre du scenario de test" name="nom">
+									  </div>
+									  <div class="field">
+									    <label>Description du scenario de test</label>
+									    <input type="text" th:field="*{description}" placeholder="Description du scenario de test" name="description">
+									  </div>
+									  <div class="field">
+									    <label>Campagne de test parente</label>
+									    <input disabled type="text" th:field="*{campagneParent.nom}"  placeholder="Description du scenario de test">
+									  	<input  type="hidden" th:field="*{campagneParent.id}" placeholder="">
+									  </div>
+									  <button class="ui primary button" type="submit">Confirmer</button>
+									  <div class="ui error message"></div>
+									</form>
+								</div>
+							</div>
+                         </div>
+                     </div>

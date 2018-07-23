@@ -13,5 +13,6 @@ public interface ScenarioService {
 	public Scenario getScenarioById(Long id);
 	public List<Scenario> listeScenariosParCampagneId(Long id);
 	public void modifierScenario(Scenario nouveauScenario, Long id_scenarioParent);
+	public void supprimerScenario(Long id_scenarioParent);
 
 }

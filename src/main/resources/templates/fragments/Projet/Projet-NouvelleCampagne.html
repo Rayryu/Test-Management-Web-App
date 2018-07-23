@@ -1,0 +1,30 @@
+<div class="ui segments" th:fragment="Projet-NouvelleCampagne">
+                         <div class="ui segment">
+                             <h5 class="ui header">
+                                 Nouvelle campagne de test	
+                             </h5>
+                         </div>
+                         <div class="ui segment"> 
+                         	<div class="ui sixteen wide column  grid" >
+								<div class="ui ten wide column">
+									<form class="ui form form1" th:action="@{/AjouterCampagneDeTest}" method="post" th:object="${nouvelleCampagne}">
+									  <div class="field">
+									    <label>Titre de la campagne </label>
+									    <input type="text" th:field="*{nom}" placeholder="Titre de la campagne de test" name="nom">
+									  </div>
+									  <div class="field">
+									    <label>Description de la campagne de test</label>
+									    <input type="text" th:field="*{description}" placeholder="Description du projet" name="description">
+									  </div>
+									  <div class="field">
+									    <label>Projet parent</label>
+									    <input disabled type="text" th:field="*{projetParent.nom}" placeholder="">
+									    <input  type="hidden" th:field="*{projetParent.id}" placeholder="">
+									  </div>
+									  <button class="ui primary button" type="submit">Confirmer</button>
+									  <div class="ui error message"></div>
+									</form>
+								</div>
+							</div>
+                         </div>
+                     </div>

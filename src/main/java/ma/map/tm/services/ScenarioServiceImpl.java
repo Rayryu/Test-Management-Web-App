@@ -59,6 +59,12 @@ public class ScenarioServiceImpl implements ScenarioService {
 		
 	}
 
+	@Override
+	public void supprimerScenario(Long id_scenarioParent) {
+		scenarioRepository.delete(getScenarioById(id_scenarioParent));
+		
+	}
+
 	
 
 }

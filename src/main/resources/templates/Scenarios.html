@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="../static/css/semantic.css" th:href="@{/css/semantic.css}" />
 <link href="../static/css/ionicons.min.css" th:href="@{/css/ionicons.min.css}"  rel="stylesheet" />
 <link href="../static/css/main.css" th:href="@{/css/main.css}"  rel="stylesheet" />
-<meta http-equiv="Content-Type" content="text/html;charset=utf8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <head>
 <meta charset="ISO-8859-1">
 <title>Scénarios de test</title>
@@ -17,13 +17,7 @@
 	<div class="ui equal width left aligned padded grid stackable">
 		<div class="row">
 			<div class="eight wide column">
-				<div class="ui huge breadcrumb">
-                       <a th:href="@{/Projets}" class="section">Mes projets</a>
-                       <i class="right angle icon divider"></i>
-                       <a th:href="@{/CampagnesDeTest}" class="section"><span >Toutes les campagnes de test</span></a>
-                       <i class="right angle icon divider"></i>
-                       <div class="active section" ><a th:href="@{/Scenarios}"><span style="color:black;">Tout les scénarios de test</span></a></div>
-				</div>
+				<div th:replace="fragments/Scenarios/Scenarios-Breadcrumbs :: Scenarios-Breadcrumbs"></div>
 			</div>
         	</div>
     	</div>
@@ -33,39 +27,7 @@
           <div class="ui equal width left aligned padded grid stackable">
              <div class="row">
                  <div class="sixteen wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Mes Scenarios de test
-                             </h5>
-                         </div>
-                         <div class="ui segment">
-                             <table id="data_table" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">
-                                 <thead>
-                                     <tr>
-                                         <th>ID</th>
-                                         <th>Titre du scenario</th>
-                                         <th>Description</th>
-                                         <th>Campagne de test Parente</th>
-                                     </tr>
-                                 </thead>
-                                 
-                                 <tbody>
-                                 
-									<tr th:each="scenario : ${listeScenarios}"
-									style="cursor: pointer"
-     								th:onclick="'javascript:rowClicked(\'' + ${scenario.id} + '\', \'Scenario\');'">
-										<td th:text="${scenario.id}"></td>
-										<td th:text="${scenario.nom}"> </td>
-										<td th:text="${scenario.description}"> </td>
-										<td th:text="${scenario.campagneParent.nom}"></td>
-									</tr>
-								</tbody>
-                             </table>
-                         </div>
-                         <div class="ui segment">
-                         </div>
-                     </div>
+					<div th:replace="fragments/Scenarios/Scenarios-MesScenarios :: Scenarios-MesScenarios"></div>
                  </div>
              </div>
 		</div>
@@ -76,122 +38,33 @@
           <div class="ui equal width left aligned padded grid stackable">
              <div class="row">
                  <div class="eight wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Nouveau scenario de test	
-                             </h5>
-                         </div>
-                         <div class="ui segment"> 
-                         	<div class="ui sixteen wide column  grid" >
-								<div class="ui ten wide column">
-									<form class="ui form" th:action="@{AjouterScenarioDeTest}" method="post" th:object="${nouveauScenario}">
-									  <div class="field">
-									    <label>Titre du scenario de test </label>
-									    <input type="text" th:field="*{nom}" placeholder="Titre du scenario de test">
-									  </div>
-									  <div class="field">
-									    <label>Description du scenario de test</label>
-									    <input type="text" th:field="*{description}" placeholder="Description du scenario de test">
-									  </div>
-									  <div class="field">
-									    <label>Campagne de test parente</label>
-									    <select class="ui search dropdown" th:field="*{campagneParent}" id="campagneParent" >
-											  <option  th:each="campagne : ${listeCampagnes}" th:value="${campagne.id}" th:text="${campagne.nom}"></option>
-										</select>
-									  </div>
-									  <button class="ui primary button" type="submit">Confirmer</button>
-									</form>
-								</div>
-							</div>
-                         </div>
-                     </div>
+                 	<div th:replace="fragments/Scenarios/Scenarios-NouveauScenario :: Scenarios-NouveauScenario"></div>
                  </div>
                  <div class="eight wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Statistiques....
-                             </h5>
-                         </div>
-                         <div class="ui segment"> 
-                         	<div class="ui " >
-								Statistiques....
-							</div>
-                         </div>
-                     </div>
+                     <div th:replace="fragments/Scenarios/Scenarios-Statistiques :: Scenarios-Statistiques"></div>
                  </div>	
              </div>
 		</div>
    </div>
   </div>
+  
   <div class="mainWrap navslide">
           <div class="ui equal width left aligned padded grid stackable">
              <div class="row">
                  <div class="sixteen wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Mes Cas de test
-                             </h5>
-                         </div>
-                         <div class="ui segment">
-                             <table id="data_table" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">
-                                 <thead>
-                                     <tr>
-                                         <th>ID</th>
-                                         <th>Description du cas de test</th>
-                                         <th>Type du cas de test</th>
-                                         <th>Priorité</th>
-                                         <th>Préconditions</th>
-                                         <th>Résultat attendu</th>
-                                         <th>Résultat actuel</th>
-                                         <th>Remarques</th>
-                                         <th>Etapes</th>
-                                         <th>Testeur</th>
-                                         <th>Scenario parent</th>
-                                     </tr>
-                                 </thead>
-                                 
-                                 <tbody>
-                                 
-									<tr th:each="casTest : ${listeCasTest}">
-										<td th:text="${casTest.id}"></td>
-										<td th:text="${casTest.description}"> </td>
-										<td th:text="${casTest.typeTest}"> </td>
-										<td th:text="${casTest.priorite}"> </td>
-										<td th:text="${casTest.precondition}"> </td>
-										<td th:text="${casTest.resultatAttendu}"> </td>
-										<td th:text="${casTest.resultatActuel}"> </td>
-										<td th:text="${casTest.remarques}"> </td>
-										<td th:text="${casTest.etapes}"> </td>
-										<td th:text="${casTest.testeur.nom}"> </td>
-										<td th:text="${casTest.scenarioParent.nom}"> </td>
-									</tr>
-								</tbody>
-                             </table>
-                         </div>
-                         <div class="ui segment">
-                         </div>
-                     </div>
+                     <div th:replace="fragments/Scenarios/Scenarios-MesCasDeTest :: Scenarios-MesCasDeTest"></div>
                  </div>
              </div>
 		</div>
    </div>
-   
-   
-
-
-  
 
 <script src="../static/js/jquery-2.1.4.min.js" th:src="@{/js/jquery-2.1.4.min.js}"></script>
 <script src="../static/js/moreJSfunctions.js" th:src="@{/js/moreJSfunctions.js}"></script>
 <script src="../static/js/jquery.dataTables.js" th:src="@{/js/jquery.dataTables.js}"></script>
 <script src="../static/js/custom-datatable.js" th:src="@{/js/custom-datatable.js}"></script>
-<script src="../static/js/semantic.js" th:src="@{/js/semantic.js}"></script>
+<script src="../static/js/semantic.min.js" th:src="@{/js/semantic.min.js}"></script>
+<script src="../static/js/custom-validation.js" th:src="@{/js/custom-validation.js}"></script>
 <script src="../static/js/main.js" th:src="@{/js/main.js}"></script>
 </body>
-
-
 
 </html>

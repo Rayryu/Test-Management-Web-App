@@ -65,6 +65,14 @@ public class ScenarioDeTestController {
 		return new ModelAndView("redirect:/Scenario/"+nouveauScenario.getId().toString());
 	}
 	
+	@RequestMapping(value="/SupprimerScenario/{id}")
+	public ModelAndView supprimerScenarioDeTest(@PathVariable("id") Long id_scenarioParent ) {
+		
+		scenarioService.supprimerScenario(id_scenarioParent);
+		
+		return new ModelAndView("redirect:/Scenarios");
+	}
+	
 	
 	
 }

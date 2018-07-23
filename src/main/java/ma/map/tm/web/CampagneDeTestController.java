@@ -95,6 +95,14 @@ public class CampagneDeTestController {
 		return new ModelAndView("redirect:/CampagneDeTest/"+id.toString());
 	}
 	
+	@RequestMapping(value="/SupprimerCampagne/{id}")
+	public ModelAndView supprimerCampagneDeTest(@PathVariable("id") Long id_campagne) {
+		
+		campagneService.supprimerCampagne(id_campagne);
+		
+		return new ModelAndView("redirect:/CampagnesDeTest");
+	}
+	
 	
 	
 }

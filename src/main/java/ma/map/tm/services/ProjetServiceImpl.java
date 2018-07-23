@@ -35,4 +35,10 @@ public class ProjetServiceImpl implements ProjetService {
 		return projetRepository.getOne(id);
 	}
 
+	@Override
+	public void supprimerProjet(Long id_projet) {
+		Projet projetCourant = getProjetById(id_projet);
+		projetRepository.delete(projetCourant);
+	}
+
 }

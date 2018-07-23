@@ -1,0 +1,9 @@
+				<div class="ui huge breadcrumb" th:fragment="CasDeTests-Breadcrumbs">
+                       <a th:href="@{/Projets}" class="section">Mes projets</a>
+                       <i class="right angle icon divider"></i>
+                       <a th:href="@{/Projet/{pathParam}(pathParam=${projetParent.id})}" class="section"><span th:text="${projetParent.nom}"></span></a>
+                       <i class="right angle icon divider"></i>
+                       <a th:href="@{/CampagneDeTest/{pathParam}(pathParam=${campagneParente.id})}" class="section"><span th:text="${campagneParente.nom}"></span></a>
+                       <i class="right angle icon divider"></i>
+                       <div class="active section" ><a th:href="@{/Scenario/{pathParam}(pathParam=${scenarioParent.id})}"><span style="color:black;" th:text="${scenarioParent.nom}"></span></a></div>
+				</div>

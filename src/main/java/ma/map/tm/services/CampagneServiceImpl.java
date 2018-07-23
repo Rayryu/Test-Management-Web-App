@@ -58,5 +58,10 @@ public class CampagneServiceImpl implements CampagneService {
 		addCampagne(nouvelleCampagne);
 	}
 
+	@Override
+	public void supprimerCampagne(Long id_campagne) {
+		campagneTestRepository.delete(getCampagneById(id_campagne));
+	}
+
 
 }

@@ -8,43 +8,44 @@
                          <div class="ui segment"> 
                          	<div class="ui sixteen wide column  grid" >
 								<div class="ui sixteen wide column">
-									<form class="ui form" th:action="@{/AjouterCasDeTest/{pathParam}(pathParam=${scenarioParent.id})}" method="post" th:object="${nouveauCasDeTest}">
+									<form class="ui form form1" th:action="@{/AjouterCasDeTest/{pathParam}(pathParam=${scenarioParent.id})}" method="post" th:object="${nouveauCasDeTest}">
 									  <div class="two fields">
 										  <div class="field">
 										    <label>Description du cas de test </label>
-										    <input type="text" th:field="*{description}" placeholder="Description du cas de test ">
+										    <input type="text" th:field="*{description}" placeholder="Description du cas de test" name="description">
 										  </div>
 										  <div class="field">
 										    <label>Type du cas de test </label>
-										    <input type="text" th:field="*{typeTest}" placeholder="Description du cas de test ">
+										    <input type="text" th:field="*{typeTest}" placeholder="Type du cas de test" name="typeTest">
 										  </div>
 									  </div>
 									  <div class="two fields">
 										  <div class="field">
 										    <label>Préconditions</label>
-										    <input type="text" th:field="*{precondition}" placeholder="Préconditions">
+										    <input type="text" th:field="*{precondition}" placeholder="Préconditions" name="precondition">
 										  </div>
 										  <div class="field">
 										    <label>Remarques</label>
-										    <input type="text" th:field="*{remarques}" placeholder="Remarques">
+										    <input type="text" th:field="*{remarques}" placeholder="Remarques" >
 										  </div> 
 									  </div>
 									  <div class="field">
 									    <label>Etapes </label>
-									    <textarea rows="3" type="text" th:field="*{etapes}" placeholder="Etapes"> </textarea>
+									    <textarea rows="3" type="text" th:field="*{etapes}" placeholder="Etapes" name="etapes"> </textarea>
 									  </div>
 									  <div class="two fields">
 										  <div class="field">
 										    <label>Résultat attendu </label>
-										    <input type="text" th:field="*{resultatAttendu}" placeholder="Résultat attendu ">
+										    <input type="text" th:field="*{resultatAttendu}" placeholder="Résultat attendu " name="resultatAttendu">
 										  </div>
 										  <div class="field">
 										    <label>Resultat actuel</label>
-										    <input type="text" th:field="*{resultatActuel}" placeholder="Resultat actuel">
+										    <input type="text" th:field="*{resultatActuel}" placeholder="Resultat actuel" name="resultatActuel">
 										  </div>
 									  </div>
 									  
 									  <button class="ui primary button" type="submit">Confirmer</button>
+									   <div class="ui error message"></div>
 									</form>
 								</div>
 							</div>

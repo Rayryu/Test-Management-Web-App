@@ -19,15 +19,7 @@
 	<div class="ui equal width left aligned padded grid stackable">
 		<div class="row">
 			<div class="eight wide column">
-				<div class="ui huge breadcrumb">
-                       <a th:href="@{/Projets}" class="section">Mes projets</a>
-                       <i class="right angle icon divider"></i>
-                       <a th:href="@{/Projet/{pathParam}(pathParam=${projetParent.id})}" class="section"><span th:text="${projetParent.nom}"></span></a>
-                       <i class="right angle icon divider"></i>
-                       <a th:href="@{/CampagneDeTest/{pathParam}(pathParam=${campagneParente.id})}" class="section"><span th:text="${campagneParente.nom}"></span></a>
-                       <i class="right angle icon divider"></i>
-                       <div class="active section" ><a th:href="@{/Scenario/{pathParam}(pathParam=${scenarioParent.id})}"><span style="color:black;" th:text="${scenarioParent.nom}"></span></a></div>
-				</div>
+				 <div th:replace="fragments/CasDeTests/CasDeTests-Breadcrumbs :: CasDeTests-Breadcrumbs"></div>
 			</div>
         	</div>
     	</div>

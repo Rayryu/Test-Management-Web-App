@@ -21,8 +21,9 @@
 						<input type="text" th:field="*{description}" placeholder="Description du projet"	>
 					</div>
                 </div>
-                <div class="ui blue submit button">Enregistrer</div>
-                <div class="ui error message"></div>
+                <center><div class="ui blue positive submit button">Enregistrer</div>
+                <a onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')" th:href="@{/SupprimerCampagne/{pathParam}(pathParam=${campagneParente.id})}"><div class="ui blue negative submit button">Supprimer</div></a>
+                <div class="ui error message"></div></center>
             </form>
 	        <h4 class="ui horizontal divider header">
 	            <i class="bar chart icon"></i>

@@ -4,10 +4,11 @@
 <link rel="stylesheet" type="text/css" href="../static/css/semantic.css" th:href="@{/css/semantic.css}" />
 <link href="../static/css/ionicons.min.css" th:href="@{/css/ionicons.min.css}"  rel="stylesheet" />
 <link href="../static/css/main.css" th:href="@{/css/main.css}"  rel="stylesheet" />
-<meta http-equiv="Content-Type" content="text/html;charset=utf8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 <head>
 <meta charset="ISO-8859-1">
-<title>Scénarios de test de la campagne : </title>
+<title>Scénarios de test de la campagne </title>
 </head>
 
 <body>
@@ -17,13 +18,7 @@
 	<div class="ui equal width left aligned padded grid stackable">
 		<div class="row">
 			<div class="eight wide column">
-				<div class="ui huge breadcrumb">
-                       <a th:href="@{/Projets}" class="section">Mes projets</a>
-                       <i class="right angle icon divider"></i>
-                       <a th:href="@{/Projet/{pathParam}(pathParam=${projetParent.id})}" class="section"><span th:text="${projetParent.nom}"></span></a>
-                       <i class="right angle icon divider"></i>
-                       <div class="active section" ><a th:href="@{/CampagneDeTest/{pathParam}(pathParam=${campagneParente.id})}"><span style="color:black;" th:text="${campagneParente.nom}"></span></a></div>
-				</div>
+				<div th:replace="fragments/Campagne/Campagne-Breadcrumbs :: Campagne-Breadcrumbs"></div>	
 			</div>
         	</div>
     	</div>
@@ -33,39 +28,7 @@
           <div class="ui equal width left aligned padded grid stackable">
              <div class="row">
                  <div class="sixteen wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Scenarios de test de la campagne : <span th:text="${campagneParente.nom}"></span></p>
-                             </h5>
-                         </div>
-                         <div class="ui segment">
-                             <table id="data_table" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">
-                                 <thead>
-                                     <tr>
-                                         <th>ID</th>
-                                         <th>Titre du scenario</th>
-                                         <th>Description</th>
-                                         <th>Campagne de test Parente</th>
-                                     </tr>
-                                 </thead>
-                                 
-                                 <tbody>
-                                 
-									<tr th:each="scenario : ${listeScenarios}"
-									style="cursor: pointer"
-     								th:onclick="'javascript:rowClicked(\'' + ${scenario.id} + '\', \'Scenario\');'">
-										<td th:text="${scenario.id}"></td>
-										<td th:text="${scenario.nom}"> </td>
-										<td th:text="${scenario.description}"> </td>
-										<td th:text="${scenario.campagneParent.nom}"></td>
-									</tr>
-								</tbody>
-                             </table>
-                         </div>
-                         <div class="ui segment">
-                         </div>
-                     </div>
+                     <div th:replace="fragments/Campagne/Campagne-MesScenarios :: Campagne-MesScenarios"></div>	
                  </div>
              </div>
 		</div>
@@ -76,35 +39,7 @@
           <div class="ui equal width left aligned padded grid stackable">
              <div class="row">
                  <div class="eight wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Nouveau scenario de test	
-                             </h5>
-                         </div>
-                         <div class="ui segment"> 
-                         	<div class="ui sixteen wide column  grid" >
-								<div class="ui ten wide column">
-									<form class="ui form" th:action="@{/AjouterScenarioDeTest}" method="post" th:object="${nouveauScenario}">
-									  <div class="field">
-									    <label>Titre du scenario de test </label>
-									    <input type="text" th:field="*{nom}" placeholder="Titre du scenario de test">
-									  </div>
-									  <div class="field">
-									    <label>Description du scenario de test</label>
-									    <input type="text" th:field="*{description}" placeholder="Description du scenario de test">
-									  </div>
-									  <div class="field">
-									    <label>Campagne de test parente</label>
-									    <input disabled type="text" th:field="*{campagneParent.nom}" placeholder="Description du scenario de test">
-									  	<input  type="hidden" th:field="*{campagneParent.id}" placeholder="">
-									  </div>
-									  <button class="ui primary button" type="submit">Confirmer</button>
-									</form>
-								</div>
-							</div>
-                         </div>
-                     </div>
+                    <div th:replace="fragments/Campagne/Campagne-NouveauScenario :: Campagne-NouveauScenario"></div>	
                  </div>
                  <div class="eight wide column">
 					<div th:replace="fragments/Campagne/Campagne-Statistiques :: Campagne-Statistiques"></div>	

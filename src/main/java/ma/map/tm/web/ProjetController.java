@@ -89,4 +89,12 @@ public class ProjetController {
 		
 		return new ModelAndView("redirect:/Projet/"+projetParent.getId().toString());
 	}
+	
+	@RequestMapping(value="/SupprimerProjet/{id}")
+	public ModelAndView SupprimerProjet(Model model, @PathVariable("id") Long id_projet) {
+		
+		projetService.supprimerProjet(id_projet);
+		
+		return new ModelAndView("redirect:/Projets");
+	}
 }

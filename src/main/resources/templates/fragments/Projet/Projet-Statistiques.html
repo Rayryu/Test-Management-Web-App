@@ -14,14 +14,17 @@
                 <div class="two fields">
                     <div class="field">
                         <label>Titre du projet</label>
-                        <input th:field="*{nom}"  name="nom" type="text">
+                        <input th:field="*{nom}"  name="nom" type="text" placeholder="Titre du projet">
                     </div>
                     <div class="field">
 						<label>Description du projet</label>
-						<input type="text" th:field="*{description}" placeholder="Description du projet">
+						<input type="text" th:field="*{description}" placeholder="Description du projet" name="description">
 					</div>
                 </div>
-                <div class="ui blue submit button">Enregistrer</div>
+                <center>
+                <input type="hidden" name="supprimer">
+                <div class="ui blue positive submit button">Enregistrer</div>
+                <a onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')" th:href="@{/SupprimerProjet/{pathParam}(pathParam=${projetParent.id})}"><div class="ui blue negative submit button">Supprimer</div></a>
                 <div class="ui error message"></div>
             </form>
 	        <h4 class="ui horizontal divider header">

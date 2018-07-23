@@ -1,0 +1,33 @@
+                     <div class="ui segments" th:fragment="Scenarios-MesScenarios">
+                         <div class="ui segment">
+                             <h5 class="ui header">
+                                 Mes Scenarios de test
+                             </h5>
+                         </div>
+                         <div class="ui segment">
+                             <table id="data_table" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">
+                                 <thead>
+                                     <tr>
+                                         <th>ID</th>
+                                         <th>Titre du scenario</th>
+                                         <th>Description</th>
+                                         <th>Campagne de test Parente</th>
+                                     </tr>
+                                 </thead>
+                                 
+                                 <tbody>
+                                 
+									<tr th:each="scenario : ${listeScenarios}"
+									style="cursor: pointer"
+     								th:onclick="'javascript:rowClicked(\'' + ${scenario.id} + '\', \'Scenario\');'">
+										<td th:text="${scenario.id}"></td>
+										<td th:text="${scenario.nom}"> </td>
+										<td th:text="${scenario.description}"> </td>
+										<td th:text="${scenario.campagneParent.nom}"></td>
+									</tr>
+								</tbody>
+                             </table>
+                         </div>
+                         <div class="ui segment">
+                         </div>
+                     </div>

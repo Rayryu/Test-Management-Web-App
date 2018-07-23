@@ -10,5 +10,6 @@ public interface ProjetService {
 	public List<Projet> listeProjets();
 	public List<Projet> listeProjetsParUtilisateur(Utilisateur u);
 	public Projet getProjetById(Long id);
+	public void supprimerProjet(Long id_projet);
 	
 }
