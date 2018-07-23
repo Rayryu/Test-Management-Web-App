@@ -48,6 +48,17 @@ public class ScenarioServiceImpl implements ScenarioService {
 		return scenarioRepository.findByCampagneId(id);
 	}
 
+	@Override
+	public void modifierScenario(Scenario nouveauScenario, Long id_scenarioParent) {
+		Scenario scenarioParent = getScenarioById(id_scenarioParent);
+		nouveauScenario.setId(id_scenarioParent);
+		nouveauScenario.setCampagneParent(scenarioParent.getCampagne());
+		nouveauScenario.setListeCasTests(scenarioParent.getListeCasTests());
+		
+		addScenario(nouveauScenario);
+		
+	}
+
 	
 
 }

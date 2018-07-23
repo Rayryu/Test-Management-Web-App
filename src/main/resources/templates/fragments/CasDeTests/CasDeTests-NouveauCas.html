@@ -1,0 +1,52 @@
+<meta http-equiv="Content-Type" content="text/html;charset=utf8" />
+<div class="ui segments" th:fragment="CasDeTests-NouveauCas">
+                         <div class="ui segment">
+                             <h5 class="ui header">
+                                 Nouveau cas de test 	
+                             </h5>
+                         </div>
+                         <div class="ui segment"> 
+                         	<div class="ui sixteen wide column  grid" >
+								<div class="ui sixteen wide column">
+									<form class="ui form" th:action="@{/AjouterCasDeTest/{pathParam}(pathParam=${scenarioParent.id})}" method="post" th:object="${nouveauCasDeTest}">
+									  <div class="two fields">
+										  <div class="field">
+										    <label>Description du cas de test </label>
+										    <input type="text" th:field="*{description}" placeholder="Description du cas de test ">
+										  </div>
+										  <div class="field">
+										    <label>Type du cas de test </label>
+										    <input type="text" th:field="*{typeTest}" placeholder="Description du cas de test ">
+										  </div>
+									  </div>
+									  <div class="two fields">
+										  <div class="field">
+										    <label>Préconditions</label>
+										    <input type="text" th:field="*{precondition}" placeholder="Préconditions">
+										  </div>
+										  <div class="field">
+										    <label>Remarques</label>
+										    <input type="text" th:field="*{remarques}" placeholder="Remarques">
+										  </div> 
+									  </div>
+									  <div class="field">
+									    <label>Etapes </label>
+									    <textarea rows="3" type="text" th:field="*{etapes}" placeholder="Etapes"> </textarea>
+									  </div>
+									  <div class="two fields">
+										  <div class="field">
+										    <label>Résultat attendu </label>
+										    <input type="text" th:field="*{resultatAttendu}" placeholder="Résultat attendu ">
+										  </div>
+										  <div class="field">
+										    <label>Resultat actuel</label>
+										    <input type="text" th:field="*{resultatActuel}" placeholder="Resultat actuel">
+										  </div>
+									  </div>
+									  
+									  <button class="ui primary button" type="submit">Confirmer</button>
+									</form>
+								</div>
+							</div>
+                         </div>
+                     </div>

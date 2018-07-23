@@ -57,6 +57,14 @@ public class ScenarioDeTestController {
 		return new ModelAndView("redirect:/Scenario/"+nouveauScenario.getId().toString());
 	}
 	
+	@RequestMapping(value="/ModifierScenarioDeTest/{id}", method=RequestMethod.POST)
+	public ModelAndView modifierScenarioDeTest(Model model, Scenario nouveauScenario, @PathVariable("id") Long id_scenarioParent ) {
+		
+		scenarioService.modifierScenario(nouveauScenario, id_scenarioParent);
+		
+		return new ModelAndView("redirect:/Scenario/"+nouveauScenario.getId().toString());
+	}
+	
 	
 	
 }

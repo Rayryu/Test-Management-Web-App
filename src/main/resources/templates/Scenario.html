@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html;charset=utf8" />
 <link rel="icon" href="../static/img/favicon.ico" th:href="@{/img/favicon.ico}" />
 <link rel="stylesheet" type="text/css" href="../static/css/semantic.css" th:href="@{/css/semantic.css}" />
 <link href="../static/css/ionicons.min.css" th:href="@{/css/ionicons.min.css}"  rel="stylesheet" />
 <link href="../static/css/main.css" th:href="@{/css/main.css}"  rel="stylesheet" />
-<meta http-equiv="Content-Type" content="text/html;charset=utf8" />
+
 <head>
 <meta charset="ISO-8859-1">
 <title>Cas de test - Détails</title>
@@ -31,129 +32,36 @@
         	</div>
     	</div>
 </div>
-
-  
    <div class="">
+    <div class="mainWrap navslide">
+          <div class="ui equal width left aligned padded grid stackable">
+             <div class="row">
+                 <div class="eight wide column">
+                     <div th:replace="fragments/CasDeTests/CasDeTests-NouveauCas :: CasDeTests-NouveauCas"></div>
+                 </div>
+				 <div class="eight wide column">
+                      <div th:replace="fragments/CasDeTests/CasDeTests-Statistiques :: CasDeTests-Statistiques"></div>
+                 </div>
+             </div>
+		</div>
+   </div>
    <div class="mainWrap navslide">
           <div class="ui equal width left aligned padded grid stackable">
              <div class="row">
                  <div class="sixteen wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 <p> Cas de tests du scénario : <span th:text="${scenarioParent.nom}"></span></p>
-                             </h5>
-                         </div>
-                         <div class="ui segment">
-                             <table id="data_table" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">
-                                 <thead>
-                                     <tr>
-                                         <th>ID</th>
-                                         <th>Description du cas de test</th>
-                                         <th>Type du cas de test</th>
-                                         <th>Priorité</th>
-                                         <th>Préconditions</th>
-                                         <th>Résultat attendu</th>
-                                         <th>Résultat actuel</th>
-                                         <th>Remarques</th>
-                                         <th>Etapes</th>
-                                         <th>Testeur</th>
-                                         <th>Scenario parent</th>
-                                     </tr>
-                                 </thead>
-                                 
-                                 <tbody>
-                                 
-									<tr th:each="casTest : ${listeDesCas}">
-										<td th:text="${casTest.id}"></td>
-										<td th:text="${casTest.description}"> </td>
-										<td th:text="${casTest.typeTest}"> </td>
-										<td th:text="${casTest.priorite}"> </td>
-										<td th:text="${casTest.precondition}"> </td>
-										<td th:text="${casTest.resultatAttendu}"> </td>
-										<td th:text="${casTest.resultatActuel}"> </td>
-										<td th:text="${casTest.remarques}"> </td>
-										<td th:text="${casTest.etapes}"> </td>
-										<td th:text="${casTest.testeur.nom}"> </td>
-										<td th:text="${casTest.scenarioParent.nom}"> </td>
-									</tr>
-								</tbody>
-                             </table>
-                         </div>
-                         <div class="ui segment">
-                         </div>
-                     </div>
+                     <div th:replace="fragments/CasDeTests/CasDeTests-MesCas :: CasDeTests-MesCas"></div>
                  </div>
              </div>
 		</div>
    </div>
-   <div class="mainWrap navslide">
-          <div class="ui equal width left aligned padded grid stackable">
-             <div class="row">
-                 <div class="eight wide column">
-                     <div class="ui segments">
-                         <div class="ui segment">
-                             <h5 class="ui header">
-                                 Nouveau cas de test 	
-                             </h5>
-                         </div>
-                         <div class="ui segment"> 
-                         	<div class="ui sixteen wide column  grid" >
-								<div class="ui ten wide column">
-									<form class="ui form" th:action="@{/AjouterCasDeTest/{pathParam}(pathParam=${scenarioParent.id})}" method="post" th:object="${nouveauCasDeTest}">
-									  <div class="field">
-									    <label>Description du cas de test </label>
-									    <input type="text" th:field="*{description}" placeholder="Description du cas de test ">
-									  </div>
-									  <div class="field">
-									    <label>Type du cas de test </label>
-									    <input type="text" th:field="*{typeTest}" placeholder="Description du cas de test ">
-									  </div>
-									  <div class="field">
-									    <label>Préconditions</label>
-									    <input type="text" th:field="*{precondition}" placeholder="Préconditions">
-									  </div>
-									  <div class="field">
-									    <label>Résultat attendu </label>
-									    <input type="text" th:field="*{resultatAttendu}" placeholder="Résultat attendu ">
-									  </div>
-									  <div class="field">
-									    <label>Resultat actuel</label>
-									    <input type="text" th:field="*{resultatActuel}" placeholder="Resultat actuel">
-									  </div>
-									  <div class="field">
-									    <label>Remarques</label>
-									    <input type="text" th:field="*{remarques}" placeholder="Remarques">
-									  </div>
-									  <div class="field">
-									    <label>Etapes </label>
-									    <input type="text" th:field="*{etapes}" placeholder="Etapes">
-									  </div>
-									  
-									  <button class="ui primary button" type="submit">Confirmer</button>
-									</form>
-								</div>
-							</div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-		</div>
-   </div>
-	
   </div>
-  
-   
-   
-
-
-  
 
 <script src="../static/js/jquery-2.1.4.min.js" th:src="@{/js/jquery-2.1.4.min.js}"></script>
 <script src="../static/js/moreJSfunctions.js" th:src="@{/js/moreJSfunctions.js}"></script>
 <script src="../static/js/jquery.dataTables.js" th:src="@{/js/jquery.dataTables.js}"></script>
 <script src="../static/js/custom-datatable.js" th:src="@{/js/custom-datatable.js}"></script>
 <script src="../static/js/semantic.js" th:src="@{/js/semantic.js}"></script>
+<script src="../static/js/custom-validation.js" th:src="@{/js/custom-validation.js}"></script>
 <script src="../static/js/main.js" th:src="@{/js/main.js}"></script>
 </body>
 

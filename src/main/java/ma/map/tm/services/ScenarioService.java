@@ -12,5 +12,6 @@ public interface ScenarioService {
 	public List<Scenario> listeScenarioTestParUtilisateur(Utilisateur u);
 	public Scenario getScenarioById(Long id);
 	public List<Scenario> listeScenariosParCampagneId(Long id);
+	public void modifierScenario(Scenario nouveauScenario, Long id_scenarioParent);
 
 }

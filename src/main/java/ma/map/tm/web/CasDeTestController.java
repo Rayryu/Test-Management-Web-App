@@ -50,6 +50,8 @@ public class CasDeTestController {
 		model.addAttribute("projetParent", projetParent);
 		model.addAttribute("listeDesCas", listeDesCas);
 		model.addAttribute("nouveauCasDeTest", new CasTest());
+		model.addAttribute("nouveauScenario", new Scenario());
+		
 		
 		return "Scenario";
 	}
