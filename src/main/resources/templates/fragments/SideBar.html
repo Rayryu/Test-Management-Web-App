@@ -1,3 +1,4 @@
+ <meta http-equiv="Content-Type" content="text/html;charset=utf8" />
  <div class="ui sidebar vertical left menu overlay  borderless visible sidemenu inverted  grey" style="-webkit-transition-duration: 0.1s; transition-duration: 0.1s;" data-color="grey" th:fragment="SideBar">
 	<a class="item logo">
 	    <img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="stagblogo" />
@@ -16,10 +17,10 @@
     </a>
     <div class="ui divider"></div>
     <a class="item" th:href="@{/Scenarios}">
-        <i class="ion-code icon"></i> <span class="colhidden">Cas de test</span>
+        <i class="ion-code icon"></i> <span class="colhidden">Scénarios de test</span>
     </a>
     <div class="ui divider"></div>
-    <a class="item">
+    <a class="item" th:href="@{/Execution}">
         <i class="ion-code icon"></i> <span class="colhidden">Executer un test</span>
     </a>
     <div class="ui divider"></div>

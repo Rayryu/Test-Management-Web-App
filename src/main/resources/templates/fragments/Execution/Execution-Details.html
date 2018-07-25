@@ -1,5 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf8" />
-<div class="ui segments" th:fragment="SelectedCasDeTests-ModifierCas">
+<div class="ui segments" th:fragment="Execution-Details">
                          <div class="ui segment">
                              <h5 class="ui header">
                                  Modifier le cas de test 	
@@ -8,15 +8,15 @@
                          <div class="ui segment"> 
                          	<div class="ui sixteen wide column  grid" >
 								<div class="ui sixteen wide column">
-									<form class="ui form form1" th:action="@{/ModifierCasDeTest/{pathParam}(pathParam=${casTestCourant.id})}" method="post" th:object="${casTestCourant}">
+									<form class="ui form form1" th:object="${casTestCourant}">
 									  <div class="two fields">
 										  <div class="field">
 										    <label>Description du cas de test </label>
-										    <input type="text" th:field="*{description}" placeholder="Description du cas de test" name="description">
+										    <input disabled type="text" th:field="*{description}" placeholder="Description du cas de test" name="description">
 										  </div>
 										  <div class="field">
 										    <label>Type du cas de test </label>
-										    <select class="ui search dropdown" th:field="*{typeTest}" id="typeTest" >
+										    <select disabled class="ui search dropdown" th:field="*{typeTest}" id="typeTest" >
 											  <option  th:each="typeTest : ${listetypeTest}" th:value="${typeTest}" th:text="${typeTest}"></option>
 											</select>
 										  </div>
@@ -24,36 +24,31 @@
 									  <div class="two fields">
 										  <div class="field">
 										    <label>Préconditions</label>
-										    <input type="text" th:field="*{precondition}" placeholder="Préconditions" name="precondition">
+										    <input disabled type="text" th:field="*{precondition}" placeholder="Préconditions" name="precondition">
 										  </div>
 										  <div class="field">
 										    <label>Priorité du cas de test </label>
-										    <select class="ui search dropdown" th:field="*{priorite}" id="priorite" >
-											  <option  th:each="priorite : ${listePriorite}" th:value="${priorite}" th:text="${priorite}"></option>
+										    <select disabled class="ui search dropdown" th:field="*{priorite}" id="priorite" >
+											  <option   th:each="priorite : ${listePriorite}" th:value="${priorite}" th:text="${priorite}"></option>
 											</select>
 										  </div>
 										  
 									  </div>
 									  <div class="field">
 									    <label>Etapes </label>
-									    <textarea rows="3" type="text" th:field="*{etapes}" placeholder="Etapes" name="etapes"> </textarea>
+									    <textarea rows="5" type="text" th:field="*{etapes}" placeholder="Etapes" name="etapes"> </textarea>
 									  </div>
 									  <div class="two fields">
 										  <div class="field">
 										    <label>Résultat attendu </label>
-										    <input type="text" th:field="*{resultatAttendu}" placeholder="Résultat attendu " name="resultatAttendu">
+										    <input disabled type="text" th:field="*{resultatAttendu}" placeholder="Résultat attendu " name="resultatAttendu">
 										  </div>
 										  <div class="field">
 										    <label>Remarques</label>
-										    <input type="text" th:field="*{remarques}" placeholder="Remarques" >
+										    <input disabled type="text" th:field="*{remarques}" placeholder="Remarques" >
 										  </div> 
 										  
 									  </div>
-									  
-									  <button class="ui primary positive button submit" type="submit">Enregistrer </button>
-									  <a onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')" th:href="@{/SupprimerCasTest/{pathParam}(pathParam=${casTestCourant.id})}"><div class="ui blue negative button">Supprimer</div></a>
-									  <div class="ui error message"></div>
-									  <a th:href="@{/ExecuterCasDeTest/{pathParam}(pathParam=${casTestCourant.id})}"><div class="ui yellow button">Executer</div></a>
 									</form>
 								</div>
 							</div>

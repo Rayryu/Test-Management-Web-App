@@ -1,8 +1,8 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf8" />
-<div class="ui segments" th:fragment="CasDeTests-MesCas">
+<div class="ui segments" th:fragment="Execution-MesCas">
                          <div class="ui segment">
                              <h5 class="ui header">
-                                 <p> Cas de tests du scénario : <span th:text="${scenarioParent.nom}"></span></p>
+                                 <p> Cas de test</span></p>
                              </h5>
                          </div>
                          <div class="ui segment">
@@ -14,26 +14,30 @@
                                          <th>Type du cas de test</th>
                                          <th>Priorité</th>
                                          <th>Préconditions</th>
-                                         <th>Résultat attendu</th>
                                          <th>Remarques</th>
                                          <th>Etapes</th>
                                          <th>Scenario parent</th>
+                                         <th>Résultat attendu</th>
+                                         <th>Résultat obtenu</th>
+                                         <th>Status</th>
                                      </tr>
                                  </thead>
                                  
                                  <tbody>
                                  <tr th:each="casTest : ${listeDesCas}" 
 									style="cursor: pointer"
-     								th:onclick="'javascript:rowClicked(\'' + ${casTest.id} + '\', \'SelectedCasTest\');'">
+     								th:onclick="'javascript:rowClicked(\'' + ${casTest.id} + '\', \'ExecuterCasDeTest\');'">
 										<td th:text="${casTest.id}"></td>
 										<td th:text="${casTest.description}"> </td>
 										<td th:text="${casTest.typeTest}"> </td>
 										<td th:text="${casTest.priorite}"> </td>
 										<td th:text="${casTest.precondition}"> </td>
-										<td th:text="${casTest.resultatAttendu}"> </td>
 										<td th:text="${casTest.remarques}"> </td>
 										<td th:text="${casTest.etapes}"> </td>
 										<td th:text="${casTest.scenarioParent.nom}"> </td>
+										<td th:text="${casTest.resultatAttendu}"> </td>
+										<td th:text="${casTest.resultatActuel}"> </td>
+										<td th:text="${casTest.statut}"> </td>
 									</tr>
 								</tbody>
                              </table>

@@ -24,6 +24,8 @@ public class CasTest implements Serializable{
 	private String resultatActuel;
 	private String remarques;
 	private String etapes;
+	private String commentaire;
+	private String statut;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="testeur_id")
 	private Utilisateur testeur;
@@ -150,6 +152,22 @@ public class CasTest implements Serializable{
 
 	public void setScenarioParent(Scenario scenarioParent) {
 		this.scenarioParent = scenarioParent;
+	}
+
+	public String getCommentaire() {
+		return commentaire;
+	}
+
+	public void setCommentaire(String commentaire) {
+		this.commentaire = commentaire;
+	}
+
+	public String getStatut() {
+		return statut;
+	}
+
+	public void setStatut(String statut) {
+		this.statut = statut;
 	}
 
 

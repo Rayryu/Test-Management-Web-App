@@ -18,14 +18,14 @@
                                          <th>Résultat actuel</th>
                                          <th>Remarques</th>
                                          <th>Etapes</th>
-                                         <th>Testeur</th>
                                          <th>Scenario parent</th>
                                      </tr>
                                  </thead>
                                  
                                  <tbody>
-                                 
-									<tr th:each="casTest : ${listeCasTest}">
+                                 	 <tr th:each="casTest : ${listeCasTest}" 
+									style="cursor: pointer"
+     								th:onclick="'javascript:rowClicked(\'' + ${casTest.id} + '\', \'SelectedCasTest\');'">
 										<td th:text="${casTest.id}"></td>
 										<td th:text="${casTest.description}"> </td>
 										<td th:text="${casTest.typeTest}"> </td>
@@ -35,7 +35,6 @@
 										<td th:text="${casTest.resultatActuel}"> </td>
 										<td th:text="${casTest.remarques}"> </td>
 										<td th:text="${casTest.etapes}"> </td>
-										<td th:text="${casTest.testeur.nom}"> </td>
 										<td th:text="${casTest.scenarioParent.nom}"> </td>
 									</tr>
 								</tbody>

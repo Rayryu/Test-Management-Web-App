@@ -67,6 +67,17 @@ public class CasTestServiceImpl implements CasTestService {
 		casTestRepository.delete(getCasTestById(idCasTest));
 		
 	}
+
+	@Override
+	public void ajouterResultat(Long idCasDeTest, CasTest casTestCourant) {
+		CasTest cas = casTestRepository.getOne(idCasDeTest);
+		cas.setCommentaire(casTestCourant.getCommentaire());
+		cas.setStatut(casTestCourant.getStatut());
+		cas.setResultatActuel(casTestCourant.getResultatActuel());
+		
+		casTestRepository.save(cas);
+		
+	}
 	
 
 }
