@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ma.map.tm.dao.CasTestRepository;
-import ma.map.tm.entities.CampagneTest;
 import ma.map.tm.entities.CasTest;
 import ma.map.tm.entities.Scenario;
 import ma.map.tm.entities.Utilisateur;
@@ -48,6 +47,25 @@ public class CasTestServiceImpl implements CasTestService {
 	public List<CasTest> listeCasTestParScenario(Scenario s) {
 		
 		return casTestRepository.findByScenarioId(s.getId());
+	}
+
+	@Override
+	public void modifierCasTest(CasTest casTestCourant, Long idCasTest) {
+		CasTest cas = casTestRepository.getOne(idCasTest);
+		casTestCourant.setId(idCasTest);
+		casTestCourant.setScenarioParent(cas.getScenario());
+		casTestCourant.setTesteur(cas.getTesteur());
+		
+		
+		casTestRepository.save(casTestCourant);
+		
+	}
+
+	@Override
+	public void supprimerCasTest(Long idCasTest) {
+		
+		casTestRepository.delete(getCasTestById(idCasTest));
+		
 	}
 	
 

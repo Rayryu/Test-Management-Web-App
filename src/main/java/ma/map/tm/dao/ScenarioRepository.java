@@ -15,4 +15,7 @@ public interface ScenarioRepository extends JpaRepository<Scenario, Long> {
 	@Query("SELECT s FROM Scenario s JOIN s.campagneParent c where c.id = :x")
 	public List<Scenario> findByCampagneId(@Param("x")Long id_campagne);
 
+	@Query("SELECT c.scenarioParent FROM CasTest c where c.id = :x")
+	public Scenario findByCasId(@Param("x")Long id_cas);
+
 }

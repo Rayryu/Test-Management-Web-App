@@ -1,5 +1,6 @@
 package ma.map.tm.web;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,12 +46,31 @@ public class CasDeTestController {
 		CampagneTest campagneParente = campagneService.getCampagneById(scenarioParent.getCampagne().getId());
 		Projet projetParent  = projetService.getProjetById(campagneParente.getProjetParent().getId());
 		
+		// a revoir-----------------------------
+		List<String> listetypeTest = new ArrayList<String>();
+		listetypeTest.add("Test Fonctionnel");
+		listetypeTest.add("Test Unitaire");
+		listetypeTest.add("Test de Regression");
+		
+		List<String> listePriorite = new ArrayList<String>();
+		listePriorite.add("Faible");
+		listePriorite.add("Moyenne");
+		listePriorite.add("Haute");
+		
+		model.addAttribute("listetypeTest", listetypeTest);
+		model.addAttribute("listePriorite", listePriorite);
+		//--------------------------------
+		
+		
 		model.addAttribute("campagneParente", campagneParente);
 		model.addAttribute("scenarioParent", scenarioParent);
 		model.addAttribute("projetParent", projetParent);
 		model.addAttribute("listeDesCas", listeDesCas);
+		
 		model.addAttribute("nouveauCasDeTest", new CasTest());
 		model.addAttribute("nouveauScenario", new Scenario());
+		
+		
 		
 		
 		return "Scenario";
@@ -66,7 +86,7 @@ public class CasDeTestController {
 				
 		
 		nouveauCasDeTest.setTesteur(currentUser);
-		nouveauCasDeTest.setPriorite(1);
+		nouveauCasDeTest.setPriorite("Moyenne");
 		Scenario scenarioParent = scenarioService.getScenarioById(id_scenarioParent);
 		nouveauCasDeTest.setScenario(scenarioParent);
 		
@@ -75,6 +95,56 @@ public class CasDeTestController {
 		casTestService.addCasDeTest(nouveauCasDeTest);
 
 		return new ModelAndView("redirect:/Scenario/"+id_scenarioParent.toString());
+	}
+	
+	@RequestMapping("/SelectedCasTest/{id}")
+	public String selectedCasTest(Model model, @PathVariable("id") Long id_casTest) {
+		
+		Scenario scenarioParent = scenarioService.getScenarioByCasTestId(id_casTest);
+		CampagneTest campagneParente = campagneService.getCampagneById(scenarioParent.getCampagne().getId());
+		Projet projetParent  = projetService.getProjetById(campagneParente.getProjetParent().getId());
+		CasTest casTestCourant = casTestService.getCasTestById(id_casTest);
+		casTestCourant.setScenario(scenarioParent);
+
+		
+		// a revoir-----------------------------
+		List<String> listetypeTest = new ArrayList<String>();
+		listetypeTest.add("Test Fonctionnel");
+		listetypeTest.add("Test Unitaire");
+		listetypeTest.add("Test de Regression");
+		
+		List<String> listePriorite = new ArrayList<String>();
+		listePriorite.add("Faible");
+		listePriorite.add("Moyenne");
+		listePriorite.add("Haute");
+		
+		model.addAttribute("listetypeTest", listetypeTest);
+		model.addAttribute("listePriorite", listePriorite);
+		//--------------------------------
+		
+		model.addAttribute("campagneParente", campagneParente);
+		model.addAttribute("scenarioParent", scenarioParent);
+		model.addAttribute("projetParent", projetParent);
+		model.addAttribute("casTestCourant", casTestCourant);
+		
+		return "SelectedCasDeTests";
+	}
+	
+	@RequestMapping("/ModifierCasDeTest/{id}")
+	public ModelAndView modifierCasTest(@PathVariable("id") Long idCasTest, CasTest casTestCourant) {
+		
+		casTestService.modifierCasTest(casTestCourant, idCasTest);
+		
+		return new ModelAndView("redirect:/Scenario/"+casTestCourant.getScenario().getId().toString());
+	}
+	
+	@RequestMapping("/SupprimerCasTest/{id}")
+	public ModelAndView supprimerCasTest(@PathVariable("id") Long idCasTest) {
+		CasTest casTestCourant = casTestService.getCasTestById(idCasTest);
+		
+		casTestService.supprimerCasTest(idCasTest);
+		
+		return new ModelAndView("redirect:/Scenario/"+casTestCourant.getScenario().getId().toString());
 	}
 	
 }

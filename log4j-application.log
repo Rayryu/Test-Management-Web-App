@@ -3410,3 +3410,305 @@ Persistance des données : fin
 2018-07-23 11:36:30 INFO  TestManagementApplication:54 - Création des objets : fin
 2018-07-23 11:36:30 INFO  TestManagementApplication:89 - Persistance des données : début
 2018-07-23 11:36:30 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-23 12:53:02 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-23 12:53:02 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-23 12:53:02 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-23 12:53:02 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-23 12:53:02 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 11:28:54 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 11:28:54 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 11:28:54 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 11:28:54 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 11:28:54 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:12:25 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:12:25 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:13:11 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:13:11 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:13:11 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:13:11 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:13:12 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:14:24 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:14:24 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:14:24 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:14:24 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:14:24 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:21:06 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:21:06 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:21:06 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:21:06 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:21:06 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:23:16 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:23:16 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:23:16 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:23:16 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:23:16 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:27:16 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:27:16 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:27:16 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:27:16 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:27:16 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:28:34 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:28:34 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:28:34 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:28:34 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:28:34 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:29:21 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:29:21 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:29:21 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:29:21 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:29:21 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:29:46 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:29:46 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:29:46 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:29:46 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:29:46 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:29:50 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:29:50 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:29:50 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:29:50 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:29:50 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:29:54 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:29:54 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:29:54 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:29:54 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:29:54 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:33:52 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:33:52 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:33:52 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:33:52 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:33:53 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:34:06 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:34:06 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:34:06 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:34:06 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:34:07 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:36:39 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:36:39 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:36:39 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:36:39 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:36:40 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:36:53 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:36:53 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:36:53 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:36:53 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:36:53 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:45:19 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:45:19 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:45:19 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:45:19 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:45:19 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:47:23 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:47:23 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:47:23 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:47:23 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:47:23 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:54:02 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:54:02 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:54:02 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:54:02 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:54:02 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:54:24 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:54:24 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:54:24 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:54:24 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:54:24 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:54:31 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:54:31 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:54:31 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:54:31 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:54:32 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:56:35 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:56:35 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:56:35 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:56:35 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:56:35 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:56:50 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:56:50 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:56:50 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:56:50 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:56:50 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:57:17 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:57:17 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:57:17 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:57:17 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:57:17 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:57:21 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:57:21 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:57:21 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:57:21 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:57:21 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 12:58:46 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 12:58:46 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 12:58:46 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 12:58:46 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 12:58:46 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:00:57 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:00:57 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:00:57 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:00:57 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:00:57 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:01:04 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:01:04 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:01:04 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:01:04 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:01:04 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:01:28 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:01:28 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:01:28 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:01:28 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:01:28 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:01:32 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:01:32 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:01:32 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:01:32 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:01:32 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:01:43 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:01:43 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:01:43 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:01:43 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:01:43 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:02:24 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:02:24 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:02:24 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:02:24 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:02:24 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:02:33 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:02:33 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:02:33 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:02:33 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:02:33 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:03:48 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:03:48 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:03:48 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:03:48 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:03:48 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:03:56 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:03:56 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:03:56 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:03:56 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:03:57 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:04:30 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:04:30 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:04:30 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:04:30 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:04:30 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:05:15 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:05:15 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:05:15 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:05:15 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:05:16 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:05:29 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:05:29 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:05:29 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:05:29 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:05:29 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:08:23 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:08:23 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:08:23 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:08:23 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:08:23 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:10:01 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:10:01 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:10:01 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:10:01 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:10:02 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:11:00 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:11:00 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:11:00 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:11:00 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:11:00 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:14:15 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:14:15 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:14:15 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:14:15 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:14:15 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:14:21 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:14:21 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:14:21 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:14:21 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:14:21 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:16:06 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:16:06 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:16:06 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:16:06 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:16:07 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:17:38 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:17:38 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:17:38 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:17:38 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:17:39 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:21:58 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:21:58 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:21:58 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:21:58 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:21:58 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:25:18 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:25:18 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:25:18 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:25:18 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:25:19 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:27:55 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:27:55 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:27:55 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:27:55 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:27:55 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:29:20 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:29:20 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:29:20 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:29:20 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:29:21 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:29:29 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:29:29 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:29:29 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:29:29 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:29:30 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:31:11 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:31:11 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:31:11 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:31:11 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:31:11 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:48:43 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:48:43 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:48:43 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:48:43 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:48:43 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:49:44 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:49:44 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:49:44 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:49:44 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:49:44 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:50:05 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:50:05 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:50:05 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:50:05 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:50:05 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:50:14 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:50:14 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:50:14 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:50:14 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:50:14 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:52:47 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:52:47 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:52:47 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:52:47 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:52:47 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:53:14 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:53:14 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:53:14 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:53:14 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:53:14 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:53:28 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:53:28 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:53:28 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:53:28 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:53:28 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:54:01 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:54:01 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:54:01 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:54:01 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:54:01 INFO  TestManagementApplication:126 - Persistance des données : fin
+2018-07-24 13:57:59 INFO  TestManagementApplication:34 - Application context créé!
+2018-07-24 13:57:59 INFO  TestManagementApplication:44 - Création des objets : début
+2018-07-24 13:57:59 INFO  TestManagementApplication:54 - Création des objets : fin
+2018-07-24 13:57:59 INFO  TestManagementApplication:89 - Persistance des données : début
+2018-07-24 13:57:59 INFO  TestManagementApplication:126 - Persistance des données : fin

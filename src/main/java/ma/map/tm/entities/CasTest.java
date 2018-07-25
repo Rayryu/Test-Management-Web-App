@@ -18,7 +18,7 @@ public class CasTest implements Serializable{
 	private Long id;
 	private String description;
 	private String typeTest;
-	private int priorite;
+	private String priorite;
 	private String precondition;
 	private String resultatAttendu;
 	private String resultatActuel;
@@ -32,7 +32,7 @@ public class CasTest implements Serializable{
 	private Scenario scenarioParent;
 	
 
-	public CasTest(String description, String typeTest, int priorite, String precondition, String resultatAttendu,
+	public CasTest(String description, String typeTest, String priorite, String precondition, String resultatAttendu,
 			String resultatActuel, String remarques, String etapes, Utilisateur testeur, Scenario scenarioParent) {
 		super();
 		this.description = description;
@@ -80,11 +80,11 @@ public class CasTest implements Serializable{
 		this.typeTest = typeTest;
 	}
 
-	public int getPriorite() {
+	public String getPriorite() {
 		return priorite;
 	}
 
-	public void setPriorite(int priorite) {
+	public void setPriorite(String  priorite) {
 		this.priorite = priorite;
 	}
 

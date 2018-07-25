@@ -1,14 +1,14 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf8" />
-<div class="ui segments" th:fragment="CasDeTests-NouveauCas">
+<div class="ui segments" th:fragment="SelectedCasDeTests-ModifierCas">
                          <div class="ui segment">
                              <h5 class="ui header">
-                                 Nouveau cas de test 	
+                                 Modifier le cas de test 	
                              </h5>
                          </div>
                          <div class="ui segment"> 
                          	<div class="ui sixteen wide column  grid" >
 								<div class="ui sixteen wide column">
-									<form class="ui form form1" th:action="@{/AjouterCasDeTest/{pathParam}(pathParam=${scenarioParent.id})}" method="post" th:object="${nouveauCasDeTest}">
+									<form class="ui form form1" th:action="@{/ModifierCasDeTest/{pathParam}(pathParam=${casTestCourant.id})}" method="post" th:object="${casTestCourant}">
 									  <div class="two fields">
 										  <div class="field">
 										    <label>Description du cas de test </label>
@@ -50,8 +50,10 @@
 										  
 									  </div>
 									  
-									  <button class="ui primary button" type="submit">Confirmer</button>
-									   <div class="ui error message"></div>
+									  <button class="ui primary positive button" type="submit">Enregistrer </button>
+									  <a onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')" th:href="@{/SupprimerCasTest/{pathParam}(pathParam=${casTestCourant.id})}"><div class="ui blue negative button">Supprimer</div></a>
+									  <button class="ui yellow button">Executer</button>
+									  <div class="ui error message"></div>
 									</form>
 								</div>
 							</div>

@@ -65,6 +65,12 @@ public class ScenarioServiceImpl implements ScenarioService {
 		
 	}
 
+	@Override
+	public Scenario getScenarioByCasTestId(Long id_casTest) {
+		return scenarioRepository.findByCasId(id_casTest);
+		
+	}
+
 	
 
 }

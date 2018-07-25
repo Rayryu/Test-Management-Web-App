@@ -12,4 +12,6 @@ public interface CasTestService {
 	public List<CasTest> listeCasTestParUtilisateur(Utilisateur u);
 	public CasTest getCasTestById(Long id);
 	public List<CasTest> listeCasTestParScenario(Scenario s);
+	public void modifierCasTest(CasTest casTestCourant, Long idCasTest);
+	public void supprimerCasTest(Long idCasTest);
 }
