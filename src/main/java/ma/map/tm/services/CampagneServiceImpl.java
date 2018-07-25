@@ -1,5 +1,6 @@
 package ma.map.tm.services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +20,7 @@ public class CampagneServiceImpl implements CampagneService {
 
 	@Override
 	public void addCampagne(CampagneTest c) {
+		c.setDateCreation(new Date());
 		campagneTestRepository.save(c);
 	}
 

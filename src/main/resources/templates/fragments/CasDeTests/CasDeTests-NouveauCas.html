@@ -11,20 +11,20 @@
 									<form class="ui form form1" th:action="@{/AjouterCasDeTest/{pathParam}(pathParam=${scenarioParent.id})}" method="post" th:object="${nouveauCasDeTest}">
 									  <div class="two fields">
 										  <div class="field">
+										    <label>Titre du cas de test </label>
+										    <input type="text" th:field="*{titre}" placeholder="Titre du cas de test" name="titre">
+										  </div>
+										  <div class="field">
 										    <label>Description du cas de test </label>
 										    <input type="text" th:field="*{description}" placeholder="Description du cas de test" name="description">
 										  </div>
-										  <div class="field">
+									  </div>
+									  <div class="two fields">
+										   <div class="field">
 										    <label>Type du cas de test </label>
 										    <select class="ui search dropdown" th:field="*{typeTest}" id="typeTest" >
 											  <option  th:each="typeTest : ${listetypeTest}" th:value="${typeTest}" th:text="${typeTest}"></option>
-											</select>
-										  </div>
-									  </div>
-									  <div class="two fields">
-										  <div class="field">
-										    <label>Préconditions</label>
-										    <input type="text" th:field="*{precondition}" placeholder="Préconditions" name="precondition">
+											</select>	
 										  </div>
 										  <div class="field">
 										    <label>Priorité du cas de test </label>
@@ -32,11 +32,14 @@
 											  <option  th:each="priorite : ${listePriorite}" th:value="${priorite}" th:text="${priorite}"></option>
 											</select>
 										  </div>
-										  
 									  </div>
 									  <div class="field">
+										    <label>Préconditions</label>
+										    <input type="text" th:field="*{precondition}" placeholder="Préconditions" name="precondition">
+										  </div>
+									  <div class="field">
 									    <label>Etapes </label>
-									    <textarea rows="3" type="text" th:field="*{etapes}" placeholder="Etapes" name="etapes"> </textarea>
+									    <textarea class="tinymce" rows="3" type="text" th:field="*{etapes}" placeholder="Etapes" > </textarea>
 									  </div>
 									  <div class="two fields">
 										  <div class="field">

@@ -10,6 +10,7 @@
                                  <thead>
                                      <tr>
                                          <th>ID</th>
+                                         <th>Titre</th>
                                          <th>Description du cas de test</th>
                                          <th>Type du cas de test</th>
                                          <th>Priorité</th>
@@ -20,6 +21,7 @@
                                          <th>Résultat attendu</th>
                                          <th>Résultat obtenu</th>
                                          <th>Status</th>
+                                         <th>Date de création</th>
                                      </tr>
                                  </thead>
                                  
@@ -28,6 +30,7 @@
 									style="cursor: pointer"
      								th:onclick="'javascript:rowClicked(\'' + ${casTest.id} + '\', \'ExecuterCasDeTest\');'">
 										<td th:text="${casTest.id}"></td>
+										<td th:text="${casTest.titre}"></td>
 										<td th:text="${casTest.description}"> </td>
 										<td th:text="${casTest.typeTest}"> </td>
 										<td th:text="${casTest.priorite}"> </td>
@@ -38,6 +41,7 @@
 										<td th:text="${casTest.resultatAttendu}"> </td>
 										<td th:text="${casTest.resultatActuel}"> </td>
 										<td th:text="${casTest.statut}"> </td>
+										<td th:text="${casTest.dateCreation}"> </td>
 									</tr>
 								</tbody>
                              </table>

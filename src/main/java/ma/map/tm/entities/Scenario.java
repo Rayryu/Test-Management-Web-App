@@ -3,6 +3,7 @@ package ma.map.tm.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -21,6 +22,7 @@ public class Scenario implements Serializable{
 	private Long id;
 	private String nom;
 	private String description;
+	private Date dateCreation;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="campagneParent_id")
 	private CampagneTest campagneParent;
@@ -86,6 +88,14 @@ public class Scenario implements Serializable{
 
 	public void setCampagneParent(CampagneTest campagneParent) {
 		this.campagneParent = campagneParent;
+	}
+
+	public Date getDateCreation() {
+		return dateCreation;
+	}
+
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
 	}
 	
 	

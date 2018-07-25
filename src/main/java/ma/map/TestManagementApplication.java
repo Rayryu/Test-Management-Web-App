@@ -1,8 +1,10 @@
 package ma.map;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
@@ -124,6 +126,8 @@ public class TestManagementApplication {
 		
 		System.out.println(pp.get(0).getDescription());
 		logger.info("Persistance des données : fin");
+		
+
 		
 
 	}

@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html;charset=utf8" />
 <div class="ui segments" th:fragment="Projet-MesCampagnes">
 	<div class="ui segment">
 		<h5 class="ui header">
@@ -12,6 +13,7 @@
 					<th>Titre de la campagne de test</th>
 					<th>Description</th>
 					<th>Projet Parent</th>
+					<th>Date de création</th>
 				</tr>
 			</thead>
 			<tbody>              
@@ -22,6 +24,7 @@
 					<td th:text="${campagne.nom}"> </td>
 					<td th:text="${campagne.description}"> </td>
 					<td th:text="${campagne.projetParent.nom}"></td>
+					<td th:text="${campagne.dateCreation}"></td>
 				</tr>
 			</tbody>
 		</table>

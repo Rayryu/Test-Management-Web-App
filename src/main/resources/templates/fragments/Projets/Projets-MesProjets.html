@@ -1,3 +1,4 @@
+                     <meta http-equiv="Content-Type" content="text/html;charset=utf8" />
                      <div class="ui segments" th:fragment="Projets-MesProjets">
                          <div class="ui segment">
                              <h5 class="ui header">
@@ -11,6 +12,7 @@
                                          <th>ID</th>
                                          <th>Titre du projet</th>
                                          <th>Description du projet</th>
+                                         <th>Date de création</th>
                                      </tr>
                                  </thead>
                                  <tbody>
@@ -20,6 +22,7 @@
 										<td th:text="${projet.id}"></td>
 										<td th:text="${projet.nom}"> </td>
 										<td th:text="${projet.description}"> </td>
+										<td th:text="${projet.dateCreation}"> </td>
 									</tr>
 								</tbody>
                              </table>

@@ -1,3 +1,4 @@
+ <meta http-equiv="Content-Type" content="text/html;charset=utf8" />
 <div class="ui segments" th:fragment="Campagne-MesScenarios">
                          <div class="ui segment">
                              <h5 class="ui header">
@@ -12,6 +13,7 @@
                                          <th>Titre du scenario</th>
                                          <th>Description</th>
                                          <th>Campagne de test Parente</th>
+                                         <th>Date de création</th>
                                      </tr>
                                  </thead>
                                  
@@ -24,6 +26,7 @@
 										<td th:text="${scenario.nom}"> </td>
 										<td th:text="${scenario.description}"> </td>
 										<td th:text="${scenario.campagneParent.nom}"></td>
+										<td th:text="${scenario.dateCreation}"></td>
 									</tr>
 								</tbody>
                              </table>

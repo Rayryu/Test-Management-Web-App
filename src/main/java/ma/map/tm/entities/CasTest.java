@@ -1,6 +1,7 @@
 package ma.map.tm.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,6 +17,7 @@ public class CasTest implements Serializable{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	private String titre;
 	private String description;
 	private String typeTest;
 	private String priorite;
@@ -26,6 +28,7 @@ public class CasTest implements Serializable{
 	private String etapes;
 	private String commentaire;
 	private String statut;
+	private Date dateCreation;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="testeur_id")
 	private Utilisateur testeur;
@@ -168,6 +171,22 @@ public class CasTest implements Serializable{
 
 	public void setStatut(String statut) {
 		this.statut = statut;
+	}
+
+	public Date getDateCreation() {
+		return dateCreation;
+	}
+
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
+	}
+
+	public String getTitre() {
+		return titre;
+	}
+
+	public void setTitre(String titre) {
+		this.titre = titre;
 	}
 
 

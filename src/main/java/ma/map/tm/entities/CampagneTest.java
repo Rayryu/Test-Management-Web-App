@@ -3,6 +3,7 @@ package ma.map.tm.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -20,6 +21,7 @@ public class CampagneTest implements Serializable{
 	private Long id;
 	private String nom;
 	private String description;
+	private Date dateCreation;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="concepteurTest_id")
 	private Utilisateur concepteurTest;
@@ -103,6 +105,14 @@ public class CampagneTest implements Serializable{
 
 	public void setListeScenario(Collection<Scenario> listeScenario) {
 		this.listeScenario = listeScenario;
+	}
+
+	public Date getDateCreation() {
+		return dateCreation;
+	}
+
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
 	}
 	
 	

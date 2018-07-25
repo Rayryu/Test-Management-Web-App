@@ -10,6 +10,7 @@
                                  <thead>
                                      <tr>
                                          <th>ID</th>
+                                         <th>Titre</th>
                                          <th>Description du cas de test</th>
                                          <th>Type du cas de test</th>
                                          <th>Priorité</th>
@@ -27,6 +28,7 @@
 									style="cursor: pointer"
      								th:onclick="'javascript:rowClicked(\'' + ${casTest.id} + '\', \'SelectedCasTest\');'">
 										<td th:text="${casTest.id}"></td>
+										<td th:text="${casTest.titre}"></td>
 										<td th:text="${casTest.description}"> </td>
 										<td th:text="${casTest.typeTest}"> </td>
 										<td th:text="${casTest.priorite}"> </td>

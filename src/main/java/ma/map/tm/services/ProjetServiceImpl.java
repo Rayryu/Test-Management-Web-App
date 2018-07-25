@@ -1,5 +1,9 @@
 package ma.map.tm.services;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +21,7 @@ public class ProjetServiceImpl implements ProjetService {
 	
 	@Override
 	public void addProjet(Projet p) {
+		p.setDateCreation(new Date());
 		projetRepository.save(p);
 	}
 

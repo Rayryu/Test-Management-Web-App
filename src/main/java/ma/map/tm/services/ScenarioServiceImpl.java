@@ -1,5 +1,6 @@
 package ma.map.tm.services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ public class ScenarioServiceImpl implements ScenarioService {
 
 	@Override
 	public void addScenario(Scenario s) {
+		s.setDateCreation(new Date());
 		scenarioRepository.save(s);
 	}
 

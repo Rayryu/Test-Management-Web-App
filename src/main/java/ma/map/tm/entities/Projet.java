@@ -3,6 +3,7 @@ package ma.map.tm.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -20,6 +21,7 @@ public class Projet implements Serializable{
 	private Long id;
 	private String nom;
 	private String description; 
+	private Date dateCreation;
 	@ManyToMany(mappedBy="listeProjets")
 	private Collection<Utilisateur> listeUtilisateurs = new ArrayList<Utilisateur>();
 	@OneToMany(mappedBy="projetParent", cascade=CascadeType.ALL)
@@ -96,6 +98,14 @@ public class Projet implements Serializable{
 
 	public void setListeCampagne(Collection<CampagneTest> listeCampagne) {
 		this.listeCampagne = listeCampagne;
+	}
+
+	public Date getDateCreation() {
+		return dateCreation;
+	}
+
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
 	}
 	
 	

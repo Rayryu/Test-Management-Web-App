@@ -78,7 +78,7 @@ public class ProjetController {
 		
 		utilisateurRepository.save(utilisateurCourant);
 		
-		return new ModelAndView("redirect:/Projet/"+nouveauProjet.getId().toString());
+		return new ModelAndView("redirect:/Projets/");
 	}
 	
 	@RequestMapping(value="/EnregistrerProjet/{id}", method=RequestMethod.POST)

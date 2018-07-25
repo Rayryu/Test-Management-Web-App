@@ -54,7 +54,7 @@ public class ScenarioDeTestController {
 
 		scenarioService.addScenario(nouveauScenario);
 		
-		return new ModelAndView("redirect:/Scenario/"+nouveauScenario.getId().toString());
+		return new ModelAndView("redirect:/CampagneDeTest/"+nouveauScenario.getCampagneParent().getId());
 	}
 	
 	@RequestMapping(value="/ModifierScenarioDeTest/{id}", method=RequestMethod.POST)
