@@ -23,7 +23,7 @@
 										   <div class="field">
 										    <label>Type du cas de test </label>
 										    <select class="ui search dropdown" th:field="*{typeTest}" id="typeTest" >
-											  <option  th:each="typeTest : ${listetypeTest}" th:value="${typeTest}" th:text="${typeTest}"></option>
+											  <option  th:each="typeTest : ${listetypeTest}" th:value="${typeTest.id}" th:text="${typeTest.type}"></option>
 											</select>	
 										  </div>
 										  <div class="field">
@@ -34,12 +34,19 @@
 										  </div>
 									  </div>
 									  <div class="field">
-										    <label>Préconditions</label>
-										    <input type="text" th:field="*{precondition}" placeholder="Préconditions" name="precondition">
+									  <div class="two fields">
+									  	<div class="field">
+										   <label>Préconditions</label>
+										    <textarea type="text" th:field="*{precondition}" placeholder="Préconditions" name="precondition"></textarea>
 										  </div>
+										<div class="field">
+										  <label>Jeu de test</label>
+										    <textarea type="text" th:field="*{jeuDeTest}" placeholder="jeu de test" name="jeuDeTest"></textarea>
+										</div>
+									  </div>
 									  <div class="field">
 									    <label>Etapes </label>
-									    <textarea rows="3" type="text" th:field="*{etapes}" placeholder="Etapes" name="etapes"> </textarea>
+									    <textarea class="tinymce" id="tinymce-readOnly" rows="10" type="text" th:field="*{etapes}" placeholder="Etapes" > </textarea>
 									  </div>
 									  <div class="two fields">
 										  <div class="field">

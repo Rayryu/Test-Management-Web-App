@@ -16,11 +16,13 @@ import ma.map.tm.entities.CampagneTest;
 import ma.map.tm.entities.CasTest;
 import ma.map.tm.entities.Projet;
 import ma.map.tm.entities.Scenario;
+import ma.map.tm.entities.TypeTest;
 import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.services.CampagneService;
 import ma.map.tm.services.CasTestService;
 import ma.map.tm.services.ProjetService;
 import ma.map.tm.services.ScenarioService;
+import ma.map.tm.services.TypeTestService;
 import ma.map.tm.services.UtilisateurService;
 
 @Controller
@@ -36,6 +38,8 @@ public class CasDeTestController {
 	private CampagneService campagneService;
 	@Autowired
 	private ProjetService projetService;
+	@Autowired
+	private TypeTestService typeTestService;
 	
 	
 	@RequestMapping(value= "/Scenario/{id}")
@@ -46,18 +50,14 @@ public class CasDeTestController {
 		CampagneTest campagneParente = campagneService.getCampagneById(scenarioParent.getCampagne().getId());
 		Projet projetParent  = projetService.getProjetById(campagneParente.getProjetParent().getId());
 		
-		// a revoir-----------------------------
-		List<String> listetypeTest = new ArrayList<String>();
-		listetypeTest.add("Test Fonctionnel");
-		listetypeTest.add("Test Unitaire");
-		listetypeTest.add("Test de Regression");
+
+		List<TypeTest> listetypeTest = typeTestService.getAllTypeTest();
 		
+		// a revoir-----------------------------
 		List<String> listePriorite = new ArrayList<String>();
 		listePriorite.add("Faible");
 		listePriorite.add("Moyenne");
 		listePriorite.add("Haute");
-		
-		model.addAttribute("listetypeTest", listetypeTest);
 		model.addAttribute("listePriorite", listePriorite);
 		//--------------------------------
 		
@@ -66,7 +66,7 @@ public class CasDeTestController {
 		model.addAttribute("scenarioParent", scenarioParent);
 		model.addAttribute("projetParent", projetParent);
 		model.addAttribute("listeDesCas", listeDesCas);
-		
+		model.addAttribute("listetypeTest", listetypeTest);
 		model.addAttribute("nouveauCasDeTest", new CasTest());
 		model.addAttribute("nouveauScenario", new Scenario());
 		
@@ -107,25 +107,22 @@ public class CasDeTestController {
 		casTestCourant.setScenario(scenarioParent);
 
 		
-		// a revoir-----------------------------
-		List<String> listetypeTest = new ArrayList<String>();
-		listetypeTest.add("Test Fonctionnel");
-		listetypeTest.add("Test Unitaire");
-		listetypeTest.add("Test de Regression");
+		List<TypeTest> listetypeTest = typeTestService.getAllTypeTest();
 		
+		// a revoir-----------------------------
 		List<String> listePriorite = new ArrayList<String>();
 		listePriorite.add("Faible");
 		listePriorite.add("Moyenne");
 		listePriorite.add("Haute");
-		
-		model.addAttribute("listetypeTest", listetypeTest);
 		model.addAttribute("listePriorite", listePriorite);
 		//--------------------------------
 		
+		
 		model.addAttribute("campagneParente", campagneParente);
 		model.addAttribute("scenarioParent", scenarioParent);
-		model.addAttribute("projetParent", projetParent);
 		model.addAttribute("casTestCourant", casTestCourant);
+		model.addAttribute("projetParent", projetParent);
+		model.addAttribute("listetypeTest", listetypeTest);
 		
 		return "SelectedCasDeTests";
 	}
@@ -145,6 +142,40 @@ public class CasDeTestController {
 		casTestService.supprimerCasTest(idCasTest);
 		
 		return new ModelAndView("redirect:/Scenario/"+casTestCourant.getScenario().getId().toString());
+	}
+	
+	@RequestMapping(value= "/AjouterCas/{id}")
+	public String AjouterCas(Model model, @PathVariable("id") Long id_scenarioParent) {
+		
+		Scenario scenarioParent = scenarioService.getScenarioById(id_scenarioParent);
+		List<CasTest> listeDesCas = casTestService.listeCasTestParScenario(scenarioParent);
+		CampagneTest campagneParente = campagneService.getCampagneById(scenarioParent.getCampagne().getId());
+		Projet projetParent  = projetService.getProjetById(campagneParente.getProjetParent().getId());
+		
+
+		List<TypeTest> listetypeTest = typeTestService.getAllTypeTest();
+		
+		// a revoir-----------------------------
+		List<String> listePriorite = new ArrayList<String>();
+		listePriorite.add("Faible");
+		listePriorite.add("Moyenne");
+		listePriorite.add("Haute");
+		model.addAttribute("listePriorite", listePriorite);
+		//--------------------------------
+		
+		
+		model.addAttribute("campagneParente", campagneParente);
+		model.addAttribute("scenarioParent", scenarioParent);
+		model.addAttribute("projetParent", projetParent);
+		model.addAttribute("listeDesCas", listeDesCas);
+		model.addAttribute("listetypeTest", listetypeTest);
+		model.addAttribute("nouveauCasDeTest", new CasTest());
+		model.addAttribute("nouveauScenario", new Scenario());
+		
+		
+		
+		
+		return "AjouterCasTest";
 	}
 	
 }

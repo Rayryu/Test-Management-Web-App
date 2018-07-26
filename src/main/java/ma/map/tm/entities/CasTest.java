@@ -19,7 +19,6 @@ public class CasTest implements Serializable{
 	private Long id;
 	private String titre;
 	private String description;
-	private String typeTest;
 	private String priorite;
 	private String precondition;
 	private String resultatAttendu;
@@ -29,6 +28,10 @@ public class CasTest implements Serializable{
 	private String commentaire;
 	private String statut;
 	private Date dateCreation;
+	private String jeuDeTest;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="type_id")
+	private TypeTest typeTest;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="testeur_id")
 	private Utilisateur testeur;
@@ -37,7 +40,7 @@ public class CasTest implements Serializable{
 	private Scenario scenarioParent;
 	
 
-	public CasTest(String description, String typeTest, String priorite, String precondition, String resultatAttendu,
+	public CasTest(String description, TypeTest typeTest, String priorite, String precondition, String resultatAttendu,
 			String resultatActuel, String remarques, String etapes, Utilisateur testeur, Scenario scenarioParent) {
 		super();
 		this.description = description;
@@ -56,7 +59,7 @@ public class CasTest implements Serializable{
 		super();
 	}
 
-	public CasTest(String description, String typeTest) {
+	public CasTest(String description, TypeTest typeTest) {
 		this.description = description;
 		this.typeTest = typeTest;
 	}
@@ -77,11 +80,11 @@ public class CasTest implements Serializable{
 		this.description = description;
 	}
 
-	public String getTypeTest() {
+	public TypeTest getTypeTest() {
 		return typeTest;
 	}
 
-	public void setTypeTest(String typeTest) {
+	public void setTypeTest(TypeTest typeTest) {
 		this.typeTest = typeTest;
 	}
 
@@ -187,6 +190,20 @@ public class CasTest implements Serializable{
 
 	public void setTitre(String titre) {
 		this.titre = titre;
+	}
+
+	/**
+	 * @return the jeuDeTest
+	 */
+	public String getJeuDeTest() {
+		return jeuDeTest;
+	}
+
+	/**
+	 * @param jeuDeTest the jeuDeTest to set
+	 */
+	public void setJeuDeTest(String jeuDeTest) {
+		this.jeuDeTest = jeuDeTest;
 	}
 
 

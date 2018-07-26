@@ -8,6 +8,13 @@
                 prompt: 'Veuiller entrer une description '
             }]
         },
+        titre2: {
+            identifier: 'titre',
+            rules: [{
+                type: 'empty',
+                prompt: 'Veuiller entrer un titre '
+            }]
+        },
         titre: {
             identifier: 'nom',
             rules: [{
@@ -29,13 +36,7 @@
                 prompt: 'Veuiller entrer une precondition ou écrire "Aucune" '
             }]
         },
-        etapes: {
-            identifier: 'etapes',
-            rules: [{
-                type: 'empty',
-                prompt: 'Veuiller entrer au moins une etape'
-            }]
-        },
+
         resultatAttendu: {
             identifier: 'resultatAttendu',
             rules: [{

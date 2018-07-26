@@ -38,11 +38,8 @@ public class CasTestServiceImpl implements CasTestService {
 	@Override
 	public CasTest getCasTestById(Long id) {
 		Optional<CasTest> ct =  casTestRepository.findById(id);
-		if (ct.isPresent()) {
-			return ct.get();
-		} else {
-			return new CasTest("Une erreur est survenue", "Une erreur est survenue");
-		}
+		if (ct.isPresent()) return ct.get();
+		else return new CasTest();
 	}
 
 	@Override

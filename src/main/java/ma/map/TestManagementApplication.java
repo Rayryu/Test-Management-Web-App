@@ -16,12 +16,14 @@ import ma.map.tm.dao.CasTestRepository;
 import ma.map.tm.dao.ProjetRepository;
 import ma.map.tm.dao.RoleRepository;
 import ma.map.tm.dao.ScenarioRepository;
+import ma.map.tm.dao.TypeTestRepository;
 import ma.map.tm.dao.UtilisateurRepository;
 import ma.map.tm.entities.CampagneTest;
 import ma.map.tm.entities.CasTest;
 import ma.map.tm.entities.Projet;
 import ma.map.tm.entities.Role;
 import ma.map.tm.entities.Scenario;
+import ma.map.tm.entities.TypeTest;
 import ma.map.tm.entities.Utilisateur;
 
 @SpringBootApplication
@@ -33,6 +35,11 @@ public class TestManagementApplication {
 	
 		ApplicationContext ac =  SpringApplication.run(TestManagementApplication.class, args);
 		
+		TypeTest t1 = new TypeTest("Test Fonctionnel");
+		TypeTest t2 = new TypeTest("Test de stress");
+		TypeTest t3 = new TypeTest("Test boîte noire");
+		TypeTest t4 = new TypeTest("Test d‟utilisabilité");
+		
 		logger.info("Application context créé!");
 		
 		//Pour gérer les entités, on a créé les repositories 
@@ -42,15 +49,17 @@ public class TestManagementApplication {
 		UtilisateurRepository utilisateurRepository = ac.getBean(UtilisateurRepository.class);
 		CasTestRepository casTestRepository = ac.getBean(CasTestRepository.class);
 		CampagneTestRepository campagneTestRepository = ac.getBean(CampagneTestRepository.class);
+		TypeTestRepository typeTestRepository = ac.getBean(TypeTestRepository.class);
 		
 		logger.info("Création des objets : début");
 		
 		Projet p1 = new Projet("Projet 1", "Description du premier projet");
 		Utilisateur u1 = new Utilisateur("El Bahaoui ", "Oussama");	
 		Role r1 = new Role("Concepteur de tests");
+	
 		Scenario s1 = new Scenario("Authentification", "L'utilisateur essaye de s'authentifier en entrant son login et mot de passe");
-		CasTest c1 = new CasTest("Description du cas de test", "Test fonctionnel", "Moyenne", "Préconditions...", "Connexion établie", "Connexion établie", "Remarques...", "Etape1... Etape2....", u1, s1);
-		CasTest c12 = new CasTest("Description du cas de test2", "Test fonctionnel","Moyenne" , "Préconditions...2", "Connexion établie2", "Connexion établie2", "Remarques...2", "Etape1... Etape2....2", u1, s1);
+		CasTest c1 = new CasTest("Description du cas de test",t1, "Moyenne", "Préconditions...", "Connexion établie", "Connexion établie", "Remarques...", "Etape1... Etape2....", u1, s1);
+		CasTest c12 = new CasTest("Description du cas de test2", t1, "Moyenne" , "Préconditions...2", "Connexion établie2", "Connexion établie2", "Remarques...2", "Etape1... Etape2....2", u1, s1);
 		CampagneTest ct1 = new CampagneTest("Campagne de test1", "Description de la campagne de tests", u1, p1); 
 		
 		logger.info("Création des objets : fin");
@@ -90,6 +99,10 @@ public class TestManagementApplication {
 		
 		logger.info("Persistance des données : début");
 		
+		typeTestRepository.save(t1);
+		typeTestRepository.save(t2);
+		typeTestRepository.save(t3);
+		typeTestRepository.save(t4);
 		roleRepository.save(r1);
 		utilisateurRepository.save(u1);
 		projetRepository.save(p1);

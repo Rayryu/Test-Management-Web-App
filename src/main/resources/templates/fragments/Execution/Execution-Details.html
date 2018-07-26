@@ -2,7 +2,7 @@
 <div class="ui segments" th:fragment="Execution-Details">
                          <div class="ui segment">
                              <h5 class="ui header">
-                                 Modifier le cas de test 	
+                                 Détails du cas de test 	
                              </h5>
                          </div>
                          <div class="ui segment"> 
@@ -16,8 +16,8 @@
 										  </div>
 										  <div class="field">
 										    <label>Type du cas de test </label>
-										    <select disabled class="ui search dropdown" th:field="*{typeTest}" id="typeTest" >
-											  <option  th:each="typeTest : ${listetypeTest}" th:value="${typeTest}" th:text="${typeTest}"></option>
+										    <select disabled class="ui search dropdown" th:field="*{typeTest.type}" id="typeTest" >
+											  <option  th:each="typeTest : ${listetypeTest}" th:value="${typeTest.type}" th:text="${typeTest.type}"></option>
 											</select>
 										  </div>
 									  </div>

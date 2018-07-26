@@ -14,11 +14,13 @@ import ma.map.tm.entities.CampagneTest;
 import ma.map.tm.entities.CasTest;
 import ma.map.tm.entities.Projet;
 import ma.map.tm.entities.Scenario;
+import ma.map.tm.entities.TypeTest;
 import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.services.CampagneService;
 import ma.map.tm.services.CasTestService;
 import ma.map.tm.services.ProjetService;
 import ma.map.tm.services.ScenarioService;
+import ma.map.tm.services.TypeTestService;
 import ma.map.tm.services.UtilisateurService;
 
 @Controller
@@ -32,6 +34,8 @@ public class ExecutionController {
 	private CampagneService campagneService;
 	@Autowired
 	private ProjetService projetService;
+	@Autowired
+	private TypeTestService typeTestService;
 	
 	@RequestMapping("/Execution")
 	public String executionMain(Model model) {
@@ -56,10 +60,7 @@ public class ExecutionController {
 		casTestCourant.setScenario(scenarioParent);
 		
 		// a revoir-----------------------------
-		List<String> listetypeTest = new ArrayList<String>();
-		listetypeTest.add("Test Fonctionnel");
-		listetypeTest.add("Test Unitaire");
-		listetypeTest.add("Test de Regression");
+		List<TypeTest> listetypeTest = typeTestService.getAllTypeTest();
 		
 		List<String> listePriorite = new ArrayList<String>();
 		listePriorite.add("Faible");

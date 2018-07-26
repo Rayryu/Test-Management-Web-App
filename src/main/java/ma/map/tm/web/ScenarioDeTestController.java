@@ -38,7 +38,15 @@ public class ScenarioDeTestController {
 		currentUser.setId(1L);
 		
 		List<Scenario> listeScenarioDeTest = scenarioService.listeScenarioTestParUtilisateur(currentUser);
+		
+		
+		long debut = System.currentTimeMillis();
+		 
 		List<CasTest> listeCasTest = casTestService.listeCasTestParUtilisateur(currentUser);
+		 System.out.print("Temps écoulé pour charger la liste des cas de tests en ms : ");
+		System.out.println(System.currentTimeMillis()-debut);
+		
+		
 		List<CampagneTest> listeCampagnes = campagneService.listeCampagneTestParUtilisateur(currentUser);
 		
 		model.addAttribute("listeScenarios", listeScenarioDeTest);
