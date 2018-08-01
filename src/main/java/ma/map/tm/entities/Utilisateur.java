@@ -22,6 +22,8 @@ public class Utilisateur implements Serializable{
 	private Long id;
 	private String nom;
 	private String prenom;
+	private String motDePass;
+	private boolean enabled = true;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="role_id")
 	private Role role;
@@ -121,6 +123,22 @@ public class Utilisateur implements Serializable{
 		Collection<Projet> lu = this.getListeProjets();
 		lu.add(projet);
 		this.setListeProjets(lu);
+	}
+
+	public String getMotDePass() {
+		return motDePass;
+	}
+
+	public void setMotDePass(String motDePass) {
+		this.motDePass = motDePass;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 	
 	

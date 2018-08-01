@@ -1,10 +1,8 @@
 package ma.map;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Locale;
 
 import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
@@ -38,7 +36,7 @@ public class TestManagementApplication {
 		TypeTest t1 = new TypeTest("Test Fonctionnel");
 		TypeTest t2 = new TypeTest("Test de stress");
 		TypeTest t3 = new TypeTest("Test boîte noire");
-		TypeTest t4 = new TypeTest("Test d‟utilisabilité");
+		TypeTest t4 = new TypeTest("Test d'utilisabilité");
 		
 		logger.info("Application context créé!");
 		
@@ -55,7 +53,9 @@ public class TestManagementApplication {
 		
 		Projet p1 = new Projet("Projet 1", "Description du premier projet");
 		Utilisateur u1 = new Utilisateur("El Bahaoui ", "Oussama");	
-		Role r1 = new Role("Concepteur de tests");
+		Role r1 = new Role("Admin");
+		u1.setRole(r1);
+		u1.setMotDePass("$2a$10$3wCh1gu95hmi/CwMv8LLseTijaueEma.uFAFLCmvv7Nlm7O7J.gtC");
 	
 		Scenario s1 = new Scenario("Authentification", "L'utilisateur essaye de s'authentifier en entrant son login et mot de passe");
 		CasTest c1 = new CasTest("Description du cas de test",t1, "Moyenne", "Préconditions...", "Connexion établie", "Connexion établie", "Remarques...", "Etape1... Etape2....", u1, s1);
