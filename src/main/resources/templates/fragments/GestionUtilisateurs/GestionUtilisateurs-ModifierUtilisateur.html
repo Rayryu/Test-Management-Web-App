@@ -1,0 +1,55 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<div class="ui segments" th:fragment="GestionUtilisateurs-ModifierUtilisateur">
+    <div class="ui segment">
+        <h5 class="ui header">
+            Modifier/Supprimer l'utilisateur 
+        </h5>
+    </div>
+    <div class="ui segment">
+ 			<h4 class="ui horizontal divider header">
+           <i class="tag icon"></i>
+           Modifier l'utilisateur selectionné
+       		</h4>
+       		<div th:if="${utilisateurSelectionne.nom != null}">
+			    <form class="ui form segment form1" th:action="@{/ModifierUtilisateur/{pathParam}(pathParam=${utilisateurSelectionne.id})}" method="post" th:object="${utilisateurSelectionne}">
+	                <div class="two fields">
+		                <div class="field">
+						    <label>Nom </label>
+						    <input type="text" th:field="*{nom}" placeholder="Nom du nouvel utilisateur" name="nom">
+						  </div>
+						  <div class="field">
+						    <label>Prénom</label>
+						    <input type="text" th:field="*{prenom}" placeholder="Prénom du nouvel utilisateur" name="prenom">
+						  </div>
+					</div>
+					  <div class="field">
+					    <label>Email</label>
+					    <input type="text" th:field="*{email}" placeholder="Email du nouvel utilisateur" name="email">
+					  </div>
+					  <div class="field">
+					    <label>Mot de passe</label>
+					    <input type="text" th:field="*{motDePass}" placeholder="Mot de passe du nouvel utilisateur" name="motDePass">
+					  </div>
+					  <div class="field">
+					    <label>Role</label>
+					    <select class="ui search dropdown" th:field="*{role}" id="role" >
+							  <option  th:each="role : ${listeRoles}" th:value="${role.id}" th:text="${role.nom}"></option>
+						</select>
+					  </div>
+	                <center>
+	                <input type="hidden" name="supprimer">
+	                <div class="ui blue positive submit button">Enregistrer</div>
+	                <a onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')" th:href="@{/SupprimerUtilisateur/{pathParam}(pathParam=${utilisateurSelectionne.id})}"><div class="ui blue negative submit button">Supprimer</div></a>
+	                <div class="ui error message"></div>
+	            </form>
+			</div>
+			<div th:if="${utilisateurSelectionne.nom == null}">
+				<h4 class="ui horizontal centered header">
+		           
+		           Veuillez selectionner un utilisateur!
+		       	</h4>
+			</div>
+           
+		</div>
+        
+    </div>

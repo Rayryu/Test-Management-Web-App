@@ -1,0 +1,40 @@
+<meta http-equiv="Content-Type" content="text/html;charset=utf8" />
+<div class="ui segments" th:fragment="GestionUtilisateurs-NouvelUtilisateur"> 
+                         <div class="ui segment">
+                             <h5 class="ui header">
+                                 Nouvel utilisateur
+                             </h5>
+                         </div>
+                         <div class="ui segment"> 
+                         	<div class="ui sixteen wide column  grid" >
+								<div class="ui ten wide column">
+									<form class="ui form form1" th:action="@{/AjouterNouvelUtilisateur}" method="post" th:object="${nouvelUtilisateur}">
+									  <div class="field">
+									    <label>Nom </label>
+									    <input type="text" th:field="*{nom}" placeholder="Nom du nouvel utilisateur" name="nom">
+									  </div>
+									  <div class="field">
+									    <label>Prénom</label>
+									    <input type="text" th:field="*{prenom}" placeholder="Prénom du nouvel utilisateur" name="prenom">
+									  </div>
+									  <div class="field">
+									    <label>Email</label>
+									    <input type="text" th:field="*{email}" placeholder="Email du nouvel utilisateur" name="email">
+									  </div>
+									  <div class="field">
+									    <label>Mot de passe</label>
+									    <input type="text" th:field="*{motDePass}" placeholder="Mot de passe du nouvel utilisateur" name="motDePass">
+									  </div>
+									  <div class="field">
+									    <label>Role</label>
+									    <select class="ui search dropdown" th:field="*{role}" id="role" >
+											  <option  th:each="role : ${listeRoles}" th:value="${role.id}" th:text="${role.nom}"></option>
+										</select>
+									  </div>
+									  <button class="ui primary button" type="submit">Confirmer</button>
+										<div class="ui error message"></div>
+									</form>
+								</div>
+							</div>
+                         </div>
+                     </div>

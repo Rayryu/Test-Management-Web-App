@@ -65,8 +65,11 @@ public final class TestManagementUtils {
 		Projet p1 = new Projet("Projet 1", "Description du premier projet");
 		Utilisateur u1 = new Utilisateur("El Bahaoui ", "Oussama");	
 		Role r1 = new Role("Admin");
+		Role r2 = new Role("Testeur");
+		Role r3 = new Role("Visiteur");
 		u1.setRole(r1);
-		u1.setMotDePass("$2a$10$3wCh1gu95hmi/CwMv8LLseTijaueEma.uFAFLCmvv7Nlm7O7J.gtC");
+//		u1.setMotDePass("$2a$10$3wCh1gu95hmi/CwMv8LLseTijaueEma.uFAFLCmvv7Nlm7O7J.gtC");
+		u1.setMotDePass("dev");
 		u1.setEmail("o.elbahaoui@gmail.com");
 	
 		Scenario s1 = new Scenario("Authentification", "L'utilisateur essaye de s'authentifier en entrant son login et mot de passe");
@@ -116,6 +119,8 @@ public final class TestManagementUtils {
 		typeTestRepository.save(t3);
 		typeTestRepository.save(t4);
 		roleRepository.save(r1);
+		roleRepository.save(r2);
+		roleRepository.save(r3);
 		utilisateurRepository.save(u1);
 		projetRepository.save(p1);
 		projetRepository.save(p1);
@@ -144,7 +149,7 @@ public final class TestManagementUtils {
 		u3.setListeProjets(lpu3);
 		
 				
-		utilisateurRepository.save(u3);
+		//utilisateurRepository.save(u3);
 		projetRepository.save(ppp);
 		projetRepository.save(pppp);
 		

@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
@@ -22,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		authenticationManager.jdbcAuthentication().dataSource(dataSource)
 		.usersByUsernameQuery("select email, mot_de_pass, enabled from utilisateur where email = ?")
 		.authoritiesByUsernameQuery("select u.email, r.nom from utilisateur u join role r on r.id=u.role_id where u.email = ?")
-		.passwordEncoder(new BCryptPasswordEncoder());
+		.passwordEncoder(NoOpPasswordEncoder.getInstance());
 	}
 	
 	
