@@ -29,25 +29,25 @@ public final class TestManagementUtils {
 	
 	public static List<String> getListOfPriorities() {
 		List<String> listePriorite = new ArrayList<String>();
-		listePriorite.add("Faible");
-		listePriorite.add("Moyenne");
-		listePriorite.add("Haute");
+		listePriorite.add(Consts.FAIBLE);
+		listePriorite.add(Consts.MOYENNE);
+		listePriorite.add(Consts.HAUTE);
 		return listePriorite;
 	}
 	
 	public static List<String> getListOfStatus(){
 		List<String> listeStatut = new ArrayList<String>();
-		listeStatut.add("Réussi");
-		listeStatut.add("Echoué");
-		listeStatut.add("Bloqué");
+		listeStatut.add(Consts.RÉUSSI);
+		listeStatut.add(Consts.ECHOUÉ);
+		listeStatut.add(Consts.BLOQUÉ);
 		return listeStatut;
 	}
 	
 	public static void start(Logger logger, ApplicationContext ac) {
-		TypeTest t1 = new TypeTest("Test Fonctionnel");
-		TypeTest t2 = new TypeTest("Test de stress");
-		TypeTest t3 = new TypeTest("Test boîte noire");
-		TypeTest t4 = new TypeTest("Test d'utilisabilité");
+		TypeTest t1 = new TypeTest(Consts.TEST_FONCTIONNEL);
+		TypeTest t2 = new TypeTest(Consts.TEST_DE_STRESS);
+		TypeTest t3 = new TypeTest(Consts.TEST_BOÎTE_NOIRE);
+		TypeTest t4 = new TypeTest(Consts.TEST_D_UTILISABILITÉ);
 		
 		logger.info("Application context créé!");
 		
@@ -70,8 +70,8 @@ public final class TestManagementUtils {
 		u1.setEmail("o.elbahaoui@gmail.com");
 	
 		Scenario s1 = new Scenario("Authentification", "L'utilisateur essaye de s'authentifier en entrant son login et mot de passe");
-		CasTest c1 = new CasTest("Description du cas de test",t1, "Moyenne", "Préconditions...", "Connexion établie", "Connexion établie", "Remarques...", "Etape1... Etape2....", u1, s1);
-		CasTest c12 = new CasTest("Description du cas de test2", t1, "Moyenne" , "Préconditions...2", "Connexion établie2", "Connexion établie2", "Remarques...2", "Etape1... Etape2....2", u1, s1);
+		CasTest c1 = new CasTest("Description du cas de test",t1, Consts.MOYENNE, "Préconditions...", "Connexion établie", "Connexion établie", "Remarques...", "Etape1... Etape2....", u1, s1);
+		CasTest c12 = new CasTest("Description du cas de test2", t1, Consts.MOYENNE , "Préconditions...2", "Connexion établie2", "Connexion établie2", "Remarques...2", "Etape1... Etape2....2", u1, s1);
 		CampagneTest ct1 = new CampagneTest("Campagne de test1", "Description de la campagne de tests", u1, p1); 
 		
 		logger.info("Création des objets : fin");

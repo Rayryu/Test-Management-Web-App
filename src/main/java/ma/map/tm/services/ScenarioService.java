@@ -4,7 +4,6 @@ import java.util.List;
 
 import ma.map.tm.entities.Scenario;
 import ma.map.tm.entities.Utilisateur;
-import ma.map.tm.entities.CampagneTest;;
 
 public interface ScenarioService {
 	public void addScenario(Scenario s);
