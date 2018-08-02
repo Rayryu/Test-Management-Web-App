@@ -1,9 +1,6 @@
 package ma.map.tm.web;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +21,7 @@ import ma.map.tm.services.ProjetService;
 import ma.map.tm.services.ScenarioService;
 import ma.map.tm.services.TypeTestService;
 import ma.map.tm.services.UtilisateurService;
+import ma.map.tm.utils.TestManagementUtils;
 
 @Controller
 public class CasDeTestController {
@@ -52,27 +50,17 @@ public class CasDeTestController {
 		
 
 		List<TypeTest> listetypeTest = typeTestService.getAllTypeTest();
-		
-		// a revoir-----------------------------
-		List<String> listePriorite = new ArrayList<String>();
-		listePriorite.add("Faible");
-		listePriorite.add("Moyenne");
-		listePriorite.add("Haute");
-		model.addAttribute("listePriorite", listePriorite);
-		//--------------------------------
-		
+		List<String> listePriorite = TestManagementUtils.getListOfPriorities();
 		
 		model.addAttribute("campagneParente", campagneParente);
 		model.addAttribute("scenarioParent", scenarioParent);
 		model.addAttribute("projetParent", projetParent);
+		model.addAttribute("listePriorite", listePriorite);
 		model.addAttribute("listeDesCas", listeDesCas);
 		model.addAttribute("listetypeTest", listetypeTest);
 		model.addAttribute("nouveauCasDeTest", new CasTest());
 		model.addAttribute("nouveauScenario", new Scenario());
-		
-		
-		
-		
+	
 		return "Scenario";
 	}
 	
@@ -81,17 +69,12 @@ public class CasDeTestController {
 	@RequestMapping(value="/AjouterCasDeTest/{id}", method=RequestMethod.POST)
 	public ModelAndView ajouterCasDeTest(Model model, CasTest nouveauCasDeTest, @PathVariable("id") Long id_scenarioParent) {
 		
-		//à changer avec l'objet utilisateur connecté
-		Utilisateur currentUser = utilisateurService.getUserById(1L);
-				
+		Utilisateur currentUser = utilisateurService.getLoggedInUser();	
 		
 		nouveauCasDeTest.setTesteur(currentUser);
-		nouveauCasDeTest.setPriorite("Moyenne");
 		Scenario scenarioParent = scenarioService.getScenarioById(id_scenarioParent);
 		nouveauCasDeTest.setScenario(scenarioParent);
 		
-		//
-		nouveauCasDeTest.setId(null);
 		casTestService.addCasDeTest(nouveauCasDeTest);
 
 		return new ModelAndView("redirect:/Scenario/"+id_scenarioParent.toString());
@@ -108,16 +91,9 @@ public class CasDeTestController {
 
 		
 		List<TypeTest> listetypeTest = typeTestService.getAllTypeTest();
+		List<String> listePriorite = TestManagementUtils.getListOfPriorities();
 		
-		// a revoir-----------------------------
-		List<String> listePriorite = new ArrayList<String>();
-		listePriorite.add("Faible");
-		listePriorite.add("Moyenne");
-		listePriorite.add("Haute");
 		model.addAttribute("listePriorite", listePriorite);
-		//--------------------------------
-		
-		
 		model.addAttribute("campagneParente", campagneParente);
 		model.addAttribute("scenarioParent", scenarioParent);
 		model.addAttribute("casTestCourant", casTestCourant);
@@ -151,19 +127,10 @@ public class CasDeTestController {
 		List<CasTest> listeDesCas = casTestService.listeCasTestParScenario(scenarioParent);
 		CampagneTest campagneParente = campagneService.getCampagneById(scenarioParent.getCampagne().getId());
 		Projet projetParent  = projetService.getProjetById(campagneParente.getProjetParent().getId());
-		
-
 		List<TypeTest> listetypeTest = typeTestService.getAllTypeTest();
-		
-		// a revoir-----------------------------
-		List<String> listePriorite = new ArrayList<String>();
-		listePriorite.add("Faible");
-		listePriorite.add("Moyenne");
-		listePriorite.add("Haute");
+		List<String> listePriorite = TestManagementUtils.getListOfPriorities();
+
 		model.addAttribute("listePriorite", listePriorite);
-		//--------------------------------
-		
-		
 		model.addAttribute("campagneParente", campagneParente);
 		model.addAttribute("scenarioParent", scenarioParent);
 		model.addAttribute("projetParent", projetParent);
@@ -171,9 +138,6 @@ public class CasDeTestController {
 		model.addAttribute("listetypeTest", listetypeTest);
 		model.addAttribute("nouveauCasDeTest", new CasTest());
 		model.addAttribute("nouveauScenario", new Scenario());
-		
-		
-		
 		
 		return "AjouterCasTest";
 	}

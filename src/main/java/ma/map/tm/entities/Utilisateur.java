@@ -24,6 +24,7 @@ public class Utilisateur implements Serializable{
 	private String prenom;
 	private String motDePass;
 	private boolean enabled = true;
+	private String email;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="role_id")
 	private Role role;
@@ -139,6 +140,14 @@ public class Utilisateur implements Serializable{
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	

@@ -1,7 +1,6 @@
 package ma.map.tm.web;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,13 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.entities.CampagneTest;
 import ma.map.tm.entities.CasTest;
-import ma.map.tm.entities.Projet;
 import ma.map.tm.entities.Scenario;
 import ma.map.tm.services.ScenarioService;
+import ma.map.tm.services.UtilisateurService;
 import ma.map.tm.services.CampagneService;
 import ma.map.tm.services.CasTestService;
-import ma.map.tm.services.ProjetService;
-
 @Controller
 public class ScenarioDeTestController {
 	
@@ -30,23 +27,16 @@ public class ScenarioDeTestController {
 	private ScenarioService scenarioService;
 	@Autowired
 	private CasTestService casTestService;
+	@Autowired
+	private UtilisateurService utilisateurService;
 	
 	@RequestMapping(value = "/Scenarios")
 	public String Scenarios(Model model) {
-		//à changer avec l'objet utilisateur connecté
-		Utilisateur currentUser = new Utilisateur();
-		currentUser.setId(1L);
+
+		Utilisateur currentUser = utilisateurService.getLoggedInUser();
 		
 		List<Scenario> listeScenarioDeTest = scenarioService.listeScenarioTestParUtilisateur(currentUser);
-		
-		
-		long debut = System.currentTimeMillis();
-		 
 		List<CasTest> listeCasTest = casTestService.listeCasTestParUtilisateur(currentUser);
-		 System.out.print("Temps écoulé pour charger la liste des cas de tests en ms : ");
-		System.out.println(System.currentTimeMillis()-debut);
-		
-		
 		List<CampagneTest> listeCampagnes = campagneService.listeCampagneTestParUtilisateur(currentUser);
 		
 		model.addAttribute("listeScenarios", listeScenarioDeTest);

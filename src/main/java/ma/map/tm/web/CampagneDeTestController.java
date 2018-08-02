@@ -1,7 +1,6 @@
 package ma.map.tm.web;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +17,7 @@ import ma.map.tm.entities.Scenario;
 import ma.map.tm.services.CampagneService;
 import ma.map.tm.services.ProjetService;
 import ma.map.tm.services.ScenarioService;
+import ma.map.tm.services.UtilisateurService;
 
 @Controller
 public class CampagneDeTestController {
@@ -28,20 +28,19 @@ public class CampagneDeTestController {
 	private CampagneService campagneService;
 	@Autowired
 	private ProjetService projetService;
+	@Autowired
+	private UtilisateurService utilisateurService;
 	
 	
 	@RequestMapping(value = "/CampagnesDeTest")
 	public String CampagnesDeTest(Model model) {
-		//à changer avec l'objet utilisateur connecté
-		Utilisateur currentUser = new Utilisateur();
-		currentUser.setId(1L);
+		Utilisateur currentUser = utilisateurService.getLoggedInUser();
 		
 		List<CampagneTest> listeCampagnesDeTest = campagneService.listeCampagneTestParUtilisateur(currentUser);
 		List<Projet> listeProjets = projetService.listeProjetsParUtilisateur(currentUser);
 		
 		model.addAttribute("listeCampagnes", listeCampagnesDeTest);
 		model.addAttribute("listeProjets", listeProjets);
-
 		model.addAttribute("nouvelleCampagne", new CampagneTest());
 		model.addAttribute("projetParent", new Projet());
 		
@@ -50,10 +49,6 @@ public class CampagneDeTestController {
 	
 	@RequestMapping("/CampagneDeTest/{id}")
 	public String CampagneDeTest(Model model, @PathVariable("id") Long id) {
-		
-		//A modifier avec les informations de l'utilisateur connecté
-		Utilisateur currentUser = new Utilisateur();
-		currentUser.setId(1L);
 		
 		List<Scenario> listeScenarios = scenarioService.listeScenariosParCampagneId(id);
 		Scenario nouveauScenario = new Scenario();
@@ -69,18 +64,13 @@ public class CampagneDeTestController {
 		return "CampagneDeTest";
 	}
 	
-	
-	
-	
+		
 	@RequestMapping(value="/AjouterCampagneDeTest", method=RequestMethod.POST)
 	public ModelAndView ajouterCampagneDeTest(Model model, CampagneTest nouvelleCampagne) {
 
-		//à changer avec l'objet utilisateur connecté
-		Utilisateur utilisateurCourant = new Utilisateur();
-		utilisateurCourant.setId(1L);
-		//-----
+		Utilisateur currentUser = utilisateurService.getLoggedInUser();
 		
-		nouvelleCampagne.setConcepteurTest(utilisateurCourant);
+		nouvelleCampagne.setConcepteurTest(currentUser);
 		
 		campagneService.addCampagne(nouvelleCampagne);
 		

@@ -3,6 +3,8 @@ package ma.map.tm.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import ma.map.tm.dao.UtilisateurRepository;
@@ -25,5 +27,19 @@ public class UtilisateurServiceImpl implements UtilisateurService{
 	public Utilisateur getUserById(Long idUtilisateur) {
 		return utilisateurRepository.getOne(idUtilisateur);
 	}
+
+	@Override
+	public Utilisateur getUserByEmail(String email) {
+		
+		return utilisateurRepository.findByUserEmail(email);
+	}
+
+	@Override
+	public Utilisateur getLoggedInUser() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String email = auth.getName();
+		return getUserByEmail(email);
+	}
+	
 
 }

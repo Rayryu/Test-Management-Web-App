@@ -3,6 +3,7 @@ package ma.map.tm.services;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -44,6 +45,17 @@ public class ProjetServiceImpl implements ProjetService {
 	public void supprimerProjet(Long id_projet) {
 		Projet projetCourant = getProjetById(id_projet);
 		projetRepository.delete(projetCourant);
+	}
+
+	@Override
+	public void addProjet(Projet nouveauProjet, Utilisateur currentUser) {
+		//Pour garder la relation N-N !! 
+		Collection<Projet> listeProjetUtilisateurCourant = listeProjetsParUtilisateur(currentUser);
+		listeProjetUtilisateurCourant.add(nouveauProjet);
+		currentUser.setListeProjets(listeProjetUtilisateurCourant);
+		
+		addProjet(nouveauProjet);
+		
 	}
 
 }

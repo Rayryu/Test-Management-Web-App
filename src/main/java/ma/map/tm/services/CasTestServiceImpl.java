@@ -21,6 +21,7 @@ public class CasTestServiceImpl implements CasTestService {
 	@Override
 	public void addCasDeTest(CasTest c) {
 		c.setDateCreation(new Date());
+		c.setId(null);
 		casTestRepository.save(c);
 		
 	}

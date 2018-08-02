@@ -11,5 +11,6 @@ public interface ProjetService {
 	public List<Projet> listeProjetsParUtilisateur(Utilisateur u);
 	public Projet getProjetById(Long id);
 	public void supprimerProjet(Long id_projet);
+	public void addProjet(Projet nouveauProjet, Utilisateur currentUser);
 	
 }

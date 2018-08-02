@@ -1,6 +1,5 @@
 package ma.map.tm.web;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +21,7 @@ import ma.map.tm.services.ProjetService;
 import ma.map.tm.services.ScenarioService;
 import ma.map.tm.services.TypeTestService;
 import ma.map.tm.services.UtilisateurService;
+import ma.map.tm.utils.TestManagementUtils;
 
 @Controller
 public class ExecutionController {
@@ -36,17 +36,18 @@ public class ExecutionController {
 	private ProjetService projetService;
 	@Autowired
 	private TypeTestService typeTestService;
+	@Autowired
+	private UtilisateurService utilisateurService;
 	
 	@RequestMapping("/Execution")
 	public String executionMain(Model model) {
 		
-		//Utilisateur connecté
-		Utilisateur utilisateurCourant = new Utilisateur();
-		utilisateurCourant.setId(1L);
+		Utilisateur currentUser = utilisateurService.getLoggedInUser();
 		
-		List<CasTest> listeDesCas = casTestService.listeCasTestParUtilisateur(utilisateurCourant);
+		List<CasTest> listeDesCas = casTestService.listeCasTestParUtilisateur(currentUser);
 		
 		model.addAttribute("listeDesCas", listeDesCas);
+		
 		return "Executions";
 	}
 	
@@ -59,25 +60,14 @@ public class ExecutionController {
 		CasTest casTestCourant = casTestService.getCasTestById(id_casTest);
 		casTestCourant.setScenario(scenarioParent);
 		
-		// a revoir-----------------------------
 		List<TypeTest> listetypeTest = typeTestService.getAllTypeTest();
-		
-		List<String> listePriorite = new ArrayList<String>();
-		listePriorite.add("Faible");
-		listePriorite.add("Moyenne");
-		listePriorite.add("Haute");
-		
-		List<String> listeStatut = new ArrayList<String>();
-		listeStatut.add("Réussi");
-		listeStatut.add("Echoué");
-		listeStatut.add("Bloqué");
-		
+		List<String> listePriorite = TestManagementUtils.getListOfPriorities();
+		List<String> listeStatut = TestManagementUtils.getListOfStatus();
+
 		
 		model.addAttribute("listetypeTest", listetypeTest);
 		model.addAttribute("listePriorite", listePriorite);
 		model.addAttribute("listeStatut", listeStatut);
-		//--------------------------------
-		
 		model.addAttribute("campagneParente", campagneParente);
 		model.addAttribute("scenarioParent", scenarioParent);
 		model.addAttribute("projetParent", projetParent);

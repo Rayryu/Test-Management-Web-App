@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ma.map.tm.dao.ScenarioRepository;
-import ma.map.tm.entities.CampagneTest;
 import ma.map.tm.entities.Scenario;
 import ma.map.tm.entities.Utilisateur;
 
