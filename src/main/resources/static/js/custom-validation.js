@@ -8,6 +8,20 @@
                 prompt: 'Veuiller entrer une description '
             }]
         },
+        email: {
+            identifier: 'email',
+            rules: [{
+                type: 'empty',
+                prompt: 'Veuiller entrer votre email '
+            }]
+        },
+        mdp: {
+            identifier: 'mot de passe',
+            rules: [{
+                type: 'empty',
+                prompt: 'Veuiller entrer votre mot de passe '
+            }]
+        },
         titre2: {
             identifier: 'titre',
             rules: [{
