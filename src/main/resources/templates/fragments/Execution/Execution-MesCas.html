@@ -19,8 +19,6 @@
                                          <th>Etapes</th>
                                          <th>Scenario parent</th>
                                          <th>Résultat attendu</th>
-                                         <th>Résultat obtenu</th>
-                                         <th>Status</th>
                                          <th>Date de création</th>
                                      </tr>
                                  </thead>
@@ -39,8 +37,6 @@
 										<td th:text="${casTest.etapes}"> </td>
 										<td th:text="${casTest.scenarioParent.nom}"> </td>
 										<td th:text="${casTest.resultatAttendu}"> </td>
-										<td th:text="${casTest.resultatActuel}"> </td>
-										<td th:text="${casTest.statut}"> </td>
 										<td th:text="${casTest.dateCreation}"> </td>
 									</tr>
 								</tbody>

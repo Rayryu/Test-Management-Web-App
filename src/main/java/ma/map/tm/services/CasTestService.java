@@ -3,6 +3,7 @@ package ma.map.tm.services;
 import java.util.List;
 
 import ma.map.tm.entities.CasTest;
+import ma.map.tm.entities.ExecutionTest;
 import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.entities.Scenario;
 
@@ -14,5 +15,4 @@ public interface CasTestService {
 	public List<CasTest> listeCasTestParScenario(Scenario s);
 	public void modifierCasTest(CasTest casTestCourant, Long idCasTest);
 	public void supprimerCasTest(Long idCasTest);
-	public void ajouterResultat(Long idCasDeTest, CasTest casTestCourant);
 }

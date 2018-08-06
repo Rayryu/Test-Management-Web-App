@@ -8,11 +8,11 @@
                          <div class="ui segment"> 
                          	<div class="ui sixteen wide column  grid" >
 								<div class="ui sixteen wide column">
-									<form class="ui form form1" th:action="@{/AjouterResultat/{pathParam}(pathParam=${casTestCourant.id})}" method="post" th:object="${casTestCourant}">
+									<form class="ui form form1" th:action="@{/AjouterResultat/{pathParam}(pathParam=${casTestCourant.id})}" method="post" th:object="${nouvelleExecution}">
 									  <div class="field">
 										  <div class="field">
-										    <label>Résultat actuel</label>
-										    <input type="text" th:field="*{resultatActuel}" placeholder="Resultat actuel du cas de test" name="resultatActuel">
+										    <label>Résultat obtenu</label>
+										    <input type="text" th:field="*{resultatObtenu}" placeholder="Resultat actuel du cas de test" name="resultatActuel">
 										  </div>
 										  <div class="field">
 										    <label>Commentaires </label>
@@ -20,7 +20,7 @@
 										  </div>
 										  <div class="field">
 										    <label>Status </label>
-										    <select class="ui search dropdown" th:field="*{statut}" id="statut" >
+										    <select class="ui search dropdown" th:field="*{status}" id="statut" >
 											  <option  th:each="statut : ${listeStatut}" th:value="${statut}" th:text="${statut}"></option>
 											</select>
 										  </div>

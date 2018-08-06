@@ -1,8 +1,12 @@
 package ma.map.tm.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,11 +14,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class CasTest implements Serializable{
 	
-
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String titre;
@@ -22,13 +26,14 @@ public class CasTest implements Serializable{
 	private String priorite;
 	private String precondition;
 	private String resultatAttendu;
-	private String resultatActuel;
 	private String remarques;
 	private String etapes;
 	private String commentaire;
 	private String statut;
 	private Date dateCreation;
 	private String jeuDeTest;
+	@OneToMany(mappedBy="casTestParent", cascade=CascadeType.ALL)
+	private Collection<ExecutionTest> listeExecutions = new ArrayList<ExecutionTest>();
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="type_id")
 	private TypeTest typeTest;
@@ -41,14 +46,13 @@ public class CasTest implements Serializable{
 	
 
 	public CasTest(String description, TypeTest typeTest, String priorite, String precondition, String resultatAttendu,
-			String resultatActuel, String remarques, String etapes, Utilisateur testeur, Scenario scenarioParent) {
+			 String remarques, String etapes, Utilisateur testeur, Scenario scenarioParent) {
 		super();
 		this.description = description;
 		this.typeTest = typeTest;
 		this.priorite = priorite;
 		this.precondition = precondition;
 		this.resultatAttendu = resultatAttendu;
-		this.resultatActuel = resultatActuel;
 		this.remarques = remarques;
 		this.etapes = etapes;
 		this.testeur = testeur;
@@ -112,13 +116,6 @@ public class CasTest implements Serializable{
 		this.resultatAttendu = resultatAttendu;
 	}
 
-	public String getResultatActuel() {
-		return resultatActuel;
-	}
-
-	public void setResultatActuel(String resultatActuel) {
-		this.resultatActuel = resultatActuel;
-	}
 
 	public String getRemarques() {
 		return remarques;
@@ -204,6 +201,14 @@ public class CasTest implements Serializable{
 	 */
 	public void setJeuDeTest(String jeuDeTest) {
 		this.jeuDeTest = jeuDeTest;
+	}
+
+	public Collection<ExecutionTest> getListeExecutions() {
+		return listeExecutions;
+	}
+
+	public void setListeExecutions(List<ExecutionTest> listeExecutions) {
+		this.listeExecutions = listeExecutions;
 	}
 
 

@@ -73,8 +73,8 @@ public final class TestManagementUtils {
 		u1.setEmail("o.elbahaoui@gmail.com");
 	
 		Scenario s1 = new Scenario("Authentification", "L'utilisateur essaye de s'authentifier en entrant son login et mot de passe");
-		CasTest c1 = new CasTest("Description du cas de test",t1, Consts.MOYENNE, "Préconditions...", "Connexion établie", "Connexion établie", "Remarques...", "Etape1... Etape2....", u1, s1);
-		CasTest c12 = new CasTest("Description du cas de test2", t1, Consts.MOYENNE , "Préconditions...2", "Connexion établie2", "Connexion établie2", "Remarques...2", "Etape1... Etape2....2", u1, s1);
+		CasTest c1 = new CasTest("Description du cas de test",t1, Consts.MOYENNE, "Préconditions...", "Connexion établie", "Remarques...", "Etape1... Etape2....", u1, s1);
+		CasTest c12 = new CasTest("Description du cas de test2", t1, Consts.MOYENNE , "Préconditions...2", "Connexion établie2", "Remarques...2", "Etape1... Etape2....2", u1, s1);
 		CampagneTest ct1 = new CampagneTest("Campagne de test1", "Description de la campagne de tests", u1, p1); 
 		
 		logger.info("Création des objets : fin");

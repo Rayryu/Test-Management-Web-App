@@ -37,7 +37,9 @@ public class Utilisateur implements Serializable{
 	private Collection<CampagneTest> listeCampagnes= new ArrayList<CampagneTest>();
 	@OneToMany(mappedBy="testeur", cascade={CascadeType.PERSIST, CascadeType.MERGE})
 	private Collection<CasTest> listeCasTests = new ArrayList<CasTest>();
-
+	@OneToMany(mappedBy="testeur", cascade={CascadeType.PERSIST, CascadeType.MERGE})
+	private Collection<ExecutionTest> listeExecutionsCasTests = new ArrayList<ExecutionTest>();
+	
 	public Utilisateur(String nom, String prenom, Role role, Collection<Projet> listeProjets,
 			Collection<CampagneTest> listeCampagnes, Collection<CasTest> listeCasTests) {
 		super();
@@ -148,6 +150,15 @@ public class Utilisateur implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+
+	public Collection<ExecutionTest> getListeExecutionsCasTests() {
+		return listeExecutionsCasTests;
+	}
+
+	public void setListeExecutionsCasTests(Collection<ExecutionTest> listeExecutionsCasTests) {
+		this.listeExecutionsCasTests = listeExecutionsCasTests;
 	}
 	
 	

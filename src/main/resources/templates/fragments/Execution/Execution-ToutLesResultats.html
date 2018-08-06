@@ -1,0 +1,31 @@
+<meta http-equiv="Content-Type" content="text/html;charset=utf8" />
+<div class="ui segments" th:fragment="Execution-ToutLesResultats">
+                         <div class="ui segment">
+                             <h5 class="ui header">
+                                 Executions précédentes du cas de test 	
+                             </h5>
+                         </div>
+                         <div class="ui segment">
+                             <table id="data_table" class="ui compact selectable striped celled table tablet stackable" cellspacing="0" width="100%">
+                                 <thead>
+                                     <tr>
+                                         <th>ID</th>
+                                         <th>Résultat obtenu</th>
+                                         <th>Status</th>
+                                         <th>Commentaire</th>
+                                         <th>Date d'éxecution</th>
+                                     </tr>
+                                 </thead>
+                                 
+                                 <tbody>
+                                 <tr th:each="resultat : ${listeDesResultats}" >
+										<td th:text="${resultat.id}"></td>
+										<td th:text="${resultat.resultatObtenu}"></td>
+										<td th:text="${resultat.status}"> </td>
+										<td th:text="${resultat.commentaire}"> </td>
+										<td th:text="${resultat.dateCreation}"> </td>
+									</tr>
+								</tbody>
+                             </table>
+                         </div>
+                     </div>

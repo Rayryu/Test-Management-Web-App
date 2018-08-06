@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import ma.map.tm.dao.CasTestRepository;
 import ma.map.tm.entities.CasTest;
+import ma.map.tm.entities.ExecutionTest;
 import ma.map.tm.entities.Scenario;
 import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.services.CasTestService;
@@ -69,16 +70,7 @@ public class CasTestServiceImpl implements CasTestService {
 		
 	}
 
-	@Override
-	public void ajouterResultat(Long idCasDeTest, CasTest casTestCourant) {
-		CasTest cas = casTestRepository.getOne(idCasDeTest);
-		cas.setCommentaire(casTestCourant.getCommentaire());
-		cas.setStatut(casTestCourant.getStatut());
-		cas.setResultatActuel(casTestCourant.getResultatActuel());
-		
-		casTestRepository.save(cas);
-		
-	}
+
 	
 
 }
