@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import ma.map.tm.entities.CasTest;
+import ma.map.tm.entities.Scenario;
 import ma.map.tm.entities.Utilisateur;
 
 public interface CasTestRepository  extends JpaRepository<CasTest, Long>{
@@ -15,4 +16,8 @@ public interface CasTestRepository  extends JpaRepository<CasTest, Long>{
 	
 	@Query("SELECT c FROM CasTest c JOIN c.scenarioParent s where s.id = :x")
 	public List<CasTest> findByScenarioId(@Param("x")Long id_scenarioParent);
+
+	@Query("SELECT count(e) FROM ExecutionTest e where e.status = :y and e.casTestParent.scenarioParent = :x")
+	public Integer getStatistiqueByStatus(@Param("x")Scenario scenarioCourant,@Param("y") String status);
+
 }

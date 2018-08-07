@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html;charset=utf8" />
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h1>My Web Page</h1>
+<span th:text="${Reussis}"></span>
+
+<div id="piechart"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript" th:inline="javascript">
+/*<![CDATA[*/
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+	var reussisLabel = /*[[${Reussis}]]*/ '';
+	var echouesLabel = /*[[${Echoues}]]*/ '';
+	var bloquesLabel = /*[[${Bloques}]]*/ '';
+  var data = google.visualization.arrayToDataTable([
+	  
+			  ['Task', 'Hours per Day'],
+			  ['Réussis', reussisLabel],
+			  ['Echoués', echouesLabel],
+			  ['Bloqués', bloquesLabel]
+			]);
+
+  var options = {'title':'Status de la dernier execution des cas de test', 'width':550, 'height':400};
+
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+/*]]>*/
+</script>
+
+</body>
+</html>

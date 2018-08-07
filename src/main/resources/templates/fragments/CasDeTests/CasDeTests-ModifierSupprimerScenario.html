@@ -1,0 +1,32 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<div class="ui segments" th:fragment="CasDeTests-ModifierSupprimerScenario">
+    <div class="ui segment">
+        <h5 class="ui header">
+            Informations générales
+        </h5>
+    </div>
+    <div class="ui segment">
+ 			<h4 class="ui horizontal divider header">
+           <i class="tag icon"></i>
+           Modifier le scénario de test courant
+       		</h4>
+            <form class="ui form segment form1" th:action="@{/ModifierScenarioDeTest/{pathParam}(pathParam=${scenarioParent.id})}" method="post" th:object="${scenarioParent}">
+                <div class="two fields">
+                    <div class="five wide field">
+                        <label>Titre du scénario</label>
+                        <input th:field="*{nom}"  name="nom" type="text">
+                    </div>
+                    <div class="eleven wide field">
+						<label>Description du scénario</label>
+						<input type="text" th:field="*{description}" placeholder="Description du scenario">
+					</div>
+                </div>
+                <center><div class="ui blue positive submit button">Enregistrer</div>
+                <a onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')" th:href="@{/SupprimerScenario/{pathParam}(pathParam=${scenarioParent.id})}"><div class="ui blue negative submit button">Supprimer</div></a>
+                <a th:href="@{/AjouterCas/{pathParam}(pathParam=${scenarioParent.id})}"><div class="ui blue button">Ajouter un cas de test</div></a>
+                <div class="ui error message"></div>
+                </center>
+            </form>
+		</div>
+        
+    </div>

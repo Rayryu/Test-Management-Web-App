@@ -1,5 +1,6 @@
 package ma.map.tm.services;
 
+import java.util.Hashtable;
 import java.util.List;
 
 import ma.map.tm.entities.CasTest;
@@ -15,4 +16,5 @@ public interface CasTestService {
 	public List<CasTest> listeCasTestParScenario(Scenario s);
 	public void modifierCasTest(CasTest casTestCourant, Long idCasTest);
 	public void supprimerCasTest(Long idCasTest);
+	public Hashtable<String, Integer> getStatistiquesScenario(Scenario scenarioCourant);
 }

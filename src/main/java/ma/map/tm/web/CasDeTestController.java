@@ -1,5 +1,6 @@
 package ma.map.tm.web;
 
+import java.util.Hashtable;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,7 @@ import ma.map.tm.services.ProjetService;
 import ma.map.tm.services.ScenarioService;
 import ma.map.tm.services.TypeTestService;
 import ma.map.tm.services.UtilisateurService;
+import ma.map.tm.utils.Consts;
 import ma.map.tm.utils.TestManagementUtils;
 
 @Controller
@@ -51,6 +53,11 @@ public class CasDeTestController {
 
 		List<TypeTest> listetypeTest = typeTestService.getAllTypeTest();
 		List<String> listePriorite = TestManagementUtils.getListOfPriorities();
+		
+    	Hashtable<String, Integer> scenarioCourantStats = casTestService.getStatistiquesScenario(scenarioParent); 
+    	model.addAttribute("Reussis", scenarioCourantStats.get(Consts.RÉUSSI));
+    	model.addAttribute("Bloques", scenarioCourantStats.get(Consts.BLOQUÉ));
+    	model.addAttribute("Echoues", scenarioCourantStats.get(Consts.ECHOUÉ));
 		
 		model.addAttribute("campagneParente", campagneParente);
 		model.addAttribute("scenarioParent", scenarioParent);

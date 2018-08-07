@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="icon" href="../static/img/favicon.ico" th:href="@{/img/favicon.ico}" />
+<link rel="stylesheet" type="text/css" href="../static/css/semantic.css" th:href="@{/css/semantic.css}" />
+<link href="../static/css/ionicons.min.css" th:href="@{/css/ionicons.min.css}"  rel="stylesheet" />
+<link href="../static/css/main.css" th:href="@{/css/main.css}"  rel="stylesheet" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+</head>
+<body>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script type="text/javascript" th:inline="javascript">
+/*<![CDATA[*/
+window.onload = function() {
+
+	
+var dps = [[${message}]];
+var chart = new CanvasJS.Chart("chartContainer", {
+	exportEnabled: true,
+	animationEnabled: true,
+	theme: "light2", // "light1", "dark1", "dark2"
+	title: {
+		text: "Visitor Demographics of a Website"
+	},
+	subtitles: [{
+		text: "Age Groups of Visitors"
+	}],
+	data: [{
+		type: "pie",
+		yValueFormatString: "#,##0\"%\"",
+		indexLabel: "{label} - {y}",
+		dataPoints: dps[0]
+	}]
+});
+ 
+var yValue;
+var label;
+ 
+<c:forEach items="${dataPointsList}" var="dataPoints" varStatus="loop">
+	<c:forEach items="${dataPoints}" var="dataPoint">
+		yValue = parseFloat("${dataPoint.y}");
+		label = "${dataPoint.label}";
+		dps[parseInt("${loop.index}")].push({
+			label : label,
+			y : yValue,
+		});
+	</c:forEach>
+</c:forEach>
+ 
+chart.render();
+ 
+}
+/*]]>*/
+</script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>                             

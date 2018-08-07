@@ -1,6 +1,7 @@
 package ma.map.tm.services.impl;
 
 import java.util.Date;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ import ma.map.tm.entities.ExecutionTest;
 import ma.map.tm.entities.Scenario;
 import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.services.CasTestService;
+import ma.map.tm.utils.Consts;
 
 @Service
 public class CasTestServiceImpl implements CasTestService {
@@ -68,6 +70,18 @@ public class CasTestServiceImpl implements CasTestService {
 		
 		casTestRepository.delete(getCasTestById(idCasTest));
 		
+	}
+
+	@Override
+	public Hashtable<String, Integer> getStatistiquesScenario(Scenario scenarioCourant) {
+		
+		Hashtable<String, Integer> executionStats = new Hashtable<String, Integer>();
+		
+		executionStats.put(Consts.RÉUSSI, casTestRepository.getStatistiqueByStatus(scenarioCourant, Consts.RÉUSSI));
+		executionStats.put(Consts.ECHOUÉ, casTestRepository.getStatistiqueByStatus(scenarioCourant, Consts.ECHOUÉ));
+		executionStats.put(Consts.BLOQUÉ, casTestRepository.getStatistiqueByStatus(scenarioCourant, Consts.BLOQUÉ));
+		
+		return executionStats;
 	}
 
 
