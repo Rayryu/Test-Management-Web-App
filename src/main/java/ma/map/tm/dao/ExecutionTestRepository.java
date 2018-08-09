@@ -1,6 +1,7 @@
 package ma.map.tm.dao;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,5 +15,8 @@ import ma.map.tm.entities.Utilisateur;
 public interface ExecutionTestRepository extends JpaRepository<ExecutionTest, Long> {
 	@Query("SELECT e FROM ExecutionTest e where e.casTestParent = :x and e.testeur = :y")
 	Collection<ExecutionTest> getResultats(@Param("x") CasTest casTestCourant, @Param("y") Utilisateur loggedInUser);
+
+	@Query("SELECT e FROM ExecutionTest e where e.testeur = :y")
+	List<ExecutionTest> getAllByUser(@Param("y") Utilisateur utilisateurcourant);
 
 }

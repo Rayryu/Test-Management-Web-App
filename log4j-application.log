@@ -5653,3 +5653,18 @@ Persistance des données : fin
 2018-08-07 13:09:38 INFO  TestManagementApplication:80 - Création des objets : fin
 2018-08-07 13:09:38 INFO  TestManagementApplication:115 - Persistance des données : début
 2018-08-07 13:09:38 INFO  TestManagementApplication:158 - Persistance des données : fin
+2018-08-08 11:09:12 INFO  TestManagementApplication:52 - Application context créé!
+2018-08-08 11:09:12 INFO  TestManagementApplication:63 - Création des objets : début
+2018-08-08 11:09:12 INFO  TestManagementApplication:80 - Création des objets : fin
+2018-08-08 11:09:12 INFO  TestManagementApplication:115 - Persistance des données : début
+2018-08-08 11:09:13 INFO  TestManagementApplication:158 - Persistance des données : fin
+2018-08-08 11:10:24 INFO  TestManagementApplication:52 - Application context créé!
+2018-08-08 11:10:24 INFO  TestManagementApplication:63 - Création des objets : début
+2018-08-08 11:10:24 INFO  TestManagementApplication:80 - Création des objets : fin
+2018-08-08 11:10:24 INFO  TestManagementApplication:115 - Persistance des données : début
+2018-08-08 11:10:24 INFO  TestManagementApplication:158 - Persistance des données : fin
+2018-08-08 11:11:25 INFO  TestManagementApplication:52 - Application context créé!
+2018-08-08 11:11:25 INFO  TestManagementApplication:63 - Création des objets : début
+2018-08-08 11:11:25 INFO  TestManagementApplication:80 - Création des objets : fin
+2018-08-08 11:11:25 INFO  TestManagementApplication:115 - Persistance des données : début
+2018-08-08 11:11:25 INFO  TestManagementApplication:158 - Persistance des données : fin

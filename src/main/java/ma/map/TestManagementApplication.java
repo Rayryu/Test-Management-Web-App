@@ -15,9 +15,7 @@ public class TestManagementApplication {
 		
 		final Logger logger = Logger.getLogger(TestManagementApplication.class);
 		ApplicationContext ac =  SpringApplication.run(TestManagementApplication.class, args);
-	
-		
-		TestManagementUtils.start(logger, ac);
+		//TestManagementUtils.start(logger, ac);
 
 	}
 }

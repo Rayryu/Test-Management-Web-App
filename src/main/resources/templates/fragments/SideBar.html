@@ -3,8 +3,8 @@
 	<a class="item logo">
 	    <img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="stagblogo" />
 	</a>
-	<div class="ui divider"></div>
-	<a class="item">
+	<div class="ui divider" ></div>
+	<a class="item" th:href="@{/Dashboard}">
     	<i class="ion-speedometer icon"></i> <span class="colhidden">Tableau de bord</span>
 	</a>
 	<div class="ui divider"></div>
@@ -21,7 +21,7 @@
     </a>
     <div class="ui divider"></div>
     <a class="item" th:href="@{/Execution}">
-        <i class="ion-code icon"></i> <span class="colhidden">Executer un test</span>
+        <i class="ion-code icon"></i> <span class="colhidden">Executions de cas</span>
     </a>
     <div class="ui divider"></div>
     <a class="item" th:href="@{/GestionDesUtilisateurs}">
@@ -34,5 +34,6 @@
     
    	<div class="ui divider"></div>
 </div>
+
 
        

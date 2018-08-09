@@ -2,6 +2,7 @@ package ma.map.tm.services.impl;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +40,11 @@ public class ExecutionTestServiceImpl implements ExecutionCasService {
 	public Collection<ExecutionTest> getResultatsPrecedents(CasTest casTestCourant, Utilisateur loggedInUser) {
 		
 		return executionTestRepository.getResultats(casTestCourant, loggedInUser);
+	}
+
+	@Override
+	public List<ExecutionTest> listeExecutionsParUtilisateur(Utilisateur utilisateurcourant) {
+		return executionTestRepository.getAllByUser(utilisateurcourant);
 	}
 
 	
