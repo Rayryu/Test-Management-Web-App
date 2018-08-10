@@ -49,6 +49,8 @@ public class CasDeTestController {
 		List<CasTest> listeDesCas = casTestService.listeCasTestParScenario(scenarioParent);
 		CampagneTest campagneParente = campagneService.getCampagneById(scenarioParent.getCampagne().getId());
 		Projet projetParent  = projetService.getProjetById(campagneParente.getProjetParent().getId());
+		CasTest nouveauCasTest = new CasTest();
+		nouveauCasTest.setEtapes("<p>Etape1... Etape2....2</p>");
 		
 
 		List<TypeTest> listetypeTest = typeTestService.getAllTypeTest();
@@ -65,7 +67,7 @@ public class CasDeTestController {
 		model.addAttribute("listePriorite", listePriorite);
 		model.addAttribute("listeDesCas", listeDesCas);
 		model.addAttribute("listetypeTest", listetypeTest);
-		model.addAttribute("nouveauCasDeTest", new CasTest());
+		model.addAttribute("nouveauCasDeTest", nouveauCasTest);
 		model.addAttribute("nouveauScenario", new Scenario());
 		model.addAttribute("currentUser", utilisateurService.getLoggedInUser());
 		
@@ -138,6 +140,8 @@ public class CasDeTestController {
 		Projet projetParent  = projetService.getProjetById(campagneParente.getProjetParent().getId());
 		List<TypeTest> listetypeTest = typeTestService.getAllTypeTest();
 		List<String> listePriorite = TestManagementUtils.getListOfPriorities();
+		CasTest nouveauCasTest = new CasTest();
+		nouveauCasTest.setEtapes("<p>Etape1...</p> </br><p> Etape2...</p>");
 
 		model.addAttribute("listePriorite", listePriorite);
 		model.addAttribute("campagneParente", campagneParente);
@@ -145,7 +149,7 @@ public class CasDeTestController {
 		model.addAttribute("projetParent", projetParent);
 		model.addAttribute("listeDesCas", listeDesCas);
 		model.addAttribute("listetypeTest", listetypeTest);
-		model.addAttribute("nouveauCasDeTest", new CasTest());
+		model.addAttribute("nouveauCasDeTest", nouveauCasTest);
 		model.addAttribute("nouveauScenario", new Scenario());
 		model.addAttribute("currentUser", utilisateurService.getLoggedInUser());
 		
