@@ -1,5 +1,6 @@
 package ma.map.tm.services.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -14,6 +15,7 @@ import ma.map.tm.entities.ExecutionTest;
 import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.services.ExecutionCasService;
 import ma.map.tm.services.UtilisateurService;
+import ma.map.tm.utils.Consts;
 
 @Service
 public class ExecutionTestServiceImpl implements ExecutionCasService {
@@ -45,6 +47,46 @@ public class ExecutionTestServiceImpl implements ExecutionCasService {
 	@Override
 	public List<ExecutionTest> listeExecutionsParUtilisateur(Utilisateur utilisateurcourant) {
 		return executionTestRepository.getAllByUser(utilisateurcourant);
+	}
+
+	@Override
+	public List<Integer> getStats(Utilisateur utilisateurCourant) {
+		List<Integer> stats = new ArrayList<Integer>();
+		List<CasTest> listeCasTest = casTestRepository.findAll();
+		if (utilisateurCourant.getRole().getNom().equals("Testeur")) listeCasTest= casTestRepository.findByUtilisateurId(utilisateurCourant);
+		List<ExecutionTest> listeExecutions = executionTestRepository.findAll();
+		if (utilisateurCourant.getRole().getNom().equals("Testeur")) listeExecutions = listeExecutionsParUtilisateur(utilisateurCourant);
+		int nombreCas = listeCasTest.size();
+		int nombreExecutions = listeExecutions.size();
+		int nombreExecutes = casTestRepository.findAll().size();
+		if (utilisateurCourant.getRole().getNom().equals("Testeur")) nombreExecutes = casTestRepository.getExecutes(utilisateurCourant).size();
+		
+		int nombreReussis = 0;
+		int nombreBloques = 0;
+		int nombreEchoues = 0;
+		for (ExecutionTest executionTest : listeExecutions) {
+			switch (executionTest.getStatus()) {
+			case Consts.RÉUSSI: nombreReussis++; break;
+			case Consts.ECHOUÉ: nombreEchoues++; break;
+			case Consts.BLOQUÉ: nombreBloques++; break;
+			default: break;
+			}
+		}
+
+		stats.add(nombreCas);
+		stats.add(nombreExecutes);
+		if (nombreExecutions>0) {
+			stats.add(nombreReussis*100/nombreExecutions);
+			stats.add(nombreBloques*100/nombreExecutions);
+			stats.add(nombreEchoues*100/nombreExecutions);
+		} else {
+			stats.add(0);
+			stats.add(0);
+			stats.add(0);
+		}
+
+		stats.add(nombreExecutions);
+		return stats;
 	}
 
 	

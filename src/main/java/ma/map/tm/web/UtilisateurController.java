@@ -35,6 +35,7 @@ public class UtilisateurController {
 		model.addAttribute("nouvelUtilisateur", nouvelUtilisateur);
 		model.addAttribute("listeUtilisateurs", listeUtilisateurs);
 		model.addAttribute("listeRoles", listeRoles);
+		model.addAttribute("currentUser", utilisateurService.getLoggedInUser());
 		
 		return "GestionUtilisateurs";
 	}

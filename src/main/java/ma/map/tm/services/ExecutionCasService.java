@@ -11,5 +11,6 @@ public interface ExecutionCasService {
 	public void ajouterResultat(Long idCasDeTest, ExecutionTest nouvelleExecution);
 	public Collection<ExecutionTest> getResultatsPrecedents(CasTest casTestCourant, Utilisateur loggedInUser);
 	public List<ExecutionTest> listeExecutionsParUtilisateur(Utilisateur utilisateurcourant);
+	public List<Integer> getStats(Utilisateur utilisateurCourant);
 
 }

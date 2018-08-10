@@ -43,6 +43,7 @@ public class ScenarioDeTestController {
 		model.addAttribute("listeCampagnes", listeCampagnes);
 		model.addAttribute("listeCasTest", listeCasTest);
 		model.addAttribute("nouveauScenario", new Scenario());
+		model.addAttribute("currentUser", utilisateurService.getLoggedInUser());
 		
 		return "Scenarios";
 	}

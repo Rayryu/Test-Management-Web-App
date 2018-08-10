@@ -179,8 +179,7 @@ html.ios body {
 .left.sidebar {
     overflow-y: auto !important;
 }
-.logo {
-    height: 57px;
+.logo {	
     background-color: #fff!important;
     -webkit-transition-duration: 0.1s;
     transition-duration: 0.1s;

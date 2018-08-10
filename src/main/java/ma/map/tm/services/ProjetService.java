@@ -12,5 +12,7 @@ public interface ProjetService {
 	public Projet getProjetById(Long id);
 	public void supprimerProjet(Long id_projet);
 	public void addProjet(Projet nouveauProjet, Utilisateur currentUser);
+	public List<Projet> getTroisDerniersProjets(Utilisateur u);
+	public List<Integer> getStatsTroisDerniersProjets(Utilisateur utilisateurCourant);
 	
 }

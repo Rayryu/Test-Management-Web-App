@@ -16,5 +16,7 @@ public interface CasTestService {
 	public List<CasTest> listeCasTestParScenario(Scenario s);
 	public void modifierCasTest(CasTest casTestCourant, Long idCasTest);
 	public void supprimerCasTest(Long idCasTest);
+	public List<CasTest> listeCasExecutes(Utilisateur u);
 	public Hashtable<String, Integer> getStatistiquesScenario(Scenario scenarioCourant);
+	public List<CasTest> getTroisDerniersCasTest(Utilisateur utilisateurCourant);
 }

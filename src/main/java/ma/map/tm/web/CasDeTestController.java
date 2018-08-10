@@ -67,7 +67,8 @@ public class CasDeTestController {
 		model.addAttribute("listetypeTest", listetypeTest);
 		model.addAttribute("nouveauCasDeTest", new CasTest());
 		model.addAttribute("nouveauScenario", new Scenario());
-	
+		model.addAttribute("currentUser", utilisateurService.getLoggedInUser());
+		
 		return "Scenario";
 	}
 	
@@ -106,6 +107,7 @@ public class CasDeTestController {
 		model.addAttribute("casTestCourant", casTestCourant);
 		model.addAttribute("projetParent", projetParent);
 		model.addAttribute("listetypeTest", listetypeTest);
+		model.addAttribute("currentUser", utilisateurService.getLoggedInUser());
 		
 		return "SelectedCasDeTests";
 	}
@@ -145,6 +147,7 @@ public class CasDeTestController {
 		model.addAttribute("listetypeTest", listetypeTest);
 		model.addAttribute("nouveauCasDeTest", new CasTest());
 		model.addAttribute("nouveauScenario", new Scenario());
+		model.addAttribute("currentUser", utilisateurService.getLoggedInUser());
 		
 		return "AjouterCasTest";
 	}

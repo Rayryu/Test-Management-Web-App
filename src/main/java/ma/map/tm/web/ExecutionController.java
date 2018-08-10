@@ -53,6 +53,7 @@ public class ExecutionController {
 		List<CasTest> listeDesCas = casTestService.listeCasTestParUtilisateur(currentUser);
 		
 		model.addAttribute("listeDesCas", listeDesCas);
+		model.addAttribute("currentUser", utilisateurService.getLoggedInUser());
 		
 		return "Executions";
 	}
@@ -82,6 +83,7 @@ public class ExecutionController {
 		model.addAttribute("casTestCourant", casTestCourant);
 		model.addAttribute("nouvelleExecution", nouvelleExecution);
 		model.addAttribute("listeDesResultats", listeDesResultats);
+		model.addAttribute("currentUser", utilisateurService.getLoggedInUser());
 		
 		return "ExecuterCasDeTest";
 	}

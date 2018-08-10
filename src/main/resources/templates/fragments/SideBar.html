@@ -1,8 +1,19 @@
  <meta http-equiv="Content-Type" content="text/html;charset=utf8" />
  <div class="ui sidebar vertical left menu overlay  borderless visible sidemenu inverted  grey" style="-webkit-transition-duration: 0.1s; transition-duration: 0.1s;" data-color="grey" th:fragment="SideBar">
-	<a class="item logo">
-	    <img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="stagblogo" />
-	</a>
+<!-- 	<a class="logo" > -->
+	    
+<!-- 	</a> -->
+<!-- 	<div style="text-align:center;margin-top: 10px;"> -->
+
+<!-- 	      	<img style="vertical-align:middle" src="../static/img/logo.png" th:src="@{/img/logo-MAP.png}" alt="stagblogo" />	 -->
+<!-- 	      	<img src="img/logo.png" alt="stagblogo" class=""> -->
+<!-- 	      	<img src="img/thumblogo.png" alt="stagblogo" class="displaynone"> -->
+
+<!-- 	</div> -->
+	            <a class="item logo">
+                <img src="../static/img/logo.png" th:src="@{/img/logo-MAP.png}" alt="stagblogo" /><img src="../static/img/logo.png" th:src="@{/img/logo-MAP.png}" alt="stagblogo" class="displaynone" />
+            </a>
+
 	<div class="ui divider" ></div>
 	<a class="item" th:href="@{/Dashboard}">
     	<i class="ion-speedometer icon"></i> <span class="colhidden">Tableau de bord</span>
@@ -24,15 +35,16 @@
         <i class="ion-code icon"></i> <span class="colhidden">Executions de cas</span>
     </a>
     <div class="ui divider"></div>
-    <a class="item" th:href="@{/GestionDesUtilisateurs}">
-        <i class="ion-code icon"></i> <span class="colhidden">Gestion des utilisateurs</span>
-    </a>
-    <div class="ui divider"></div>
-    <a class="item">
-        <i class="ion-code icon"></i> <span class="colhidden">Rapports</span>
-    </a>
-    
-   	<div class="ui divider"></div>
+	<div th:if="${currentUser.role.nom == 'Admin'}">
+	   	  <a class="item" th:href="@{/GestionDesUtilisateurs}" >
+	        <i class="ion-code icon"></i> <span class="colhidden">Gestion des utilisateurs</span>
+	   	 </a>
+	   	 <div class="ui divider"></div>
+	</div>
+<!--     <a class="item"> -->
+<!--         <i class="ion-code icon"></i> <span class="colhidden">Rapports</span> -->
+<!--     </a> -->
+<!--    	<div class="ui divider"></div> -->
 </div>
 
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <!-- Site Properities -->
+    <meta name="generator" content="Visual Studio 2015" />
+    <title>404 | Test Management </title>
+    <meta name="description" content="Stagb Admin Template" />
+    <meta name="keywords" content="html5, ,semantic,ui, library, framework, javascript,jquery,admin,template" />
+	<link rel="icon" href="../static/img/favicon.ico" th:href="@{/img/favicon.ico}" />
+	<link rel="stylesheet" type="text/css" href="../static/css/semantic.css" th:href="@{/css/semantic.css}" />
+	<link href="../static/css/ionicons.min.css" th:href="@{/css/ionicons.min.css}"  rel="stylesheet" />
+	<link href="../static/css/main.css" th:href="@{/css/main.css}"  rel="stylesheet" />
+</head>
+<body class="error404">
+    <div class="ui container" style="padding-top:5%">
+        <div class="ui grid center aligned">
+            <div class="row">
+                <div class="sixteen wide tablet ten wide computer column">
+
+                    <div class="ui container center aligned errorcontainer">
+                        <h1 class="ui header inverted">
+                            Cette page n'existe pas ou vous n'avez pas les droits pour y accéder !
+                        </h1>
+                        <a class="ui button" th:href="@{/Dashboard}">
+							Redirection
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -36,6 +36,7 @@ public class ProjetController {
 		
 		model.addAttribute("listeProjets", listeProjets);
 		model.addAttribute("nouveauProjet", new Projet());
+		model.addAttribute("currentUser", utilisateurService.getLoggedInUser());
 		
 		return "Projets";
 	}
@@ -52,6 +53,9 @@ public class ProjetController {
 		model.addAttribute("projetParent", projetParent);
 		model.addAttribute("nouvelleCampagne", nouvelleCampagne);
 		model.addAttribute("nouveauProjet", new Projet());
+		model.addAttribute("currentUser", utilisateurService.getLoggedInUser());
+		
+		
 		
 		return "Projet";
 	}

@@ -1,5 +1,6 @@
 package ma.map.tm.services.impl;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import ma.map.tm.dao.CasTestRepository;
 import ma.map.tm.entities.CasTest;
 import ma.map.tm.entities.ExecutionTest;
+import ma.map.tm.entities.Projet;
 import ma.map.tm.entities.Scenario;
 import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.services.CasTestService;
@@ -37,7 +39,8 @@ public class CasTestServiceImpl implements CasTestService {
 
 	@Override
 	public List<CasTest> listeCasTestParUtilisateur(Utilisateur u) {
-		return casTestRepository.findByUtilisateurId(u);
+		if (u.getRole().getNom().equals("Testeur")) return casTestRepository.findByUtilisateurId(u);
+		return casTestRepository.findAll();
 	}
 
 	@Override
@@ -82,6 +85,26 @@ public class CasTestServiceImpl implements CasTestService {
 		executionStats.put(Consts.BLOQUÉ, casTestRepository.getStatistiqueByStatus(scenarioCourant, Consts.BLOQUÉ));
 		
 		return executionStats;
+	}
+
+	@Override
+	public List<CasTest> listeCasExecutes(Utilisateur u) {
+		
+		if (u.getRole().getNom().equals("Testeur")) return casTestRepository.getExecutes(u);
+		return casTestRepository.findAll();
+	}
+
+	@Override
+	public List<CasTest> getTroisDerniersCasTest(Utilisateur utilisateurCourant) {
+		if (utilisateurCourant.getRole().getNom().equals("Testeur")) {
+			List<CasTest> listeCasOrdonnee = casTestRepository.findByUserCreationDesc(utilisateurCourant);
+			List<CasTest> subList;
+			if (listeCasOrdonnee.size() > 2) subList = listeCasOrdonnee.subList(0, 3);
+			else subList = listeCasOrdonnee;
+			Collections.reverse(subList);
+			return subList;
+		}
+		return casTestRepository.findAllDateDesc().subList(0, 3);
 	}
 
 

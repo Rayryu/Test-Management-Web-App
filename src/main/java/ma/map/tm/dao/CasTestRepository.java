@@ -20,4 +20,13 @@ public interface CasTestRepository  extends JpaRepository<CasTest, Long>{
 	@Query("SELECT count(e) FROM ExecutionTest e where e.status = :y and e.casTestParent.scenarioParent = :x")
 	public Integer getStatistiqueByStatus(@Param("x")Scenario scenarioCourant,@Param("y") String status);
 
+	@Query("SELECT distinct e.casTestParent FROM ExecutionTest e where e.casTestParent.testeur = :x")
+	public List<CasTest> getExecutes(@Param("x")Utilisateur u);
+
+	@Query("SELECT c FROM CasTest c where c.testeur = :x ORDER BY c.dateCreation DESC")
+	public List<CasTest> findByUserCreationDesc(@Param("x")Utilisateur utilisateurCourant);
+
+	@Query("SELECT c FROM CasTest c ORDER BY c.dateCreation DESC")
+	public List<CasTest> findAllDateDesc();
+
 }

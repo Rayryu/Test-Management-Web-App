@@ -31,7 +31,8 @@ public class CampagneServiceImpl implements CampagneService {
 
 	@Override
 	public List<CampagneTest> listeCampagneTestParUtilisateur(Utilisateur u) {
-		return campagneTestRepository.findByUtilisateurId(u.getId());
+		if (u.getRole().getNom().equals("Testeur")) return campagneTestRepository.findByUtilisateurId(u.getId());
+		return campagneTestRepository.findAll();
 	}
 
 	@Override

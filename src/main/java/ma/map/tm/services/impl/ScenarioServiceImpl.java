@@ -32,7 +32,8 @@ public class ScenarioServiceImpl implements ScenarioService {
 
 	@Override
 	public List<Scenario> listeScenarioTestParUtilisateur(Utilisateur u) {
-		return scenarioRepository.findByScenarioId(u.getId());
+		if (u.getRole().getNom().equals("Testeur")) return scenarioRepository.findByScenarioId(u.getId());
+		return scenarioRepository.findAll();
 	}
 
 	@Override

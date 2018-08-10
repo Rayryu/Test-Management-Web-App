@@ -43,6 +43,7 @@ public class CampagneDeTestController {
 		model.addAttribute("listeProjets", listeProjets);
 		model.addAttribute("nouvelleCampagne", new CampagneTest());
 		model.addAttribute("projetParent", new Projet());
+		model.addAttribute("currentUser", utilisateurService.getLoggedInUser());
 		
 		return "CampagnesDeTest";
 	}
@@ -60,6 +61,7 @@ public class CampagneDeTestController {
 		model.addAttribute("nouveauScenario",nouveauScenario);
 		model.addAttribute("campagneParente",campagneParente);
 		model.addAttribute("projetParent",projetParent);
+		model.addAttribute("currentUser", utilisateurService.getLoggedInUser());
 		
 		return "CampagneDeTest";
 	}
