@@ -107,6 +107,11 @@ public class CasTestServiceImpl implements CasTestService {
 		return casTestRepository.findAllDateDesc().subList(0, 3);
 	}
 
+	@Override
+	public List<CasTest> listeCasTestByProjet(Projet projetCourant) {
+		return casTestRepository.findByProjet(projetCourant);
+	}
+
 
 	
 

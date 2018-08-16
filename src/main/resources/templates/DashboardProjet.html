@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+ <meta http-equiv="Content-Type" content="text/html;charset=utf8" />
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="icon" href="../static/img/favicon.ico" th:href="@{/img/favicon.ico}" />
+<link rel="stylesheet" type="text/css" href="../static/css/semantic.css" th:href="@{/css/semantic.css}" />
+<link href="../static/css/ionicons.min.css" th:href="@{/css/ionicons.min.css}"  rel="stylesheet" />
+<link href="../static/css/main.css" th:href="@{/css/main.css}"  rel="stylesheet" />
+<head>
+<meta charset="ISO-8859-1">
+<title>Tableau de bord</title>
+</head>
+
+<body>
+  <div th:replace="fragments/SideBar :: SideBar"></div>
+  <div th:replace="fragments/NavigationBare :: NavigationBar"></div>
+  <div class=" navslide">
+	  <div class="ui equal width left aligned padded grid stackable">
+			<div class="row">
+
+				<div class="four wide column">
+					<a th:href="@{/CampagnesDeTest}"> 
+						<div class="ui segment left aligned">
+		                    <div class="ui  statistic">
+		                        <div class="value counter"><span th:text="${nombreCampagnes}"></span></div>
+		                        <div class="label">
+		                            Campagnes de test
+		                        </div>
+		                        <i class="icon ion-ios-paper teal statisticIcon"></i>
+		                    </div>
+		                </div>
+					</a>
+				</div>
+				<div class="four wide column">
+					<a th:href="@{/Scenarios}"> 
+						<div class="ui segment left aligned">
+		                    <div class="ui  statistic">
+		                        <div class="value counter"><span th:text="${nombreScenarios}"></span></div>
+		                        <div class="label">
+		                            Scénarios de test
+		                        </div>
+		                        <i class="icon ion-ios-film teal statisticIcon"></i>
+		                    </div>
+						 </div>
+					</a>
+				</div>
+				<div class="four wide column">
+					<a th:href="@{/Execution}"> 
+						<div class="ui segment left aligned">
+		                    <div class="ui  statistic">
+		                        <div class="value counter"><span th:text="${nombreCasTest}"></span></div>
+		                        <div class="label">
+		                            Cas de test
+		                        </div>
+		                        <i class="icon ion-ios-copy teal statisticIcon"></i>
+		                    </div>
+						 </div>
+					 </a>
+				</div>
+        	</div>
+        </div>
+	</div>
+
+  <div class="">
+	<div class="mainWrap navslide">
+          <div class="ui equal width left aligned padded grid stackable">
+             <div class="row">
+                 <div class="eight wide column">
+                 	<div class="ui segments" >
+					    <div class="ui segment">
+					        <h4 class="ui horizontal divider header">
+					            <i class="bar chart icon"> </i>
+					            Statistiques sur les cas de test	
+					        </h4>
+					        <div class="row centered">
+								<div class="fourteen wide column">
+					        		<div id="columnchart_material" style="width: 600px; height: 300px;"></div>
+								</div>
+					   		</div>
+					    </div>
+					</div>
+                 </div>
+                 <div class="eight wide column">
+                 	<div class="ui segments" >
+					    <div class="ui segment">
+					        <h4 class="ui horizontal divider header">
+					            <i class="bar chart icon"> </i>
+					            Statistiques sur l'exécution des cas de test	
+					        </h4>
+					        <div class="row centered">
+								<div class="fourteen wide column">
+					        		<div class="ui teal progress" id="progressBareExecute">
+  										<div class="bar"></div>
+									  <div class="label">
+									  		<span th:text="${listeStatsExecutions.get(1)} +''"> 
+									  		</span>
+									  		cas de test sur
+									  		<span th:text="${listeStatsExecutions.get(0)} +' ont été exécuté'"> 
+									  		</span>
+									  </div>
+									</div>
+									<div class="ui green progress" id="progressBareReussi">
+  										<div class="bar"></div>
+									  <div class="label">
+									  		<span th:text="${listeStatsExecutions.get(2)} +'% des exécutions ont réussi'"> 
+									  		</span>
+									  </div>
+									</div>
+									<div class="ui red progress" id="progressBareEchoue">
+  										<div class="bar"></div>
+									  <div class="label"><span th:text="${listeStatsExecutions.get(4)} +'% des exécutions ont échoué'"> 
+									  		</span></div>
+									</div>
+									<div class="ui yellow  progress" id="progressBareBloque">
+  										<div class="bar"></div>
+									  <div class="label"><span th:text="${listeStatsExecutions.get(3)} +'% des exécutions sont bloquées'"> 
+									  		</span></div>
+									</div>
+								</div>
+					   		</div>
+					    </div>
+					</div>
+					<div class="ui segments" >
+					    <div class="ui segment">
+					        <h4 class="ui horizontal divider header">
+					            <i class="bar chart icon"> </i>
+					            Derniers cas de test ajoutés	
+					        </h4>
+					        <div class="row centered">
+								<div class="fourteen wide column">
+					        		<table class="ui celled table">
+		                                 <thead>
+		                                     <tr>
+		                                         <th>Titre</th>
+		                                         <th>Description du cas de test</th>
+		                                         <th>Priorité</th>
+		                                         <th>Date de création</th>
+		                                     </tr>
+		                                 </thead>
+		                                 
+		                                 <tr th:each="casTest : ${listeTroisDernierCas}" 
+									style="cursor: pointer"
+     								th:onclick="'javascript:rowClicked(\'' + ${casTest.id} + '\', \'SelectedCasTest\');'">
+										<td th:text="${casTest.titre}"></td>
+										<td th:text="${casTest.description}"> </td>
+										<td th:text="${casTest.priorite}"> </td>
+										<td th:text="${casTest.dateCreation}"> </td>
+									</tr>
+		                             </table>
+								</div>
+					   		</div>
+					    </div>
+					</div>
+                 </div>
+                 
+             </div>
+		</div>
+   </div>
+  </div>
+  <div class="">
+	<div class="mainWrap navslide">
+          <div class="ui equal width left aligned padded grid stackable">
+             <div class="row">
+                 <div class="eight wide column">
+					
+                 </div>
+                 <div class="eight wide column">
+
+                 </div>	
+             </div>
+		</div>
+   </div>
+  </div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<div th:switch="${listeTroisDernieresCampagnes.size()}">
+	 <p th:case="3">
+		<script type="text/javascript" th:inline="javascript">
+			/*<![CDATA[*/
+			// Load google charts
+			google.charts.load('current', {'packages':['bar']});
+		      google.charts.setOnLoadCallback(drawChart);
+		
+		      function drawChart() {
+		    	  var projet1 = /*[[${listeTroisDernieresCampagnes.get(0).getNom()}]]*/ '';
+		    	  var projet2 = /*[[${listeTroisDernieresCampagnes.get(1).getNom()}]]*/ '';
+		    	  var projet3 = /*[[${listeTroisDernieresCampagnes.get(2).getNom()}]]*/ '';
+		    	  var reussisProjet1 = /*[[${listeStatsTroisDernieresCampagnes.get(0)}]]*/ ''; 
+		    	  var echouesProjet1 = /*[[${listeStatsTroisDernieresCampagnes.get(1)}]]*/ ''; 
+		    	  var bloquesProjet1 = /*[[${listeStatsTroisDernieresCampagnes.get(2)}]]*/ ''; 
+		    	  var reussisProjet2 = /*[[${listeStatsTroisDernieresCampagnes.get(3)}]]*/ ''; 
+		    	  var echouesProjet2 = /*[[${listeStatsTroisDernieresCampagnes.get(4)}]]*/ ''; 
+		    	  var bloquesProjet2 = /*[[${listeStatsTroisDernieresCampagnes.get(5)}]]*/ ''; 
+		    	  var reussisProjet3 = /*[[${listeStatsTroisDernieresCampagnes.get(6)}]]*/ ''; 
+		    	  var echouesProjet3 = /*[[${listeStatsTroisDernieresCampagnes.get(7)}]]*/ ''; 
+		    	  var bloquesProjet3 = /*[[${listeStatsTroisDernieresCampagnes.get(8)}]]*/ ''; 
+		    	  var nombreCas = /*[[${listeStatsExecutions.get(0)}]]*/ ''; 
+		    	  var nombreExecutes = /*[[${listeStatsExecutions.get(1)}]]*/ ''; 
+		    	  var nombreReussis = /*[[${listeStatsExecutions.get(2)}]]*/ ''; 
+		    	  var nombreEchoues = /*[[${listeStatsExecutions.get(3)}]]*/ ''; 
+		    	  var nombreBloques = /*[[${listeStatsExecutions.get(4)}]]*/ '';
+		    	  var nombreExecutions = /*[[${listeStatsExecutions.get(5)}]]*/ '';
+			        var data = google.visualization.arrayToDataTable([
+			          ['Campagnes de test', 'Réussis', 'Echoués', 'Bloqués'],
+			          [projet1, reussisProjet1, echouesProjet1, bloquesProjet1],
+			          [projet2, reussisProjet2, echouesProjet2, bloquesProjet2],
+			          [projet3, reussisProjet3, echouesProjet3, bloquesProjet3]
+			        ]);
+			        var options = {
+			          chart: {
+			            title: 'Nombre d\'exécution de test par status',
+			            subtitle: 'Réussis, échoués, bloqués',
+			          }
+			        };
+			        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+			        chart.draw(data, google.charts.Bar.convertOptions(options));
+			        
+			        
+			        
+			        //Progress bares
+			        $('#progressBareExecute').progress({
+			        	  percent: nombreExecutes/nombreCas*100
+			        	});
+			        $('#progressBareReussi').progress({
+			      	  percent: nombreReussis
+			      	});
+			        $('#progressBareEchoue').progress({
+			      	  percent: nombreBloques
+			      	});
+			        $('#progressBareBloque').progress({
+			      	  percent: nombreEchoues
+			      	});
+			}
+			/*]]>*/
+		</script>
+	</p>
+	<p th:case="2">
+		<script type="text/javascript" th:inline="javascript">
+			/*<![CDATA[*/
+			// Load google charts
+			google.charts.load('current', {'packages':['bar']});
+		      google.charts.setOnLoadCallback(drawChart);
+		
+		      function drawChart() {
+		    	  var projet1 = /*[[${listeTroisDernieresCampagnes.get(0).getNom()}]]*/ '';
+		    	  var projet2 = /*[[${listeTroisDernieresCampagnes.get(1).getNom()}]]*/ '';
+		    	  var reussisProjet1 = /*[[${listeStatsTroisDernieresCampagnes.get(0)}]]*/ ''; 
+		    	  var echouesProjet1 = /*[[${listeStatsTroisDernieresCampagnes.get(1)}]]*/ ''; 
+		    	  var bloquesProjet1 = /*[[${listeStatsTroisDernieresCampagnes.get(2)}]]*/ ''; 
+		    	  var reussisProjet2 = /*[[${listeStatsTroisDernieresCampagnes.get(3)}]]*/ ''; 
+		    	  var echouesProjet2 = /*[[${listeStatsTroisDernieresCampagnes.get(4)}]]*/ ''; 
+		    	  var bloquesProjet2 = /*[[${listeStatsTroisDernieresCampagnes.get(5)}]]*/ '';
+		    	  var nombreCas = /*[[${listeStatsExecutions.get(0)}]]*/ ''; 
+		    	  var nombreExecutes = /*[[${listeStatsExecutions.get(1)}]]*/ ''; 
+		    	  var nombreReussis = /*[[${listeStatsExecutions.get(2)}]]*/ ''; 
+		    	  var nombreEchoues = /*[[${listeStatsExecutions.get(3)}]]*/ ''; 
+		    	  var nombreBloques = /*[[${listeStatsExecutions.get(4)}]]*/ '';
+		    	  var nombreExecutions = /*[[${listeStatsExecutions.get(5)}]]*/ '';
+			        var data = google.visualization.arrayToDataTable([
+			          ['Campagnes de test', 'Réussis', 'Echoués', 'Bloqués'],
+			          [projet1, reussisProjet1, echouesProjet1, bloquesProjet1],
+			          [projet2, reussisProjet2, echouesProjet2, bloquesProjet2]
+			        ]);
+			        var options = {
+			          chart: {
+			            title: 'Nombre d\'exécution de test par status',
+			            subtitle: 'Réussis, échoués, bloqués',
+			          }
+			        };
+			        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+			        chart.draw(data, google.charts.Bar.convertOptions(options));
+			        
+			        
+			        
+			        //Progress bares
+			        $('#progressBareExecute').progress({
+			        	  percent: nombreExecutes/nombreCas*100
+			        	});
+			        $('#progressBareReussi').progress({
+			      	  percent: nombreReussis
+			      	});
+			        $('#progressBareEchoue').progress({
+			      	  percent: nombreBloques
+			      	});
+			        $('#progressBareBloque').progress({
+			      	  percent: nombreEchoues
+			      	});
+			}
+			/*]]>*/
+		</script>
+	</p>
+	<p th:case="1">
+		<script type="text/javascript" th:inline="javascript">
+			/*<![CDATA[*/
+			// Load google charts
+			google.charts.load('current', {'packages':['bar']});
+		      google.charts.setOnLoadCallback(drawChart);
+		
+		      function drawChart() {
+		    	  var projet1 = /*[[${listeTroisDernieresCampagnes.get(0).getNom()}]]*/ '';
+		    	  var reussisProjet1 = /*[[${listeStatsTroisDernieresCampagnes.get(0)}]]*/ ''; 
+		    	  var echouesProjet1 = /*[[${listeStatsTroisDernieresCampagnes.get(1)}]]*/ ''; 
+		    	  var bloquesProjet1 = /*[[${listeStatsTroisDernieresCampagnes.get(2)}]]*/ ''; 
+		    	  var nombreCas = /*[[${listeStatsExecutions.get(0)}]]*/ ''; 
+		    	  var nombreExecutes = /*[[${listeStatsExecutions.get(1)}]]*/ ''; 
+		    	  var nombreReussis = /*[[${listeStatsExecutions.get(2)}]]*/ ''; 
+		    	  var nombreEchoues = /*[[${listeStatsExecutions.get(3)}]]*/ ''; 
+		    	  var nombreBloques = /*[[${listeStatsExecutions.get(4)}]]*/ '';
+		    	  var nombreExecutions = /*[[${listeStatsExecutions.get(5)}]]*/ '';
+			        var data = google.visualization.arrayToDataTable([
+			          ['Campagnes de test', 'Réussis', 'Echoués', 'Bloqués'],
+			          [projet1, reussisProjet1, echouesProjet1, bloquesProjet1]
+			        ]);
+			        var options = {
+			          chart: {
+			            title: 'Nombre d\'exécution de test par status',
+			            subtitle: 'Réussis, échoués, bloqués',
+			          }
+			        };
+			        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+			        chart.draw(data, google.charts.Bar.convertOptions(options));
+			        
+			        
+			        
+			        //Progress bares
+			        $('#progressBareExecute').progress({
+			        	  percent: nombreExecutes/nombreCas*100
+			        	});
+			        $('#progressBareReussi').progress({
+			      	  percent: nombreReussis
+			      	});
+			        $('#progressBareEchoue').progress({
+			      	  percent: nombreBloques
+			      	});
+			        $('#progressBareBloque').progress({
+			      	  percent: nombreEchoues
+			      	});
+			}
+			/*]]>*/
+		</script>
+	</p>
+</div>
+<script type="text/javascript" th:inline="javascript">
+/*<![CDATA[*/
+	function handleSelect(elm)
+	{
+	window.location = elm.value;
+	}
+/*]]>*/
+</script>
+<script src="../static/js/jquery-2.1.4.min.js" th:src="@{/js/jquery-2.1.4.min.js}"></script>
+<script src="../static/js/moreJSfunctions.js" th:src="@{/js/moreJSfunctions.js}"></script>
+<script src="../static/js/semantic.min.js" th:src="@{/js/semantic.min.js}"></script>
+<script src="../static/js/custom-validation.js" th:src="@{/js/custom-validation.js}"></script>
+<script src="../static/js/main.js" th:src="@{/js/main.js}"></script>
+</body>
+
+
+
+</html>

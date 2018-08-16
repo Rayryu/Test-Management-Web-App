@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ma.map.tm.dao.ScenarioRepository;
+import ma.map.tm.entities.Projet;
 import ma.map.tm.entities.Scenario;
 import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.services.ScenarioService;
@@ -72,6 +73,11 @@ public class ScenarioServiceImpl implements ScenarioService {
 	public Scenario getScenarioByCasTestId(Long id_casTest) {
 		return scenarioRepository.findByCasId(id_casTest);
 		
+	}
+
+	@Override
+	public List<Scenario> listeScenariosByProjet(Projet projetCourant) {
+		return scenarioRepository.findByProject(projetCourant);
 	}
 
 	

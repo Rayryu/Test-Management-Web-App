@@ -7,6 +7,9 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.EntityNotFoundException;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +21,8 @@ import ma.map.tm.utils.Consts;
 
 @Service
 public class ProjetServiceImpl implements ProjetService {
+	
+	final static Logger logger = Logger.getLogger(ProjetServiceImpl.class);
 
 	@Autowired
 	private ProjetRepository projetRepository;
@@ -65,9 +70,7 @@ public class ProjetServiceImpl implements ProjetService {
 	public List<Projet> getTroisDerniersProjets(Utilisateur utilisateurCourant) {
 		 List<Projet> listeProjetOrdonnee = projetRepository.findAllDateDesc();
 		if (utilisateurCourant.getRole().getNom().equals("Testeur")) {
-			System.out.println("hounaaaa 9abl" + listeProjetOrdonnee.size());
 			listeProjetOrdonnee = projetRepository.findByUserCreationDesc(utilisateurCourant);
-			System.out.println("hounaaaa ba3d" + listeProjetOrdonnee.size());
 		}
 		List<Projet> subList = new ArrayList<>();
 		subList = listeProjetOrdonnee.subList(0, Math.min(listeProjetOrdonnee.size(), 3));

@@ -58,7 +58,7 @@ public class ExecutionTestServiceImpl implements ExecutionCasService {
 		if (utilisateurCourant.getRole().getNom().equals("Testeur")) listeExecutions = listeExecutionsParUtilisateur(utilisateurCourant);
 		int nombreCas = listeCasTest.size();
 		int nombreExecutions = listeExecutions.size();
-		int nombreExecutes = casTestRepository.findAll().size();
+		int nombreExecutes = casTestRepository.findAllExecutes().size();
 		if (utilisateurCourant.getRole().getNom().equals("Testeur")) nombreExecutes = casTestRepository.getExecutes(utilisateurCourant).size();
 		
 		int nombreReussis = 0;

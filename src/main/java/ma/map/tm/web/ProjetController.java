@@ -42,7 +42,7 @@ public class ProjetController {
 	}
 	
 	@RequestMapping("/Projet/{id}")
-	public String Projet(Model model, @PathVariable("id") Long id) {
+	public String Projet(Model model, @PathVariable("id") Long id){
 		
 		List<CampagneTest> listeCampagnes = campagneService.listeCampagnesByProjetId(id);
 		Projet projetParent = projetService.getProjetById(id);
@@ -59,6 +59,8 @@ public class ProjetController {
 		
 		return "Projet";
 	}
+	
+	
 	
 	@RequestMapping(value="/EnregistrerProjet", method=RequestMethod.POST)
 	public ModelAndView enregistrerProjet(Projet nouveauProjet, Model model) {

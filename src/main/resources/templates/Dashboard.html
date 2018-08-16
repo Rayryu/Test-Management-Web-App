@@ -120,7 +120,7 @@
 									</div>
 									<div class="ui red progress" id="progressBareEchoue">
   										<div class="bar"></div>
-									  <div class="label"><span th:text="${listeStatsExecutions.get(2)} +'% des exécutions ont échoué'"> 
+									  <div class="label"><span th:text="${listeStatsExecutions.get(4)} +'% des exécutions ont échoué'"> 
 									  		</span></div>
 									</div>
 									<div class="ui yellow  progress" id="progressBareBloque">
@@ -242,6 +242,14 @@
       	});
 	}
 	/*]]>*/
+</script>
+<script type="text/javascript" th:inline="javascript">
+/*<![CDATA[*/
+	function handleSelect(elm)
+	{
+	window.location = elm.value;
+	}
+/*]]>*/
 </script>
 
 <script src="../static/js/jquery-2.1.4.min.js" th:src="@{/js/jquery-2.1.4.min.js}"></script>

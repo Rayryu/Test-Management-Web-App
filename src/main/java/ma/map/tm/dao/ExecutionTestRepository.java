@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import ma.map.tm.entities.CasTest;
 import ma.map.tm.entities.ExecutionTest;
+import ma.map.tm.entities.Projet;
 import ma.map.tm.entities.Utilisateur;
 
 public interface ExecutionTestRepository extends JpaRepository<ExecutionTest, Long> {
@@ -18,5 +19,8 @@ public interface ExecutionTestRepository extends JpaRepository<ExecutionTest, Lo
 
 	@Query("SELECT e FROM ExecutionTest e where e.testeur = :y")
 	List<ExecutionTest> getAllByUser(@Param("y") Utilisateur utilisateurcourant);
+	
+	@Query("SELECT e FROM ExecutionTest e where e.casTestParent.scenarioParent.campagneParent.projetParent = :y")
+	List<ExecutionTest> getAllByProjet(@Param("y") Projet projetCourant);
 
 }
