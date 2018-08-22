@@ -41,13 +41,19 @@ public class ProjetServiceImpl implements ProjetService {
 
 	@Override
 	public List<Projet> listeProjets() {
-		return projetRepository.findAll();
+		return projetRepository.findAllDateDesc();
 	}
 
 	@Override
 	public List<Projet> listeProjetsParUtilisateur(Utilisateur u) {
-		if (u.getRole().getNom().equals("Testeur")) return projetRepository.findByUtilisateurId(u.getId());
-		return projetRepository.findAll();
+		if (!u.getRole().getNom().equals("Admin")) {
+			List<Projet> listeProjets = projetRepository.findByUtilisateurId(u.getId());
+			Collections.reverse(listeProjets);
+			return listeProjets;
+		}
+		List<Projet> listeProjets = projetRepository.findAllDateDesc();
+		Collections.reverse(listeProjets);
+		return listeProjets;
 	}
 
 	@Override

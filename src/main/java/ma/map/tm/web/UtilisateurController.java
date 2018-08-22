@@ -57,12 +57,19 @@ public class UtilisateurController {
 	}
 	
 	@RequestMapping("SupprimerUtilisateur/{id}")
-public ModelAndView supprimerUtilisateur(@PathVariable("id") Long idUtilisateur) {
+	public ModelAndView supprimerUtilisateur(@PathVariable("id") Long idUtilisateur) {
 		
 		utilisateurService.supprimerUtilisateur(idUtilisateur);
 		
 		return new ModelAndView("redirect:/GestionDesUtilisateurs");
 	}
 	
+	@RequestMapping("ActiverUtilisateur/{id}")
+	public ModelAndView activerUtilisateur(@PathVariable("id") Long idUtilisateur) {
+		
+		utilisateurService.activerUtilisateur(idUtilisateur);
+		
+		return new ModelAndView("redirect:/GestionDesUtilisateurs");
+	}
 	
 }

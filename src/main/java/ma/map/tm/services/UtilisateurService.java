@@ -17,5 +17,6 @@ public interface UtilisateurService {
 	public Utilisateur getUserById(Optional<Long> idUtilisateur);
 	public void modifierUtilisateur(Long idUtilisateur, Utilisateur utilisateurSelectionne);
 	public void supprimerUtilisateur(Long idUtilisateur);
+	void activerUtilisateur(Long idUtilisateur);
 
 }

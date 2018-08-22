@@ -38,8 +38,15 @@
 					  </div>
 	                <center>
 	                <input type="hidden" name="supprimer">
-	                <div class="ui blue positive submit button">Enregistrer</div>
-	                <a onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')" th:href="@{/SupprimerUtilisateur/{pathParam}(pathParam=${utilisateurSelectionne.id})}"><div class="ui blue negative submit button">Supprimer</div></a>
+	                
+	                <div th:if="${utilisateurSelectionne.enabled}">
+					   <div class="ui blue positive submit button">Enregistrer</div>
+					   <a onclick="return confirm('Êtes-vous sûr de vouloir désactiver cet utilisateur?')" th:href="@{/SupprimerUtilisateur/{pathParam}(pathParam=${utilisateurSelectionne.id})}"><div class="ui blue negative submit button">Désactiver</div></a>
+					</div>
+	                <div th:unless="${utilisateurSelectionne.enabled}">
+	                	<div class="ui blue positive submit button">Enregistrer</div>
+	                	<a onclick="return confirm('Êtes-vous sûr de vouloir réactiver cet utilisateur?')" th:href="@{/ActiverUtilisateur/{pathParam}(pathParam=${utilisateurSelectionne.id})}"><div class="ui blue positive submit button">Réactiver</div></a>
+	                </div>
 	                <div class="ui error message"></div>
 	            </form>
 			</div>

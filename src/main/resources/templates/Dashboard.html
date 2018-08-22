@@ -183,13 +183,16 @@
 		</div>
    </div>
   </div>
-
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" th:inline="javascript">
-	/*<![CDATA[*/
-	// Load google charts
-	google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
+<div th:switch="${listeTroisDerniersProjets.size()}">
+
+	 <p th:case="3">
+	 
+		<script type="text/javascript" th:inline="javascript">
+			/*<![CDATA[*/
+			// Load google charts
+			google.charts.load('current', {'packages':['bar']});
+      	google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
     	  var projet1 = /*[[${listeTroisDerniersProjets.get(0).getNom()}]]*/ '';
@@ -224,6 +227,59 @@
         };
         var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
         chart.draw(data, google.charts.Bar.convertOptions(options));
+        //Progress bares
+        $('#progressBareExecute').progress({
+        	  percent: nombreExecutes/nombreCas*100
+        	});
+        $('#progressBareReussi').progress({
+      	  percent: nombreReussis
+      	});
+        $('#progressBareEchoue').progress({
+      	  percent: nombreBloques
+      	});
+        $('#progressBareBloque').progress({
+      	  percent: nombreEchoues
+      	});
+	}
+			
+			/*]]>*/
+		</script>
+	</p>
+	<p th:case="2">
+		<script type="text/javascript" th:inline="javascript">
+			/*<![CDATA[*/
+			// Load google charts
+			google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+    	  var projet1 = /*[[${listeTroisDerniersProjets.get(0).getNom()}]]*/ '';
+    	  var projet2 = /*[[${listeTroisDerniersProjets.get(1).getNom()}]]*/ '';
+    	  var reussisProjet1 = /*[[${listeStatsTroisDerniersProjets.get(0)}]]*/ ''; 
+    	  var echouesProjet1 = /*[[${listeStatsTroisDerniersProjets.get(1)}]]*/ ''; 
+    	  var bloquesProjet1 = /*[[${listeStatsTroisDerniersProjets.get(2)}]]*/ ''; 
+    	  var reussisProjet2 = /*[[${listeStatsTroisDerniersProjets.get(3)}]]*/ ''; 
+    	  var echouesProjet2 = /*[[${listeStatsTroisDerniersProjets.get(4)}]]*/ ''; 
+    	  var bloquesProjet2 = /*[[${listeStatsTroisDerniersProjets.get(5)}]]*/ ''; 
+    	  var nombreCas = /*[[${listeStatsExecutions.get(0)}]]*/ ''; 
+    	  var nombreExecutes = /*[[${listeStatsExecutions.get(1)}]]*/ ''; 
+    	  var nombreReussis = /*[[${listeStatsExecutions.get(2)}]]*/ ''; 
+    	  var nombreEchoues = /*[[${listeStatsExecutions.get(3)}]]*/ ''; 
+    	  var nombreBloques = /*[[${listeStatsExecutions.get(4)}]]*/ '';
+    	  var nombreExecutions = /*[[${listeStatsExecutions.get(5)}]]*/ '';
+        var data = google.visualization.arrayToDataTable([
+          ['Projets', 'Réussis', 'Echoués', 'Bloqués'],
+          [projet1, reussisProjet1, echouesProjet1, bloquesProjet1],
+          [projet2, reussisProjet2, echouesProjet2, bloquesProjet2]
+        ]);
+        var options = {
+          chart: {
+            title: 'Nombre d\'exécution de test par status',
+            subtitle: 'Réussis, échoués, bloqués',
+          }
+        };
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+        chart.draw(data, google.charts.Bar.convertOptions(options));
         
         
         
@@ -241,8 +297,62 @@
       	  percent: nombreEchoues
       	});
 	}
-	/*]]>*/
-</script>
+			/*]]>*/
+		</script>
+	</p>
+	<p th:case="1">
+		<script type="text/javascript" th:inline="javascript">
+			/*<![CDATA[*/
+			// Load google charts
+			google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+    	  var projet1 = /*[[${listeTroisDerniersProjets.get(0).getNom()}]]*/ '';
+
+    	  var reussisProjet1 = /*[[${listeStatsTroisDerniersProjets.get(0)}]]*/ ''; 
+    	  var echouesProjet1 = /*[[${listeStatsTroisDerniersProjets.get(1)}]]*/ ''; 
+    	  var bloquesProjet1 = /*[[${listeStatsTroisDerniersProjets.get(2)}]]*/ ''; 
+
+    	  var nombreCas = /*[[${listeStatsExecutions.get(0)}]]*/ ''; 
+    	  var nombreExecutes = /*[[${listeStatsExecutions.get(1)}]]*/ ''; 
+    	  var nombreReussis = /*[[${listeStatsExecutions.get(2)}]]*/ ''; 
+    	  var nombreEchoues = /*[[${listeStatsExecutions.get(3)}]]*/ ''; 
+    	  var nombreBloques = /*[[${listeStatsExecutions.get(4)}]]*/ '';
+    	  var nombreExecutions = /*[[${listeStatsExecutions.get(5)}]]*/ '';
+        var data = google.visualization.arrayToDataTable([
+          ['Projets', 'Réussis', 'Echoués', 'Bloqués'],
+          [projet1, reussisProjet1, echouesProjet1, bloquesProjet1]
+        ]);
+        var options = {
+          chart: {
+            title: 'Nombre d\'exécution de test par status',
+            subtitle: 'Réussis, échoués, bloqués',
+          }
+        };
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+        
+        
+        
+        //Progress bares
+        $('#progressBareExecute').progress({
+        	  percent: nombreExecutes/nombreCas*100
+        	});
+        $('#progressBareReussi').progress({
+      	  percent: nombreReussis
+      	});
+        $('#progressBareEchoue').progress({
+      	  percent: nombreBloques
+      	});
+        $('#progressBareBloque').progress({
+      	  percent: nombreEchoues
+      	});
+	}
+			/*]]>*/
+		</script>
+	</p>
+</div>
 <script type="text/javascript" th:inline="javascript">
 /*<![CDATA[*/
 	function handleSelect(elm)
@@ -251,6 +361,8 @@
 	}
 /*]]>*/
 </script>
+
+
 
 <script src="../static/js/jquery-2.1.4.min.js" th:src="@{/js/jquery-2.1.4.min.js}"></script>
 <script src="../static/js/moreJSfunctions.js" th:src="@{/js/moreJSfunctions.js}"></script>

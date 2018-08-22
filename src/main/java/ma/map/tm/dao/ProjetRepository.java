@@ -11,7 +11,7 @@ import ma.map.tm.entities.Utilisateur;
 
 
 public interface ProjetRepository  extends JpaRepository<Projet, Long>{
-	@Query("SELECT p FROM Projet p JOIN p.listeUtilisateurs l where l.id = :x")
+	@Query("SELECT p FROM Projet p JOIN p.listeUtilisateurs l where l.id = :x ORDER BY p.dateCreation DESC")
 	public List<Projet> findByUtilisateurId(@Param("x")Long id_utilisateur);
 	
 

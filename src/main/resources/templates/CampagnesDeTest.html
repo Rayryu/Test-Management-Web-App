@@ -26,28 +26,17 @@
 	<div class="mainWrap navslide">
           <div class="ui equal width left aligned padded grid stackable">
              <div class="row">
-                 <div class="sixteen wide column">
+             	<div class="six wide column">
+					<div th:replace="fragments/Campagnes/Campagnes-NouvelleCampagne :: Campagnes-NouvelleCampagne"></div>
+                 </div>
+                 <div class="ten wide column">
 					<div th:replace="fragments/Campagnes/Campagnes-MesCampagnes :: Campagnes-MesCampagnes"></div>
                  </div>
              </div>
 		</div>
    </div>
   </div>
-  <div class="">
-	<div class="mainWrap navslide">
-          <div class="ui equal width left aligned padded grid stackable">
-             <div class="row">
-                 <div class="eight wide column">
-					<div th:replace="fragments/Campagnes/Campagnes-NouvelleCampagne :: Campagnes-NouvelleCampagne"></div>
-                 </div>
-                 <div class="eight wide column">
-                    <div th:replace="fragments/Campagnes/Campagnes-Statistiques :: Campagnes-Statistiques"></div>
-                 </div>	
-             </div>
-		</div>
-   </div>
-  </div>
-  
+
 
 <script src="../static/js/jquery-2.1.4.min.js" th:src="@{/js/jquery-2.1.4.min.js}"></script>
 <script src="../static/js/moreJSfunctions.js" th:src="@{/js/moreJSfunctions.js}"></script>

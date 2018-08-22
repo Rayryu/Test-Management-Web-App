@@ -74,7 +74,18 @@ public class UtilisateurServiceImpl implements UtilisateurService{
 
 	@Override
 	public void supprimerUtilisateur(Long idUtilisateur) {
-		utilisateurRepository.delete(getUserById(idUtilisateur));
+		Utilisateur utilisateur = getUserById(idUtilisateur);
+		utilisateur.setEnabled(false);
+		utilisateurRepository.save(utilisateur);
+		//utilisateurRepository.delete(utilisateur);
+		
+	}
+	
+	@Override
+	public void activerUtilisateur(Long idUtilisateur) {
+		Utilisateur utilisateur = getUserById(idUtilisateur);
+		utilisateur.setEnabled(true);
+		utilisateurRepository.save(utilisateur);
 		
 	}
 	
