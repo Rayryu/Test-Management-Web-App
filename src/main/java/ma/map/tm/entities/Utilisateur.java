@@ -160,6 +160,14 @@ public class Utilisateur implements Serializable{
 	public void setListeExecutionsCasTests(Collection<ExecutionTest> listeExecutionsCasTests) {
 		this.listeExecutionsCasTests = listeExecutionsCasTests;
 	}
+
+	public void updateListeProjets(Projet projetParent, int i) {
+		if (i == -1) {
+			Collection<Projet> lu = this.getListeProjets();
+			lu.remove(projetParent);
+			this.setListeProjets(lu);
+		}
+	}
 	
 	
 }

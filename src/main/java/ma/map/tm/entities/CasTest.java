@@ -28,7 +28,6 @@ public class CasTest implements Serializable{
 	private String resultatAttendu;
 	private String remarques;
 	private String etapes;
-	private String commentaire;
 	private String statut;
 	private Date dateCreation;
 	private String jeuDeTest;
@@ -157,13 +156,6 @@ public class CasTest implements Serializable{
 		this.scenarioParent = scenarioParent;
 	}
 
-	public String getCommentaire() {
-		return commentaire;
-	}
-
-	public void setCommentaire(String commentaire) {
-		this.commentaire = commentaire;
-	}
 
 	public String getStatut() {
 		return statut;

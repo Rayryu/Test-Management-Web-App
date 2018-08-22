@@ -48,11 +48,17 @@ public class ProjetController {
 		Projet projetParent = projetService.getProjetById(id);
 		CampagneTest nouvelleCampagne = new CampagneTest();
 		nouvelleCampagne.setProjetParent(projetParent);
+		List<Utilisateur> membresEquipe = projetService.getUtilisateurParProjet(projetParent);
+		List<Utilisateur> membresHorsEquipe = projetService.getUtilisateurHorsProjet(projetParent);
 		
 		model.addAttribute("listeCampagnes", listeCampagnes);
 		model.addAttribute("projetParent", projetParent);
 		model.addAttribute("nouvelleCampagne", nouvelleCampagne);
+		model.addAttribute("membresEquipe", membresEquipe);
+		model.addAttribute("membresHorsEquipe", membresHorsEquipe);
 		model.addAttribute("nouveauProjet", new Projet());
+		model.addAttribute("nouveauMembre", new Utilisateur());
+		model.addAttribute("membreTransitant", new Utilisateur());
 		model.addAttribute("currentUser", utilisateurService.getLoggedInUser());
 		
 		
@@ -89,5 +95,21 @@ public class ProjetController {
 		projetService.supprimerProjet(id_projet);
 		
 		return new ModelAndView("redirect:/Projets");
+	}
+	
+	@RequestMapping(value="/AjouterMembre/{id}")
+	public ModelAndView ajouterMembre(@PathVariable("id") Long idProjet, Utilisateur membreTransitant) {
+		
+		projetService.ajouterMembre(idProjet, membreTransitant);
+		
+		return new ModelAndView("redirect:/Projet/"+idProjet.toString());
+	}
+	
+	@RequestMapping(value="/RetirerMembre/{id}")
+	public ModelAndView retirerMembre(@PathVariable("id") Long idProjet,Utilisateur membreTransitant) {
+		
+		projetService.retirerMembre(idProjet, membreTransitant);
+		
+		return new ModelAndView("redirect:/Projet/"+idProjet.toString());
 	}
 }

@@ -1,0 +1,52 @@
+<meta http-equiv="Content-Type" content="text/html;charset=utf8" />
+<div class="ui segments" th:fragment="Projet-Equipe">
+	<div class="ui segment">
+		<h5 class="ui header">
+			Gestion d'équipe du projet : <span th:text="${projetParent.nom}"></span></p>
+		</h5>
+	</div>
+	<div class="ui segment">
+		<table id = "equipe" class="ui very basic collapsing celled table" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th>Nom </th>
+					<th>Rôle</th>
+				</tr>
+			</thead>
+			<tbody>              
+				<tr th:each="membre : ${membresEquipe}">
+					<td th:text="${membre.nom}"> </td>
+					<td th:text="${membre.role.nom}"> </td>
+				</tr>
+			</tbody>
+		</table>
+			<h4 class="ui horizontal divider header">
+	            <i class="bar chart icon"></i>
+	            	Affecter à l'équipe
+	        </h4>
+	        		<div class="ui equal width left aligned padded grid stackable">
+	        <div class="row">
+                 <div class="eight wide column">
+                 	<form class="ui form" 
+                 	th:action="@{/AjouterMembre/{pathParam}(pathParam=${projetParent.id})}"
+                 	 method="post" th:object="${membreTransitant}">
+						<label>Ajouter un membre</label>
+					    <select class="ui search dropdown" th:field="*{id}" id="membreTransitant" >
+							  <option  th:each="membre : ${membresHorsEquipe}" th:value="${membre.id}" th:text="${membre.nom}"></option>
+						</select>
+						<center><button class="ui primary button" type="submit">Confirmer</button></center>
+					</form>
+				</div>
+                 <div class="eight wide column">
+                 	<form class="ui form" 
+                 	th:action="@{/RetirerMembre/{pathParam}(pathParam=${projetParent.id})}" method="post" th:object="${membreTransitant}">
+						<label>Retirer un membre</label>
+					    <select class="ui search dropdown" th:field="*{id}" id="membreTransitant" >
+							  <option  th:each="membre : ${membresEquipe}" th:value="${membre.id}" th:text="${membre.nom}"></option>
+						</select>
+						<center><button class="ui primary button" type="submit">Confirmer</button></center>
+					</form>
+				</div>
+			</div></div>	
+	</div>
+</div>

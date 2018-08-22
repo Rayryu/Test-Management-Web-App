@@ -6,17 +6,21 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.standard.expression.Each;
 
 import ma.map.tm.dao.ProjetRepository;
+import ma.map.tm.dao.UtilisateurRepository;
 import ma.map.tm.entities.Projet;
 import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.services.ProjetService;
+import ma.map.tm.services.UtilisateurService;
 import ma.map.tm.utils.Consts;
 
 @Service
@@ -26,6 +30,8 @@ public class ProjetServiceImpl implements ProjetService {
 
 	@Autowired
 	private ProjetRepository projetRepository;
+	@Autowired
+	private UtilisateurRepository utilisateurRepository;
 	
 	@Override
 	public void addProjet(Projet p) {
@@ -91,6 +97,48 @@ public class ProjetServiceImpl implements ProjetService {
 			stats.add(bloques);
 		}
 		return stats;
+	}
+
+	@Override
+	public List<Utilisateur> getUtilisateurParProjet(Projet projetParent) {
+		return projetRepository.getListUsers(projetParent);
+	}
+
+	@Override
+	public void ajouterMembre(Long idProjet, Utilisateur membreTransitant) {
+		
+		Projet projetParent = projetRepository.getOne(idProjet);
+		membreTransitant = utilisateurRepository.getOne(membreTransitant.getId());
+		if(!projetParent.getListeUtilisateurs().contains(membreTransitant)) {
+			membreTransitant = utilisateurRepository.getOne(membreTransitant.getId());
+			projetParent.updateListeUtilisateurs(membreTransitant);
+			projetRepository.save(projetParent);
+			membreTransitant.updateListeProjets(projetParent);
+			utilisateurRepository.save(membreTransitant);
+		}
+
+	}
+
+	@Override
+	public void retirerMembre(Long idProjet, Utilisateur membreTransitant) {
+		Projet projetParent = projetRepository.getOne(idProjet);
+		membreTransitant = utilisateurRepository.getOne(membreTransitant.getId());
+		projetParent.updateListeUtilisateurs(membreTransitant,-1);
+		projetRepository.save(projetParent);
+		membreTransitant.updateListeProjets(projetParent, -1);
+		utilisateurRepository.save(membreTransitant);
+		
+	}
+
+	@Override
+	public List<Utilisateur> getUtilisateurHorsProjet(Projet projetParent) {
+		List<Utilisateur> listeUtilisateurs = utilisateurRepository.findAll();
+		List<Utilisateur> listeDesUtilisateurs  = getUtilisateurParProjet(projetParent);
+		List<Utilisateur> listeUtilisateursHorsProjet = new ArrayList<>();
+		for (Utilisateur utilisateur : listeUtilisateurs) {
+			if (!listeDesUtilisateurs.contains(utilisateur)) listeUtilisateursHorsProjet.add(utilisateur);
+		}
+		return listeUtilisateursHorsProjet;
 	}
 
 

@@ -87,6 +87,17 @@ public class Projet implements Serializable{
 		lu.add(utilisateur);
 		this.setListeUtilisateurs(lu);
 	}
+	
+	public void updateListeUtilisateurs(Utilisateur utilisateur, int remove) {
+		if (remove==-1) {
+			Collection<Utilisateur> lu = this.getListeUtilisateurs();
+			lu.remove(utilisateur);
+			this.setListeUtilisateurs(lu);
+		}else {
+			updateListeUtilisateurs(utilisateur);
+		}
+
+	}
 
 	public void setListeUtilisateurs(Collection<Utilisateur> listeUtilisateurs) {
 		this.listeUtilisateurs = listeUtilisateurs;

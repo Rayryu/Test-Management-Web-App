@@ -24,4 +24,8 @@ public interface ProjetRepository  extends JpaRepository<Projet, Long>{
 	@Query("SELECT p FROM Projet p ORDER BY p.dateCreation DESC")
 	public List<Projet> findAllDateDesc();
 
+	@Query("SELECT p.listeUtilisateurs FROM Projet p WHERE p = :x")
+	public List<Utilisateur> getListUsers(@Param("x") Projet projetParent);
+
+
 }
