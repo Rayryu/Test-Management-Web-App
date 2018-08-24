@@ -26,9 +26,10 @@ public class CasTest implements Serializable{
 	private String priorite;
 	private String precondition;
 	private String resultatAttendu;
+	private String resultatObtenu="Ce cas de test n'a pas été exécuté!";
 	private String remarques;
 	private String etapes;
-	private String statut;
+	private String statut = "Echoué";
 	private Date dateCreation;
 	private String jeuDeTest;
 	@OneToMany(mappedBy="casTestParent", cascade=CascadeType.ALL)
@@ -201,6 +202,14 @@ public class CasTest implements Serializable{
 
 	public void setListeExecutions(List<ExecutionTest> listeExecutions) {
 		this.listeExecutions = listeExecutions;
+	}
+
+	public String getResultatObtenu() {
+		return resultatObtenu;
+	}
+
+	public void setResultatObtenu(String resultatObtenu) {
+		this.resultatObtenu = resultatObtenu;
 	}
 
 

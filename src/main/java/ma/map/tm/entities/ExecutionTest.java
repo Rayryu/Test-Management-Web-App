@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity
+@Entity	
 public class ExecutionTest implements Serializable{
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)

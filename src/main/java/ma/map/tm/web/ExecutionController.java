@@ -93,6 +93,7 @@ public class ExecutionController {
 		
 		executionCasService.ajouterResultat(idCasDeTest, nouvelleExecution);
 		
+		
 		return new ModelAndView("redirect:/Execution/");
 		
 	}

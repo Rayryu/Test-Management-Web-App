@@ -34,7 +34,9 @@ public class ExecutionTestServiceImpl implements ExecutionCasService {
 		nouvelleExecution.setTesteur(utilisateurService.getLoggedInUser());
 		nouvelleExecution.setDateCreation(new Date());
 		nouvelleExecution.setId(null);
-		
+		casTestParent.setStatut(nouvelleExecution.getStatus());
+		casTestParent.setResultatObtenu(nouvelleExecution.getResultatObtenu());
+		casTestRepository.save(casTestParent);
 		executionTestRepository.save(nouvelleExecution);
 	}
 
