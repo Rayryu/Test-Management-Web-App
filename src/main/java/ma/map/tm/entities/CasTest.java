@@ -29,7 +29,7 @@ public class CasTest implements Serializable{
 	private String resultatObtenu="Ce cas de test n'a pas été exécuté!";
 	private String remarques;
 	private String etapes;
-	private String statut = "Echoué";
+	private String statut = "Ce cas de test n'a pas été exécuté!";
 	private Date dateCreation;
 	private String jeuDeTest;
 	@OneToMany(mappedBy="casTestParent", cascade=CascadeType.ALL)

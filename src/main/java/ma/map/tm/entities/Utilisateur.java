@@ -25,7 +25,7 @@ public class Utilisateur implements Serializable{
 	private String motDePass;
 	private boolean enabled = true;
 	private String email;
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="role_id")
 	private Role role;
 	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE})

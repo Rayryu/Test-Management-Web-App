@@ -21,6 +21,7 @@ import ma.map.tm.entities.Role;
 import ma.map.tm.entities.Scenario;
 import ma.map.tm.entities.TypeTest;
 import ma.map.tm.entities.Utilisateur;
+import net.sf.jasperreports.engine.JRException;
 
 public final class TestManagementUtils {
 	
@@ -156,6 +157,18 @@ public final class TestManagementUtils {
 		
 		System.out.println(pp.get(0).getDescription());
 		logger.info("Persistance des données : fin");
+	}
+
+	public static void testJasperRepports( ApplicationContext ac) throws JRException {
+		ProjetRepository projetRepository = ac.getBean(ProjetRepository.class);
+		
+		List<Projet> listeProjets = projetRepository.findAll();
+		List<Projet> subOne = listeProjets.subList(0, 1);
+		
+		System.err.println("size : " + listeProjets.get(0).getListeCampagne().size());
+
+		Rapport.genererRapport(subOne); 
+		
 	}
 
 }

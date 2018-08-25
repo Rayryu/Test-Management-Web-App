@@ -8,15 +8,16 @@ import org.springframework.context.ApplicationContext;
 
 import ma.map.tm.services.ScenarioService;
 import ma.map.tm.utils.TestManagementUtils;
+import net.sf.jasperreports.engine.JRException;
 
 @SpringBootApplication
 public class TestManagementApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws JRException {
 		
 		final Logger logger = Logger.getLogger(TestManagementApplication.class);
 		ApplicationContext ac =  SpringApplication.run(TestManagementApplication.class, args);
 		//TestManagementUtils.start(logger, ac);
-
+		TestManagementUtils.testJasperRepports(ac);
 	}
 }

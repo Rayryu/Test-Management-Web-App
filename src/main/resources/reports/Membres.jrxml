@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subTest" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="20660744-d4de-4c51-9f2f-837b9e56985e">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nom" class="java.lang.String"/>
+	<field name="role.nom" class="java.lang.String"/>
+	<detail>
+		<band height="21">
+			<textField>
+				<reportElement positionType="Float" x="0" y="0" width="575" height="20" forecolor="#000000" uuid="339ab0de-a7c5-49bc-b091-0a423c666690">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a2ef14b9-35c7-4bb3-abb3-f0eb6d94afe9"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nom} + "  (" + $F{role.nom} +")"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-10" y="-1" width="1" height="22" uuid="83227629-a65e-447d-96d3-78217520413b"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

@@ -4,15 +4,18 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Projet implements Serializable{
@@ -22,9 +25,11 @@ public class Projet implements Serializable{
 	private String nom;
 	private String description; 
 	private Date dateCreation;
-	@ManyToMany(mappedBy="listeProjets")
+	@ManyToMany(mappedBy="listeProjets", fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private Collection<Utilisateur> listeUtilisateurs = new ArrayList<Utilisateur>();
-	@OneToMany(mappedBy="projetParent", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="projetParent", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private Collection<CampagneTest> listeCampagne = new ArrayList<CampagneTest>();
 	public Projet( String nom, String description, Collection<CampagneTest> listeCampagne, Collection<Utilisateur> listeUtilisateurs) {
 		super();
