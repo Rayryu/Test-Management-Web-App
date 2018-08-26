@@ -163,7 +163,7 @@ public final class TestManagementUtils {
 		ProjetRepository projetRepository = ac.getBean(ProjetRepository.class);
 		
 		List<Projet> listeProjets = projetRepository.findAll();
-		List<Projet> subOne = listeProjets.subList(0, 1);
+		List<Projet> subOne = listeProjets.subList(0, Math.min(1, listeProjets.size()));
 		
 		System.err.println("size : " + listeProjets.get(0).getListeCampagne().size());
 

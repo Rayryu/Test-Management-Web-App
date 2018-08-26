@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Scenario" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="57e707bb-1a61-49db-bbe8-64970bbe12fd">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.Long"/>
+	<field name="nom" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="dateCreation" class="java.sql.Timestamp"/>
+	<field name="listeCasTests" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="230" splitType="Stretch">
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="240" height="30" isRemoveLineWhenBlank="true" forecolor="#65BF11" uuid="c1236860-f162-47af-9f42-90ddecb765a9"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Acherus Grotesque" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Scénario : " + $F{nom} + "(id:" + $F{id} + ")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="30" width="350" height="46" isRemoveLineWhenBlank="true" uuid="f717a0bc-2eb0-4e7a-a6f8-a069ec38bb12"/>
+				<textElement>
+					<font fontName="Serif" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Description : " + $F{description} +"."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="22" width="125" height="30" isRemoveLineWhenBlank="true" uuid="bd096085-b0a0-4795-9ad0-b9f52e536d65"/>
+				<textFieldExpression><![CDATA["Créé : " + $F{dateCreation}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="20" y="80" width="530" height="150" uuid="02d35dac-2269-49ba-99f6-afecb52cc341"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listeCasTests})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["src/main/resources/reports/casTest.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

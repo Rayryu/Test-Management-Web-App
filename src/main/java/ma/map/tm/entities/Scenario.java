@@ -15,6 +15,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 public class Scenario implements Serializable{
 	
@@ -23,10 +26,12 @@ public class Scenario implements Serializable{
 	private String nom;
 	private String description;
 	private Date dateCreation;
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="campagneParent_id")
+	
 	private CampagneTest campagneParent;
-	@OneToMany(mappedBy="scenarioParent", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="scenarioParent", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private Collection<CasTest> listeCasTests = new ArrayList<CasTest>();
 	
 	

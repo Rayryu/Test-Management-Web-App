@@ -104,7 +104,7 @@ public class CasTestServiceImpl implements CasTestService {
 			Collections.reverse(subList);
 			return subList;
 		}
-		return casTestRepository.findAllDateDesc().subList(0, 3);
+		return casTestRepository.findAllDateDesc().subList(0, Math.min(3, casTestRepository.findAllDateDesc().size()));
 	}
 
 	@Override

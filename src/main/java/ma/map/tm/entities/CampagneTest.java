@@ -15,6 +15,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 public class CampagneTest implements Serializable{	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -22,13 +25,14 @@ public class CampagneTest implements Serializable{
 	private String nom;
 	private String description;
 	private Date dateCreation;
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="concepteurTest_id")
 	private Utilisateur concepteurTest;
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="projetParent_id")
 	private Projet projetParent;
-	@OneToMany(mappedBy="campagneParent", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="campagneParent", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private Collection<Scenario> listeScenario = new ArrayList<Scenario>();
 	
 	public CampagneTest(String nom, String description, Utilisateur concepteurTest, Projet projetParent,

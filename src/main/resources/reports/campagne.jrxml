@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="compagne" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="33e15559-e33d-43dd-a733-c5ddf63c6ed8">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nom" class="java.lang.String"/>
+	<field name="dateCreation" class="java.sql.Timestamp"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="id" class="java.lang.Long"/>
+	<field name="listeScenario" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="169" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="1" width="300" height="30" isRemoveLineWhenBlank="true" forecolor="#2878E0" uuid="46a6385e-48d5-45d6-abf2-e98a178a2517"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Acherus Grotesque" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Titre : "+$F{nom} + " (id : " + $F{id} + ")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="22" width="210" height="30" isRemoveLineWhenBlank="true" uuid="f49b1a7b-02a4-48a6-8e3b-26ddb9556127"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Créée le :  " + $F{dateCreation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="22" width="446" height="48" isRemoveLineWhenBlank="true" uuid="c9f6d6c9-9c22-4ec5-863c-970446fc251a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Adobe Garamond Pro"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Description de la campagne de test : \n" + $F{description} +"."]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="10" y="80" width="543" height="89" uuid="0e078483-64b5-499f-9c73-cf3b5e74e168"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listeScenario})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["src/main/resources/reports/Scenario.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

@@ -10,7 +10,7 @@
 	<detail>
 		<band height="21">
 			<textField>
-				<reportElement positionType="Float" x="0" y="0" width="575" height="20" forecolor="#000000" uuid="339ab0de-a7c5-49bc-b091-0a423c666690">
+				<reportElement positionType="Float" x="0" y="0" width="575" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="339ab0de-a7c5-49bc-b091-0a423c666690">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a2ef14b9-35c7-4bb3-abb3-f0eb6d94afe9"/>
 				</reportElement>
 				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
@@ -25,7 +25,7 @@
 				<textFieldExpression><![CDATA[$F{nom} + "  (" + $F{role.nom} +")"]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="-10" y="-1" width="1" height="22" uuid="83227629-a65e-447d-96d3-78217520413b"/>
+				<reportElement x="-10" y="-1" width="1" height="22" isRemoveLineWhenBlank="true" uuid="83227629-a65e-447d-96d3-78217520413b"/>
 			</line>
 		</band>
 	</detail>

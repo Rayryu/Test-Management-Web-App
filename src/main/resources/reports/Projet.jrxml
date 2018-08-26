@@ -27,27 +27,27 @@
 	<title>
 		<band height="132" splitType="Stretch">
 			<frame>
-				<reportElement mode="Transparent" x="126" y="0" width="429" height="105" backcolor="#207DCD" uuid="6c6ca4e1-17cd-4913-93d6-5e670ea9ae8a"/>
+				<reportElement mode="Transparent" x="126" y="0" width="429" height="105" isRemoveLineWhenBlank="true" backcolor="#207DCD" uuid="6c6ca4e1-17cd-4913-93d6-5e670ea9ae8a"/>
 				<staticText>
-					<reportElement style="Title" x="40" y="0" width="378" height="80" forecolor="#207DCD" uuid="a2a2cac8-5a7d-4487-8c54-dab235ce4e21"/>
+					<reportElement style="Title" x="40" y="0" width="378" height="80" isRemoveLineWhenBlank="true" forecolor="#207DCD" uuid="a2a2cac8-5a7d-4487-8c54-dab235ce4e21"/>
 					<textElement>
 						<font isBold="false"/>
 					</textElement>
 					<text><![CDATA[Rapport de tests]]></text>
 				</staticText>
 				<image>
-					<reportElement x="-126" y="0" width="126" height="103" uuid="102e2740-0645-4564-8774-1d80ef2aaae4"/>
+					<reportElement x="-126" y="0" width="126" height="103" isRemoveLineWhenBlank="true" uuid="102e2740-0645-4564-8774-1d80ef2aaae4"/>
 					<imageExpression><![CDATA["src/main/resources/static/img/logo-MAP.png"]]></imageExpression>
 				</image>
 				<textField>
-					<reportElement style="SubTitle" x="100" y="60" width="328" height="30" uuid="f4b2ce4a-4e45-4033-b808-28d8f6de98f5"/>
+					<reportElement style="SubTitle" x="100" y="60" width="328" height="30" isRemoveLineWhenBlank="true" uuid="f4b2ce4a-4e45-4033-b808-28d8f6de98f5"/>
 					<textFieldExpression><![CDATA["Projet : " + $F{nom} + " id : " + $F{id}]]></textFieldExpression>
 				</textField>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="104" y="100" width="451" height="32" forecolor="#000000" backcolor="#207DCD" uuid="e3c14156-5b51-4201-918b-97fdc012e5d4"/>
+				<reportElement mode="Opaque" x="104" y="100" width="451" height="32" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#207DCD" uuid="e3c14156-5b51-4201-918b-97fdc012e5d4"/>
 				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement x="182" y="7" width="259" height="20" forecolor="#FFFFFF" uuid="5c3301e7-a737-4c59-8a2f-a6c79fd1adb8"/>
+					<reportElement x="182" y="7" width="259" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" uuid="5c3301e7-a737-4c59-8a2f-a6c79fd1adb8"/>
 					<textElement textAlignment="Right" verticalAlignment="Top">
 						<font size="12"/>
 					</textElement>
@@ -59,26 +59,33 @@
 	<pageHeader>
 		<band splitType="Stretch"/>
 	</pageHeader>
-	<columnHeader>
-		<band height="118" splitType="Stretch">
+	<detail>
+		<band height="144" splitType="Stretch">
 			<subreport>
-				<reportElement x="345" y="30" width="209" height="29" uuid="c5ab2e6a-cf20-4f52-a631-0f9beb6f8bbc"/>
+				<reportElement positionType="Float" x="10" y="66" width="545" height="74" uuid="c4a6f03d-ca54-43f6-b6bd-dd12d59fe850"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listeCampagne})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["src/main/resources/reports/campagne.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="345" y="35" width="209" height="29" uuid="c5ab2e6a-cf20-4f52-a631-0f9beb6f8bbc"/>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listeUtilisateurs})]]></dataSourceExpression>
 				<subreportExpression><![CDATA["src/main/resources/reports/Membres.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
 				<reportElement positionType="Float" x="189" y="57" width="122" height="16" uuid="1a32ada5-ec91-4323-bdc5-bbd34459268e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
+					<font size="12" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[Membres de l'équipe :]]></text>
 			</staticText>
 			<textField>
-				<reportElement positionType="Float" x="110" y="8" width="250" height="30" uuid="96868459-43d3-47f6-8d3f-b83e33e20ea4"/>
+				<reportElement positionType="Float" x="110" y="11" width="250" height="29" uuid="96868459-43d3-47f6-8d3f-b83e33e20ea4"/>
 				<box>
 					<pen lineWidth="0.5"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Acherus Grotesque"/>
+				</textElement>
 				<textFieldExpression><![CDATA["Description du projet : " + $F{description} +"."]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -87,24 +94,14 @@
 				<textFieldExpression><![CDATA["Date de création\n" + $F{dateCreation}]]></textFieldExpression>
 			</textField>
 		</band>
-	</columnHeader>
-	<detail>
-		<band height="70" splitType="Stretch"/>
 	</detail>
 	<columnFooter>
-		<band height="7" splitType="Stretch">
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="1133a906-5b71-476e-9f3e-bc97c97058c1"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
-		</band>
+		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="25" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#207DCD" uuid="729c3539-f946-4d0e-a0a7-bda2815ea1b0"/>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="24" forecolor="#D0B48E" backcolor="#207DCD" uuid="729c3539-f946-4d0e-a0a7-bda2815ea1b0"/>
 				<textField evaluationTime="Report">
 					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="4834e99c-7f6c-485a-b098-50e5187f2ab4"/>
 					<textElement verticalAlignment="Middle">
