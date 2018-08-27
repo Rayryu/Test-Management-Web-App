@@ -2,6 +2,12 @@
 <!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Scenario" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="57e707bb-1a61-49db-bbe8-64970bbe12fd">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<subDataset name="ListeCasTests" uuid="cb7c08e0-45ed-4ffe-9616-9bcb79d797dc">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -14,30 +20,109 @@
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="230" splitType="Stretch">
+		<band height="130" splitType="Stretch">
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="240" height="30" isRemoveLineWhenBlank="true" forecolor="#65BF11" uuid="c1236860-f162-47af-9f42-90ddecb765a9"/>
+				<reportElement positionType="Float" x="0" y="0" width="240" height="30" isRemoveLineWhenBlank="true" forecolor="#65BF11" uuid="c1236860-f162-47af-9f42-90ddecb765a9"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="Acherus Grotesque" size="12" isBold="true" isUnderline="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Scénario : " + $F{nom} + "(id:" + $F{id} + ")"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Scénario : " + $F{nom}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="14" y="30" width="350" height="46" isRemoveLineWhenBlank="true" uuid="f717a0bc-2eb0-4e7a-a6f8-a069ec38bb12"/>
-				<textElement>
+				<reportElement positionType="Float" x="0" y="30" width="350" height="30" isRemoveLineWhenBlank="true" uuid="f717a0bc-2eb0-4e7a-a6f8-a069ec38bb12"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Serif" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Description : " + $F{description} +"."]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="390" y="22" width="125" height="30" isRemoveLineWhenBlank="true" uuid="bd096085-b0a0-4795-9ad0-b9f52e536d65"/>
-				<textFieldExpression><![CDATA["Créé : " + $F{dateCreation}]]></textFieldExpression>
+				<reportElement positionType="Float" x="370" y="0" width="184" height="30" isRemoveLineWhenBlank="true" uuid="bd096085-b0a0-4795-9ad0-b9f52e536d65"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Créé : " + new SimpleDateFormat("dd/MM/yyyy hh:mm aa").format($F{dateCreation}) ]]></textFieldExpression>
 			</textField>
-			<subreport>
-				<reportElement x="20" y="80" width="530" height="150" uuid="02d35dac-2269-49ba-99f6-afecb52cc341"/>
+			<subreport overflowType="Stretch">
+				<reportElement x="0" y="91" width="553" height="39" uuid="34650b3c-c9ba-4ca2-bc4d-1bb3cdc4f501"/>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listeCasTests})]]></dataSourceExpression>
-				<subreportExpression><![CDATA["src/main/resources/reports/casTest.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA["src/main/resources/reports/CasDeTests.jasper"]]></subreportExpression>
 			</subreport>
+			<staticText>
+				<reportElement x="0" y="61" width="30" height="30" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="66c2b8ee-a2f3-4003-b84e-2a3e8821db1c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4f275d94-7537-4197-9016-b333c8e687be"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="61" width="70" height="30" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="4693c08f-ed85-45c7-8335-c1b26b3dd6b7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0f77553e-b747-416a-ae67-0cceefc37761"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Testeur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="61" width="122" height="30" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="4466dd67-9855-47ee-a0ff-2a779164d60e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8b28d44f-7042-4e74-9a1d-45c500e5ef6b"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="61" width="113" height="30" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="c21fffe5-b66a-4ce4-a7a6-39fe65f8f6f8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="96f62e8c-4988-4727-bc7b-e9c0d3048dd2"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Resultat attendu]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="335" y="61" width="113" height="30" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="c63038aa-38b3-4f28-b527-4a7fc3cd686a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="38446679-8bc4-4459-9516-7d9796cd9e14"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Resultat obtenu]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="448" y="61" width="62" height="30" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="6cb5bcc6-1892-4520-9aae-152c64cdc515">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6a4faace-da54-4d5b-9c0b-4630592458f7"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Statut]]></text>
+			</staticText>
 		</band>
 	</detail>
 </jasperReport>

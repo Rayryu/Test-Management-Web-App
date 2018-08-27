@@ -20,13 +20,14 @@ public class Rapport {
 		
 		InputStream inputStream = Rapport.class.getResourceAsStream("/reports/Projet.jrxml");
 
-
+		System.err.println("Ressource loaded");
 		JasperReport rapport = JasperCompileManager.compileReport(inputStream);
 
-		
+		System.err.println("Report compiled");
 		JasperPrint print = JasperFillManager.fillReport(rapport, null, new JRBeanCollectionDataSource(listeProjets));
-		
+		System.err.println("Report filled");
 		JasperExportManager.exportReportToPdfFile(print, "output/test.pdf");
+		System.err.println("Report printed");
 		
 	}	
 }

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CasDeTests" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ab13f631-a1f4-4b46-ab02-9a67212e95ab">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.Long"/>
+	<field name="testeur.nom" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="resultatAttendu" class="java.lang.String"/>
+	<field name="resultatObtenu" class="java.lang.String"/>
+	<field name="statut" class="java.lang.String"/>
+	<detail>
+		<band height="59">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="-20" y="0" width="30" height="59" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="bba39f57-b24c-440f-834b-5cb311a07e90">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4f275d94-7537-4197-9016-b333c8e687be"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="10" y="0" width="70" height="59" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="a48c502e-a974-4e0e-a2c5-f1068b44f6fb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0f77553e-b747-416a-ae67-0cceefc37761"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{testeur.nom}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="80" y="0" width="122" height="59" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="44538395-3cfe-4257-bec4-73a4cace2e0c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8b28d44f-7042-4e74-9a1d-45c500e5ef6b"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["   "+ $F{description}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="315" y="0" width="113" height="59" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="97246c63-71b1-4873-9fe6-32bd93c177a1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="38446679-8bc4-4459-9516-7d9796cd9e14"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["   "+ $F{resultatObtenu}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="428" y="0" width="62" height="59" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="83b0f22d-797b-466e-8dbe-e96a1520ff8c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6a4faace-da54-4d5b-9c0b-4630592458f7"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{statut}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="202" y="0" width="113" height="59" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="47d0bfd2-6da5-4fa8-8524-90e3f9fc2026">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="96f62e8c-4988-4727-bc7b-e9c0d3048dd2"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["   "+ $F{resultatAttendu}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -129,7 +129,6 @@ public final class TestManagementUtils {
 		campagneTestRepository.save(ct1);
 		casTestRepository.save(c1);
 		
-		
 //		utilisateurRepository.delete(u1);
 //		campagneTestRepository.delete(ct1);
 		
@@ -142,18 +141,15 @@ public final class TestManagementUtils {
 		lu.add(u3);
 		lu.add(u1);
 		
-		
 		Projet pppp = new Projet("NOM avec utilisateur", "DESCRIPTION", lu);
 		
 		Collection<Projet> lpu3 = u3.getListeProjets();
 		lpu3.add(pppp);
 		u3.setListeProjets(lpu3);
 		
-				
 		//utilisateurRepository.save(u3);
 		projetRepository.save(ppp);
 		projetRepository.save(pppp);
-		
 		
 		System.out.println(pp.get(0).getDescription());
 		logger.info("Persistance des données : fin");
