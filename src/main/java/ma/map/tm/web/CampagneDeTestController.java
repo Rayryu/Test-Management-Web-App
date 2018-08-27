@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.entities.CampagneTest;
 import ma.map.tm.entities.Projet;
 import ma.map.tm.entities.Scenario;
+import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.services.CampagneService;
 import ma.map.tm.services.ProjetService;
 import ma.map.tm.services.ScenarioService;

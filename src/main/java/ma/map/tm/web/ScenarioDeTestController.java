@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.entities.CampagneTest;
 import ma.map.tm.entities.CasTest;
 import ma.map.tm.entities.Scenario;
-import ma.map.tm.services.ScenarioService;
-import ma.map.tm.services.UtilisateurService;
+import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.services.CampagneService;
 import ma.map.tm.services.CasTestService;
+import ma.map.tm.services.ScenarioService;
+import ma.map.tm.services.UtilisateurService;
 @Controller
 public class ScenarioDeTestController {
 	

@@ -7,7 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
+import ma.map.tm.entities.CampagneTest;
+import ma.map.tm.entities.CasTest;
+import ma.map.tm.entities.Projet;
 import ma.map.tm.entities.Utilisateur;
 import ma.map.tm.services.CampagneService;
 import ma.map.tm.services.CasTestService;
@@ -15,9 +19,8 @@ import ma.map.tm.services.ExecutionCasService;
 import ma.map.tm.services.ProjetService;
 import ma.map.tm.services.ScenarioService;
 import ma.map.tm.services.UtilisateurService;
-import ma.map.tm.entities.CampagneTest;
-import ma.map.tm.entities.CasTest;
-import ma.map.tm.entities.Projet;
+import ma.map.tm.utils.Rapport;
+import net.sf.jasperreports.engine.JRException;;
 
 @Controller
 public class DashboardController {
@@ -92,6 +95,7 @@ public class DashboardController {
 		
 		model.addAttribute("listeProjets", listeProjets);
 		model.addAttribute("nomProjetCourant", projetCourant.getNom());
+		model.addAttribute("projetCourant", projetCourant);
         		
 		model.addAttribute("nombreCampagnes", nombreCampagnes);
 		model.addAttribute("nombreScenarios", nombreScenarios);
@@ -107,5 +111,15 @@ public class DashboardController {
 		model.addAttribute("currentUser", utilisateurService.getLoggedInUser());
 		
 		return "DashboardProjet";
+	}
+	
+	@RequestMapping("GenererPlanDeTest/{id}")
+	public ModelAndView genererPlanDeTest(@PathVariable("id") Long idProjet) throws JRException {
+		
+		Projet projetCourant = projetService.getProjetById(idProjet);
+		
+		Rapport.genererRapport(projetCourant);
+		
+		return new ModelAndView("redirect:/Dashboard/"+projetCourant.getId().toString());
 	}
 }

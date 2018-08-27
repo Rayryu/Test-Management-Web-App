@@ -14,8 +14,8 @@
   <div th:replace="fragments/SideBar :: SideBar"></div>
   <div th:replace="fragments/NavigationBare :: NavigationBar"></div>
   <div class=" navslide">
-	  <div class="ui equal width left aligned padded grid stackable">
-			<div class="row">
+	  <div class="ui equal width center aligned padded grid stackable">
+			<div class="row centred">
 
 				<div class="four wide column">
 					<a th:href="@{/CampagnesDeTest}"> 
@@ -76,6 +76,23 @@
 					        		<div id="columnchart_material" style="width: 600px; height: 300px;"></div>
 								</div>
 					   		</div>
+					   		
+					    </div>
+					</div>
+					<div class="ui segments" >
+					    <div class="ui segment">
+					        <h4 class="ui horizontal divider header">
+					            <i class="file pdf outline icon"> </i>
+					            Plan de test	
+					        </h4>
+					        <div class="row centered">
+								<div class="fourteen wide column">
+					        		<form class="ui form" th:action="@{/GenererPlanDeTest/{pathParam}(pathParam=${projetCourant.id})}" method="post" >
+									  <center><button class="ui primary button" type="submit">Générer le plan de test</button></center>
+									</form>
+								</div>
+					   		</div>
+					   		
 					    </div>
 					</div>
                  </div>
@@ -83,7 +100,7 @@
                  	<div class="ui segments" >
 					    <div class="ui segment">
 					        <h4 class="ui horizontal divider header">
-					            <i class="bar chart icon"> </i>
+					            <i class="line chart icon"> </i>
 					            Statistiques sur l'exécution des cas de test	
 					        </h4>
 					        <div class="row centered">
@@ -156,20 +173,7 @@
 		</div>
    </div>
   </div>
-  <div class="">
-	<div class="mainWrap navslide">
-          <div class="ui equal width left aligned padded grid stackable">
-             <div class="row">
-                 <div class="eight wide column">
-					
-                 </div>
-                 <div class="eight wide column">
-
-                 </div>	
-             </div>
-		</div>
-   </div>
-  </div>
+	
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <div th:switch="${listeTroisDernieresCampagnes.size()}">
